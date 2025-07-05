@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ヾ(≧▽≦*)o 歡迎來到 fluffynyako 的小天地！這裡是一個對開源軟體充滿熱愛的小粉絲的個人網站，快來看看吧～ 💖">
+    <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix">
+    <title>fluffynyako</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JVR8ME117"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5JVR8ME117');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, 
+                #55cdfc 0%,
+                #f7a8b8 25%,
+                #ffffff 50%,
+                #f7a8b8 75%,
+                #55cdfc 100%
+            );
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .easter-egg {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateZ(0);
+        }
+
+        .easter-egg:hover {
+            transform: scale(1.1) translateZ(0);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .main-wrapper.screen-shake .container {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: fireworkAnim 1s ease-out forwards;
+        }
+
+        @keyframes fireworkAnim {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-heart:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .floating-heart:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .floating-heart:nth-child(4) { left: 70%; animation-delay: 1s; }
+        .floating-heart:nth-child(5) { left: 80%; animation-delay: 3s; }
+        .floating-heart:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 500px;
+            transition: max-width 0.3s ease;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            color: #636e72;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .introduction {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .introduction p {
+            color: #2d3436;
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
+        .achievements-section {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .achievements-section h2 {
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .achievements-list {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .achievement-card .icon {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .achievement-card h3 {
+            font-size: 1.2em;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+
+        .achievement-card p {
+            font-size: 0.9em;
+            color: #636e72;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 10px;
+        }
+
+        .stat-item {
+            padding: 10px 0;
+        }
+
+        .stat-item .number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2d3436;
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 0.9em;
+            color: #636e72;
+        }
+
+        .links-column .container-section {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .links-column .container-section:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        .container-section h2 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            padding: 10px 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-item:hover::before {
+            left: 100%;
+        }
+
+        .contact-item.telegram { background: rgba(30, 58, 138, 0.6); }
+        .contact-item.matrix { background: rgba(107, 114, 128, 0.6); }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            padding: 15px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-link.telegram { background: linear-gradient(135deg, rgba(0, 136, 204, 0.6), rgba(0, 102, 153, 0.6)); }
+        .social-link.matrix { background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 51, 51, 0.5)); }
+        .social-link.mastodon { background: linear-gradient(135deg, rgba(99, 100, 255, 0.6), rgba(86, 58, 204, 0.6)); }
+        .social-link.bilibili { background: linear-gradient(135deg, rgba(251, 114, 153, 0.6), rgba(233, 77, 107, 0.6)); }
+        .social-link.github { background: linear-gradient(135deg, rgba(51, 51, 51, 0.6), rgba(36, 41, 46, 0.6)); }
+        .social-link.codeberg { background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(93, 173, 226, 0.6)); }
+
+        .support-section.container-section {
+            background: rgba(253, 121, 168, 0.3);
+        }
+
+        .support-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .support-link:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hearts {
+            font-size: 1.5em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @media (min-width: 992px) {
+            .main-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+                max-width: 1100px;
+            }
+            .info-column {
+                flex: 1.2;
+            }
+            .links-column {
+                flex: 0.8;
+                padding: 20px;
+            }
+            .links-column .container-section {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            .name {
+                font-size: 2em;
+            }
+            .achievements-list {
+                grid-template-columns: 1fr;
+            }
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+            .contact-methods {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="0d001ce5-a970-4141-889d-acef32d958eb"></script>
+</head>
+<body>
+    <div class="easter-egg" onclick="triggerFireworks()" title="點我看看！">🎉</div>
+    
+    <div class="fireworks" id="fireworks"></div>
+
+    <div class="floating-elements">
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">✨</div>
+        <div class="floating-heart">🌙</div>
+        <div class="floating-heart">⭐</div>
+        <div class="floating-heart">💫</div>
+        <div class="floating-heart">🌈</div>
+    </div>
+
+    <main>
+        <div class="main-wrapper">
+            <div class="info-column container">
+                <img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/a53a709cd6daf5118152b38ee593090591c474a3006bab5bc0547f2f25554e54d8bcaacacfa0b8e769b66a83b43dbe68?pictype=scale&from=30111&version=3.3.3.3&fname=fluffynyako.jpg&size=1024" alt="fluffynyako 的頭像" class="avatar">
+                
+                <h1 class="name">fluffynyako</h1>
+                <p class="subtitle">✨ 歡迎來到我的小天地 ✨</p>
+                
+                <section class="introduction">
+                    <p>ヽ(＾◡＾)ﾉ 開源軟體的忠實小粉絲一枚～ 🎉💕 對 Linux 🐧、LineageOS 📱、OpenStreetMap 🗺️、Matrix 💬 等項目愛得不行不行的！雖然不會寫程式碼 👩‍💻❌，但超喜歡為 OSM 貢獻地圖數據 📍🎯 和幫忙翻譯軟體 🌐✍️，是個用心用愛支持開源的小天使呢 😇💝</p>
+                </section>
+
+                <section class="achievements-section">
+                    <h2>🏆 我的小成就 ✨</h2>
+                    <div class="achievements-list">
+                        <div class="achievement-card">
+                            <span class="icon">🗺️</span>
+                            <h3>OSM 貢獻者</h3>
+                            <p>努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</p>
+                        </div>
+                        <div class="achievement-card">
+                            <span class="icon">🌐</span>
+                            <h3>翻譯志工</h3>
+                            <p>超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p>
+                        </div>
+                        <div class="achievement-card">
+                            <span class="icon">💻</span>
+                            <h3>開源愛好者</h3>
+                            <p>不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="number">1400+</span>
+                            <span class="label">OSM 編輯</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">2+</span>
+                            <span class="label">開源使用年數</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="links-column container">
+                <section class="contact-info container-section">
+                    <h2>📱 聯絡方式 💬</h2>
+                    <div class="contact-methods">
+                        <a href="https://t.me/fluffynyako" class="contact-item telegram" target="_blank" rel="noopener noreferrer">Telegram</a>
+                        <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" class="contact-item matrix" target="_blank" rel="noopener noreferrer">Matrix</a>
+                    </div>
+                </section>
+                
+                <section class="social-section container-section">
+                    <h2>🌐 其它平臺 🔗</h2>
+                    <div class="social-links">
+                        <a href="https://mastodon.social/@fluffynyako" class="social-link mastodon" target="_blank" rel="noopener noreferrer">Mastodon</a>
+                        <a href="https://m.bilibili.com/space/678665731" class="social-link bilibili" target="_blank" rel="noopener noreferrer">Bilibili</a>
+                        <a href="https://github.com/fluffynyako" class="social-link github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://codeberg.org/fluffynyako" class="social-link codeberg" target="_blank" rel="noopener noreferrer">Codeberg</a>
+                    </div>
+                </section>
+                
+                <section class="support-section container-section">
+                    <a href="https://ko-fi.com/fluffynyako" class="support-link" target="_blank" rel="noopener noreferrer">
+                        <span class="hearts">💖</span> 支持我 <span class="hearts">💖</span>
+                    </a>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let isShaking = false;
+        let isFireworksPlaying = false;
+
+        function triggerFireworks() {
+            const wrapper = document.querySelector('.main-wrapper');
+            if (!wrapper.classList.contains('screen-shake')) {
+                wrapper.classList.add('screen-shake');
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(500);
+                }
+                setTimeout(() => {
+                    wrapper.classList.remove('screen-shake');
+                }, 500);
+            }
+
+            if (isFireworksPlaying) {
+                return;
+            }
+
+            isFireworksPlaying = true;
+            const fireworksContainer = document.getElementById('fireworks');
+            const colors = ['#55cdfc', '#f7a8b8', '#ffffff', '#ff6b9d', '#ffd93d', '#6bcf7f'];
+            const particleCount = 400;
+            const creationInterval = 7;
+            const particleLifetime = 1000;
+
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = (Math.random() * window.innerWidth) + 'px';
+                    firework.style.top = (Math.random() * window.innerHeight) + 'px';
+                    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.boxShadow = `0 0 10px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                    
+                    fireworksContainer.appendChild(firework);
+                    
+                    setTimeout(() => {
+                        if (firework.parentNode) {
+                            firework.parentNode.removeChild(firework);
+                        }
+                    }, particleLifetime);
+                }, i * creationInterval);
+            }
+
+            const totalDuration = (particleCount - 1) * creationInterval + particleLifetime;
+            setTimeout(() => {
+                isFireworksPlaying = false;
+            }, totalDuration);
+        }
+    </script>
+</body>
+</html>
