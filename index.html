@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ヾ(≧▽≦*)o 歡迎來到 fluffynyako 的小天地！這裡是一個對開源軟體充滿熱愛的小粉絲的個人網站，快來看看吧～ 💖">
+    <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix">
+    <title>fluffynyako</title>
+    <link rel="icon" type="image/jpeg" href="https://fluffynyako.netlify.app/192x192.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="https://fluffynyako.netlify.app/192x192.jpg">
+    <link rel="apple-touch-icon" href="https://fluffynyako.netlify.app/192x192.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "fluffynyako",
+      "url": "https://github.com/fluffynyako",
+      "image": "https://fluffynyako.netlify.app/512x512.jpg",
+      "jobTitle": "開源愛好者",
+      "description": "ヾ(≧▽≦*)o 歡迎來到 fluffynyako 的小天地！這裡是一個對開源軟體充滿熱愛的小粉絲的個人網站，快來看看吧～ 💖",
+      "sameAs": [
+        "https://t.me/fluffynyako",
+        "https://matrix.to/#/@nachonekonya:transgirl.cafe",
+        "https://mastodon.social/@fluffynyako",
+        "https://space.bilibili.com/678665731",
+        "https://github.com/fluffynyako",
+        "https://codeberg.org/fluffynyako",
+        "https://ko-fi.com/fluffynyako"
+      ]
+    }
+    </script>
+    <script>
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JVR8ME117"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5JVR8ME117');
+    </script>
+    <script data-goatcounter="https://fluffynyako.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --card-transition-duration: 0.4s;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a0e7fa 0%, #fbc2d1 25%, #ffffff 50%, #fbc2d1 75%, #a0e7fa 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .easter-egg {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 2001;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .easter-egg:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .main-wrapper.screen-shake .card-shaker {
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: fireworkAnim 1.2s ease-out forwards;
+            will-change: transform, opacity;
+        }
+        @keyframes fireworkAnim {
+            0% { transform: scale(0.5); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 500px;
+            transition: max-width 0.3s ease;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .card-shaker {
+            width: 100%;
+        }
+        .info-shaker {
+            position: relative;
+        }
+        .anim-on-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, opacity;
+        }
+        .anim-on-load.play-anim {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
+            will-change: transform;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        .subtitle {
+            color: #636e72;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+        .introduction {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.1s ease-out;
+        }
+        .introduction p {
+            color: #2d3436;
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+        .achievements-section {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .achievements-section h2 {
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+        .achievements-list { display: grid; gap: 15px; margin-bottom: 25px; }
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
+            will-change: transform;
+        }
+        .achievement-card .icon { font-size: 2.2em; margin-bottom: 10px; display: block; }
+        .achievement-card h3 { font-size: 1.2em; color: #2d3436; margin-bottom: 5px; }
+        .achievement-card p { font-size: 0.9em; color: #636e72; line-height: 1.5; margin: 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 10px; }
+        .stat-item { padding: 10px 0; }
+        .stat-item .number { font-size: 2em; font-weight: bold; color: #2d3436; display: block; }
+        .stat-item .label { font-size: 0.9em; color: #636e72; }
+        .links-column .container-section {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
+        .container-section h2 { color: #2d3436; margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); }
+        .contact-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-item, .social-link, .support-link {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            will-change: transform;
+        }
+        .contact-item, .social-link {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .contact-item { padding: 10px 15px; border-radius: 15px; }
+        .social-link { padding: 15px 10px; border-radius: 15px; }
+        .contact-item::before, .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        .contact-item:hover, .social-link:hover, .support-link:hover {
+             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .contact-item:hover { transform: scale(1.05); }
+        .social-link:hover { transform: scale(1.05); }
+        .support-link:hover { transform: scale(1.1); }
+        .contact-item:hover::before, .social-link:hover::before { left: 100%; }
+        .contact-item.telegram { background: rgba(30, 58, 138, 0.6); }
+        .contact-item.matrix { background: rgba(107, 114, 128, 0.6); }
+        .social-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; position: relative; z-index: 1; }
+        .social-link.telegram { background: linear-gradient(135deg, rgba(0, 136, 204, 0.6), rgba(0, 102, 153, 0.6)); }
+        .social-link.matrix { background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 51, 51, 0.5)); }
+        .social-link.mastodon { background: linear-gradient(135deg, rgba(99, 100, 255, 0.6), rgba(86, 58, 204, 0.6)); }
+        .social-link.bilibili { background: linear-gradient(135deg, rgba(251, 114, 153, 0.6), rgba(233, 77, 107, 0.6)); }
+        .social-link.github { background: linear-gradient(135deg, rgba(51, 51, 51, 0.6), rgba(36, 41, 46, 0.6)); }
+        .social-link.codeberg { background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(93, 173, 226, 0.6)); }
+        .support-section.container-section { background: rgba(253, 121, 168, 0.3); }
+        .support-link { font-size: 1.3em; display: inline-block; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); border-radius: 20px; padding: 10px 20px; }
+        .hearts { font-size: 1.5em; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        .container:active, .contact-item:active, .social-link:active, .support-link:active, .achievement-card:active, .introduction:active, .achievements-section:active, .container-section:active {
+            transform: scale(0.995);
+            transition-duration: 0.1s;
+        }
+        .easter-egg:active {
+            transform: scale(0.995);
+        }
+        @media (min-width: 992px) {
+            .main-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+                max-width: 1100px;
+                gap: 20px;
+            }
+            .info-shaker { flex: 1.2 1 0; min-width: 0; }
+            .links-shaker { flex: 0.8 1 0; min-width: 0; }
+            .links-column .container-section { margin: 0 0 20px 0; }
+            .links-column .container-section:last-child { margin-bottom: 0; }
+            .avatar:hover { transform: scale(1.1) rotate(5deg); }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            .name { font-size: 2em; }
+            .achievements-list { grid-template-columns: 1fr; }
+            .social-links { grid-template-columns: 1fr; }
+            .contact-methods { flex-direction: column; gap: 10px; }
+        }
+    </style>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="0d001ce5-a970-4141-889d-acef32d958eb"></script>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="easter-egg" onclick="triggerFireworks()" title="(｡◕‿◕｡) 點我有驚喜哦！">🎉</div>
+    <div class="fireworks" id="fireworks"></div>
+    <main>
+        <div class="main-wrapper">
+            <div class="card-shaker info-shaker anim-on-load">
+                <div class="info-column container">
+                    <img src="https://fluffynyako.netlify.app/512x512.jpg" alt="fluffynyako 的頭像" class="avatar anim-on-load" width="120" height="120" loading="lazy" decoding="async">
+                    <h1 class="name anim-on-load">fluffynyako</h1>
+                    <p class="subtitle anim-on-load">✨ 歡迎來到我的小天地 ✨</p>
+                    <section class="introduction anim-on-load"><p>ヽ(＾◡＾)ﾉ 開源軟體的忠實小粉絲一枚～ 🎉💕 對 Linux 🐧、LineageOS 📱、OpenStreetMap 🗺️、Matrix 💬 等項目愛得不行不行的！雖然不會寫程式碼 👩‍💻❌，但超喜歡為 OSM 貢獻地圖數據 📍🎯 和幫忙翻譯軟體 🌐✍️，是個用心用愛支持開源的小天使呢 😇💝</p></section>
+                    <section class="achievements-section anim-on-load">
+                        <h2 class="anim-on-load">🏆 我的小成就 ✨</h2>
+                        <div class="achievements-list">
+                            <div class="achievement-card anim-on-load"><span class="icon">🗺️</span><h3>OSM 貢獻者</h3><p>努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</p></div>
+                            <div class="achievement-card anim-on-load"><span class="icon">🌐</span><h3>翻譯志工</h3><p>超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p></div>
+                            <div class="achievement-card anim-on-load"><span class="icon">💻</span><h3>開源愛好者</h3><p>不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p></div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item anim-on-load"><span class="number">1400+</span><span class="label">OSM 編輯</span></div>
+                            <div class="stat-item anim-on-load"><span class="number">2+</span><span class="label">開源使用年數</span></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="card-shaker links-shaker anim-on-load">
+                <div class="links-column container">
+                    <section class="contact-info container-section anim-on-load">
+                        <h2 class="anim-on-load">📱 聯絡方式 💬</h2>
+                        <div class="contact-methods">
+                            <a href="https://t.me/fluffynyako" class="contact-item telegram anim-on-load" target="_blank" rel="noopener noreferrer" title="@fluffynyako">Telegram</a>
+                            <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" class="contact-item matrix anim-on-load" target="_blank" rel="noopener noreferrer" title="@nachonekonya:transgirl.cafe">Matrix</a>
+                        </div>
+                    </section>
+                    <section class="social-section container-section anim-on-load">
+                        <h2 class="anim-on-load">🌐 其它平臺 🔗</h2>
+                        <div class="social-links">
+                            <a href="https://mastodon.social/@fluffynyako" class="social-link mastodon anim-on-load" target="_blank" rel="noopener noreferrer" title="@fluffynyako@mastodon.social">Mastodon</a>
+                            <a href="https://space.bilibili.com/678665731" class="social-link bilibili anim-on-load" target="_blank" rel="noopener noreferrer" title="UID:678665731">Bilibili</a>
+                            <a href="https://github.com/fluffynyako" class="social-link github anim-on-load" target="_blank" rel="noopener noreferrer" title="fluffynyako">GitHub</a>
+                            <a href="https://codeberg.org/fluffynyako" class="social-link codeberg anim-on-load" target="_blank" rel="noopener noreferrer" title="fluffynyako">Codeberg</a>
+                        </div>
+                    </section>
+                    <section class="support-section container-section anim-on-load">
+                        <a href="https://ko-fi.com/fluffynyako" class="support-link anim-on-load" target="_blank" rel="noopener noreferrer"><span class="hearts">💖</span> 支持我 <span class="hearts">💖</span></a>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        let isFireworksPlaying = false;
+        function triggerFireworks() {
+            const wrapper = document.querySelector('.main-wrapper');
+            if (!wrapper.classList.contains('screen-shake')) {
+                wrapper.classList.add('screen-shake');
+                if ('vibrate' in navigator) navigator.vibrate(500);
+                setTimeout(() => wrapper.classList.remove('screen-shake'), 500);
+            }
+            if (isFireworksPlaying) return;
+            isFireworksPlaying = true;
+            const fireworksContainer = document.getElementById('fireworks');
+            const colors = ['#55cdfc', '#f7a8b8', '#ffffff', '#ff6b9d', '#ffd93d', '#6bcf7f'];
+            const particleCount = 100, creationInterval = 10, particleLifetime = 1200;
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = `${Math.random() * 100}vw`;
+                    firework.style.top = `${Math.random() * 100}vh`;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.backgroundColor = color;
+                    firework.style.boxShadow = `0 0 10px ${color}`;
+                    fireworksContainer.appendChild(firework);
+                    setTimeout(() => firework.remove(), particleLifetime);
+                }, i * creationInterval);
+            }
+            setTimeout(() => { isFireworksPlaying = false; }, (particleCount - 1) * creationInterval + particleLifetime);
+        }
+
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animationObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('play-anim');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.anim-on-load').forEach(el => animationObserver.observe(el));
+        });
+    </script>
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const colors = ['#a0e7fa', '#ff6b9d', '#ffffff'];
+        let pointer = {
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2,
+            isGenerating: false
+        };
+        let mouseStopTimeout;
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3.5 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.life = 1;
+                this.decay = Math.random() * 0.02 + 0.015;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.life -= this.decay;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+            draw() {
+                ctx.globalAlpha = this.life;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < 5; i++) {
+                particles.push(new Particle(pointer.x, pointer.y));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (pointer.isGenerating) {
+                handleParticles();
+            }
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.update();
+                p.draw();
+                if (p.life <= 0 || p.size <= 0.2) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        
+        function updatePointerPosition(e) {
+            const target = e.touches ? e.touches[0] : e;
+            pointer.x = target.clientX;
+            pointer.y = target.clientY;
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            pointer.x = window.innerWidth / 2;
+            pointer.y = window.innerHeight / 2;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            updatePointerPosition(e);
+            pointer.isGenerating = true;
+            clearTimeout(mouseStopTimeout);
+            mouseStopTimeout = setTimeout(() => {
+                pointer.isGenerating = false;
+            }, 100);
+        });
+
+        window.addEventListener('touchstart', (e) => {
+            clearTimeout(mouseStopTimeout);
+            updatePointerPosition(e);
+            pointer.isGenerating = true;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            updatePointerPosition(e);
+        });
+
+        window.addEventListener('touchend', () => pointer.isGenerating = false);
+        window.addEventListener('touchcancel', () => pointer.isGenerating = false);
+
+        animate();
+    </script>
+</body>
+</html>
