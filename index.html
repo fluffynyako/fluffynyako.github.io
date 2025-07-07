@@ -34,13 +34,7 @@
             history.scrollRestoration = 'manual';
         }
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JVR8ME117"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5JVR8ME117');
-    </script>
+
     <script data-goatcounter="https://fluffynyako.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <style>
@@ -240,9 +234,9 @@
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
             will-change: transform;
         }
-        .achievement-card .icon { 
-            font-size: 2.2em; 
-            margin-bottom: 10px; 
+        .achievement-card .icon {
+            font-size: 2.2em;
+            margin-bottom: 10px;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -486,9 +480,9 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             document.querySelectorAll('.anim-on-load').forEach(el => animationObserver.observe(el));
-            
+
             const supportLink = document.querySelector('.support-link');
             if(supportLink) {
                 const hearts = ['💝', '💖', '💗', '💓', '💞', '💕'];
@@ -504,7 +498,7 @@
                         heart.style.left = x + 'px';
                         heart.style.top = y + 'px';
                         heart.style.fontSize = `${Math.random() * 30 + 20}px`;
-                        
+
                         const duration = Math.random() * 600 + 1200;
                         heart.style.animationDuration = `${duration}ms`;
 
@@ -536,7 +530,7 @@
         let stardusts = [];
         const colors = ['#a0e7fa', '#ff6b9d', '#ffffff'];
         const stardustCount = 70;
-        const LERP_SPEED = 0.2; 
+        const LERP_SPEED = 0.2;
         let stopTimeout;
 
         const pointer = {
@@ -557,7 +551,7 @@
             }
             update() {
                 this.y += this.speedY;
-                if (this.y > canvas.height) { this.y = 0; this.x = Math.random() * canvas.width; } 
+                if (this.y > canvas.height) { this.y = 0; this.x = Math.random() * canvas.width; }
                 else if (this.y < 0) { this.y = canvas.height; this.x = Math.random() * canvas.width; }
             }
             draw() {
@@ -594,7 +588,7 @@
                 ctx.fill();
             }
         }
-        
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             stardusts.forEach(star => { star.update(); star.draw(); });
@@ -609,7 +603,7 @@
                 pointer.emitterX = pointer.targetX;
                 pointer.emitterY = pointer.targetY;
             }
-            
+
             if (pointer.isTracking) {
                 if (particles.length < 200) {
                     for (let i = 0; i < 8; i++) {
@@ -628,7 +622,7 @@
             ctx.globalAlpha = 1;
             requestAnimationFrame(animate);
         }
-        
+
         function onPointerMove(e) {
             const isTouch = e.type.includes('touch');
             const target = isTouch ? e.touches[0] : e;
@@ -643,7 +637,7 @@
                 }, 200);
             }
         }
-        
+
         function onPointerStart(e) {
             const isTouch = e.type.includes('touch');
             if (isTouch) {
@@ -676,12 +670,12 @@
         window.addEventListener('mouseleave', () => {
              pointer.isTracking = false;
         });
-        
+
         window.addEventListener('touchstart', onPointerStart, { passive: true });
         window.addEventListener('touchmove', onPointerMove, { passive: true });
         window.addEventListener('touchend', onPointerEnd);
         window.addEventListener('touchcancel', onPointerEnd);
-        
+
         initStardust();
         animate();
     </script>
