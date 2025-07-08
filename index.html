@@ -35,6 +35,7 @@
             history.scrollRestoration = 'manual';
         }
     </script>
+
     <script data-goatcounter="https://fluffynyako.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <style>
@@ -45,55 +46,70 @@
         }
         :root {
             --card-transition-duration: 0.4s;
+
             --bg-gradient: linear-gradient(135deg, #bde9f8 0%, #fcdce5 25%, #ffffff 50%, #fcdce5 75%, #bde9f8 100%);
             --stardust-color: #ffffff;
+
             --card-bg: rgba(255, 255, 255, 0.25);
             --card-border: rgba(255, 255, 255, 0.2);
             --card-shadow: rgba(0, 0, 0, 0.15);
             --card-border-glow: rgba(255, 255, 255, 0.1);
             --card-inset-glow: rgba(255, 255, 255, 0.3);
+
             --section-bg: rgba(255, 255, 255, 0.2);
             --section-border: rgba(255, 255, 255, 0.3);
             --section-shadow: rgba(0, 0, 0, 0.1);
+
             --achievement-card-bg: rgba(255, 255, 255, 0.4);
             --achievement-card-border: rgba(255, 255, 255, 0.3);
             --achievement-card-shadow: rgba(0, 0, 0, 0.05);
+
             --text-primary: #2d3436;
             --text-secondary: #636e72;
             --text-shadow: rgba(255, 255, 255, 0.5);
+
             --avatar-border: #fff;
             --avatar-shadow: rgba(0, 0, 0, 0.2);
+            
             --easter-egg-bg: rgba(255, 255, 255, 0.2);
             --easter-egg-border: rgba(255, 255, 255, 0.3);
             --easter-egg-hover-bg: rgba(255, 255, 255, 0.3);
             --easter-egg-shadow: rgba(0, 0, 0, 0.1);
         }
+
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-gradient: linear-gradient(135deg, #334652 0%, #664553 25%, #5c5c63 50%, #664553 75%, #334652 100%);
                 --stardust-color: #e0e0e0;
+
                 --card-bg: rgba(18, 18, 22, 0.4);
                 --card-border: rgba(255, 255, 255, 0.1);
                 --card-shadow: rgba(0, 0, 0, 0.5);
                 --card-border-glow: rgba(255, 255, 255, 0.05);
                 --card-inset-glow: rgba(255, 255, 255, 0.1);
+                
                 --section-bg: rgba(30, 30, 35, 0.3);
                 --section-border: rgba(255, 255, 255, 0.15);
                 --section-shadow: rgba(0, 0, 0, 0.2);
+
                 --achievement-card-bg: rgba(40, 40, 45, 0.4);
                 --achievement-card-border: rgba(255, 255, 255, 0.15);
                 --achievement-card-shadow: rgba(0, 0, 0, 0.1);
+
                 --text-primary: #e5e5e5;
                 --text-secondary: #b0b0b0;
                 --text-shadow: rgba(0, 0, 0, 0.5);
+
                 --avatar-border: rgba(255, 255, 255, 0.5);
                 --avatar-shadow: rgba(0, 0, 0, 0.4);
+
                 --easter-egg-bg: rgba(30, 30, 35, 0.2);
                 --easter-egg-border: rgba(255, 255, 255, 0.2);
                 --easter-egg-hover-bg: rgba(255, 255, 255, 0.2);
                 --easter-egg-shadow: rgba(0, 0, 0, 0.3);
             }
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg-gradient);
@@ -116,48 +132,231 @@
             pointer-events: none;
         }
         .easter-egg {
-            position: fixed; top: 10px; right: 10px; width: 50px; height: 50px; background: var(--easter-egg-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--easter-egg-border); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; transition: transform 0.3s ease, background 0.3s ease; z-index: 2001; box-shadow: 0 4px 15px var(--easter-egg-shadow);
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: var(--easter-egg-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--easter-egg-border);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 2001;
+            box-shadow: 0 4px 15px var(--easter-egg-shadow);
         }
-        .easter-egg:hover { transform: scale(1.1); background: var(--easter-egg-hover-bg); }
-        .main-wrapper.screen-shake .card-shaker { animation: shake 0.5s ease-in-out; }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); } 20%, 40%, 60%, 80% { transform: translateX(10px); } }
-        .fireworks { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
-        .firework { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: fireworkAnim 1.2s ease-out forwards; will-change: transform, opacity; }
-        @keyframes fireworkAnim { 0% { transform: scale(0.5); opacity: 1; } 50% { opacity: 0.8; } 100% { transform: scale(3); opacity: 0; } }
-        .main-wrapper { display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 500px; transition: max-width 0.3s ease; align-items: center; position: relative; z-index: 1; }
-        .card-shaker { width: 100%; }
-        .info-shaker { position: relative; }
-        .anim-on-load { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform, opacity; }
-        .anim-on-load.play-anim { opacity: 1; transform: translateY(0); }
-        .container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 30px; padding: 40px; width: 100%; text-align: center; box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow); position: relative; overflow: hidden; transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out; will-change: transform; }
-        .avatar { width: 120px; height: 120px; border-radius: 50%; border: 5px solid var(--avatar-border); box-shadow: 0 10px 30px var(--avatar-shadow); margin: 0 auto 20px; position: relative; z-index: 1; transition: transform 0.3s ease; will-change: transform; }
-        .name { font-size: 2.5em; font-weight: bold; color: var(--text-primary); margin-bottom: 10px; text-shadow: 2px 2px 4px var(--text-shadow); position: relative; z-index: 1; }
-        .subtitle { color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1em; position: relative; z-index: 1; }
-        .introduction { background: var(--section-bg); border: 1px solid var(--section-border); padding: 20px; border-radius: 20px; margin-bottom: 30px; position: relative; z-index: 1; box-shadow: 0 8px 25px var(--section-shadow); transition: transform 0.1s ease-out; }
-        .introduction p { color: var(--text-primary); font-size: 1em; line-height: 1.6; margin: 0; text-shadow: 1px 1px 2px var(--text-shadow); font-weight: 500; }
-        .achievements-section { background: var(--section-bg); border: 1px solid var(--section-border); padding: 20px; border-radius: 20px; margin-bottom: 0; position: relative; z-index: 1; }
-        .achievements-section h2 { color: var(--text-primary); margin-bottom: 20px; font-size: 1.5em; font-weight: bold; text-shadow: 1px 1px 2px var(--text-shadow); }
+        .easter-egg:hover {
+            transform: scale(1.1);
+            background: var(--easter-egg-hover-bg);
+        }
+        .main-wrapper.screen-shake .card-shaker {
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: fireworkAnim 1.2s ease-out forwards;
+            will-change: transform, opacity;
+        }
+        @keyframes fireworkAnim {
+            0% { transform: scale(0.5); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 500px;
+            transition: max-width 0.3s ease;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .card-shaker {
+            width: 100%;
+        }
+        .info-shaker {
+            position: relative;
+        }
+        .anim-on-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, opacity;
+        }
+        .anim-on-load.play-anim {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 40px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
+            will-change: transform;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid var(--avatar-border);
+            box-shadow: 0 10px 30px var(--avatar-shadow);
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px var(--text-shadow);
+            position: relative;
+            z-index: 1;
+        }
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+        .introduction {
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px var(--section-shadow);
+            transition: transform 0.1s ease-out;
+        }
+        .introduction p {
+            color: var(--text-primary);
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 0;
+            text-shadow: 1px 1px 2px var(--text-shadow);
+            font-weight: 500;
+        }
+        .achievements-section {
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .achievements-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px var(--text-shadow);
+        }
         .achievements-list { display: grid; gap: 15px; margin-bottom: 25px; }
-        .achievement-card { background: var(--achievement-card-bg); border-radius: 20px; padding: 20px; border: 1px solid var(--achievement-card-border); box-shadow: 0 4px 15px var(--achievement-card-shadow); transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out; will-change: transform; }
-        .achievement-card .icon { font-size: 2.2em; margin-bottom: 10px; display: block; transition: transform 0.3s ease; }
-        .achievement-card:hover .icon { animation: wobble 0.8s ease-in-out; }
-        @keyframes wobble { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+        .achievement-card {
+            background: var(--achievement-card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--achievement-card-border);
+            box-shadow: 0 4px 15px var(--achievement-card-shadow);
+            transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
+            will-change: transform;
+        }
+        .achievement-card .icon {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .achievement-card:hover .icon {
+            animation: wobble 0.8s ease-in-out;
+        }
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-8deg); }
+            75% { transform: rotate(8deg); }
+        }
         .achievement-card h3 { font-size: 1.2em; color: var(--text-primary); margin-bottom: 5px; }
         .achievement-card p { font-size: 0.9em; color: var(--text-secondary); line-height: 1.5; margin: 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 10px; }
         .stat-item { padding: 10px 0; }
         .stat-item .number { font-size: 2em; font-weight: bold; color: var(--text-primary); display: block; }
         .stat-item .label { font-size: 0.9em; color: var(--text-secondary); }
-        .links-column .container-section { background: var(--section-bg); border: 1px solid var(--section-border); padding: 20px; border-radius: 20px; position: relative; z-index: 1; }
+        .links-column .container-section {
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
         .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
         .container-section h2 { color: var(--text-primary); margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px var(--text-shadow); }
         .contact-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-item, .social-link, .support-link { text-decoration: none; color: white; font-weight: bold; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.2); will-change: transform; }
-        .contact-item, .social-link { box-shadow: 0 5px 20px var(--section-shadow); }
+        .contact-item, .social-link, .support-link {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            will-change: transform;
+        }
+        .contact-item, .social-link {
+            box-shadow: 0 5px 20px var(--section-shadow);
+        }
         .contact-item { padding: 10px 15px; border-radius: 15px; }
         .social-link { padding: 15px 10px; border-radius: 15px; }
-        .contact-item::before, .social-link::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); transition: left 0.5s; }
-        .contact-item:hover, .social-link:hover, .support-link:hover { box-shadow: 0 8px 25px var(--section-shadow); }
+        .contact-item::before, .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        .contact-item:hover, .social-link:hover, .support-link:hover {
+             box-shadow: 0 8px 25px var(--section-shadow);
+        }
         .contact-item:hover { transform: scale(1.05); }
         .social-link:hover { transform: scale(1.05); }
         .support-link:hover { transform: scale(1.1); }
@@ -175,12 +374,52 @@
         .support-link { font-size: 1.3em; display: inline-block; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); border-radius: 20px; padding: 10px 20px; }
         .hearts { font-size: 1.5em; animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-        .container:active, .contact-item:active, .social-link:active, .support-link:active, .achievement-card:active, .introduction:active, .achievements-section:active, .container-section:active { transform: scale(0.995); transition-duration: 0.1s; }
-        .easter-egg:active { transform: scale(0.995); }
-        .heart-particle { position: fixed; pointer-events: none; z-index: 9999; animation-name: heart-burst; animation-timing-function: ease-out; animation-fill-mode: forwards; will-change: transform, opacity; }
-        @keyframes heart-burst { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(var(--tx, 0), var(--ty, -100px)) scale(0); opacity: 0; } }
-        @media (min-width: 992px) { .main-wrapper { flex-direction: row; align-items: flex-start; max-width: 1100px; gap: 20px; } .info-shaker { flex: 1.2 1 0; min-width: 0; } .links-shaker { flex: 0.8 1 0; min-width: 0; } .links-column .container-section { margin: 0 0 20px 0; } .links-column .container-section:last-child { margin-bottom: 0; } .avatar:hover { transform: scale(1.1) rotate(5deg); } }
-        @media (max-width: 600px) { .container { padding: 30px 20px; } .name { font-size: 2em; } .achievements-list { grid-template-columns: 1fr; } .social-links { grid-template-columns: 1fr; } .contact-methods { flex-direction: column; gap: 10px; } }
+        .container:active, .contact-item:active, .social-link:active, .support-link:active, .achievement-card:active, .introduction:active, .achievements-section:active, .container-section:active {
+            transform: scale(0.995);
+            transition-duration: 0.1s;
+        }
+        .easter-egg:active {
+            transform: scale(0.995);
+        }
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation-name: heart-burst;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            will-change: transform, opacity;
+        }
+        @keyframes heart-burst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx, 0), var(--ty, -100px)) scale(0);
+                opacity: 0;
+            }
+        }
+        @media (min-width: 992px) {
+            .main-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+                max-width: 1100px;
+                gap: 20px;
+            }
+            .info-shaker { flex: 1.2 1 0; min-width: 0; }
+            .links-shaker { flex: 0.8 1 0; min-width: 0; }
+            .links-column .container-section { margin: 0 0 20px 0; }
+            .links-column .container-section:last-child { margin-bottom: 0; }
+            .avatar:hover { transform: scale(1.1) rotate(5deg); }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            .name { font-size: 2em; }
+            .achievements-list { grid-template-columns: 1fr; }
+            .social-links { grid-template-columns: 1fr; }
+            .contact-methods { flex-direction: column; gap: 10px; }
+        }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="0d001ce5-a970-4141-889d-acef32d958eb"></script>
 </head>
@@ -346,256 +585,176 @@
         });
     </script>
     <script>
-        const mainCanvas = document.getElementById('particle-canvas');
-        try {
-            if (window.Worker && mainCanvas.transferControlToOffscreen) {
-                const worker = new Worker('particle.worker.js');
-                const offscreen = mainCanvas.transferControlToOffscreen();
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-                const stardustColor = getComputedStyle(document.documentElement).getPropertyValue('--stardust-color').trim();
-                worker.postMessage({
-                    type: 'init',
-                    canvas: offscreen,
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                    stardustColor: stardustColor,
-                }, [offscreen]);
+        let particles = [];
+        let stardusts = [];
+        const getColors = () => {
+            return ['#a0e7fa', '#ff6b9d', '#ffffff'];
+        };
+        const getStardustColor = () => getComputedStyle(document.documentElement).getPropertyValue('--stardust-color').trim();
 
-                function postPointerEvent(type, e) {
-                    const isTouch = e.type.includes('touch');
-                    const target = isTouch && e.touches.length > 0 ? e.touches[0] : e;
-                    if (!target || typeof target.clientX === 'undefined') return;
+        const stardustCount = 70;
+        const LERP_SPEED = 0.2;
+        let stopTimeout;
 
-                    worker.postMessage({
-                        type: type,
-                        x: target.clientX,
-                        y: target.clientY
-                    });
-                }
-                
-                window.addEventListener('resize', () => {
-                    worker.postMessage({
-                        type: 'resize',
-                        width: window.innerWidth,
-                        height: window.innerHeight,
-                    });
-                });
+        const pointer = {
+            targetX: window.innerWidth / 2,
+            targetY: window.innerHeight / 2,
+            emitterX: window.innerWidth / 2,
+            emitterY: window.innerHeight / 2,
+            isTracking: false
+        };
 
-                const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                colorSchemeQuery.addEventListener('change', () => {
-                    worker.postMessage({
-                        type: 'themeChange',
-                        stardustColor: getComputedStyle(document.documentElement).getPropertyValue('--stardust-color').trim(),
-                    });
-                });
-
-                window.addEventListener('mousedown', (e) => postPointerEvent('start', e));
-                window.addEventListener('touchstart', (e) => postPointerEvent('start', e), { passive: true });
-                
-                window.addEventListener('mousemove', (e) => postPointerEvent('move', e));
-                window.addEventListener('touchmove', (e) => postPointerEvent('move', e), { passive: true });
-                
-                window.addEventListener('mouseup', (e) => postPointerEvent('end', e));
-                window.addEventListener('touchend', (e) => postPointerEvent('end', e));
-                window.addEventListener('mouseleave', (e) => postPointerEvent('end', e));
-                window.addEventListener('touchcancel', (e) => postPointerEvent('end', e));
-            } else {
-                throw new Error("OffscreenCanvas not supported.");
+        class Stardust {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = (Math.random() * 0.5 + 0.2) * (Math.random() < 0.5 ? 1 : -1);
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.color = getStardustColor();
             }
-        } catch (e) {
-            console.log("Fallback to main thread script:", e.message);
-            const fallbackScript = document.createElement('script');
-            fallbackScript.id = 'fallback-particle-script';
-            document.body.appendChild(fallbackScript);
-            
-            document.getElementById('fallback-particle-script').textContent = `
-                const canvas = document.getElementById('particle-canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-
-                let particles = [];
-                let stardusts = [];
-                const getColors = () => {
-                    return ['#a0e7fa', '#ff6b9d', '#ffffff'];
-                };
-                const getStardustColor = () => getComputedStyle(document.documentElement).getPropertyValue('--stardust-color').trim();
-
-                const stardustCount = 70;
-                const LERP_SPEED = 0.2;
-                let stopTimeout;
-
-                const pointer = {
-                    targetX: window.innerWidth / 2,
-                    targetY: window.innerHeight / 2,
-                    emitterX: window.innerWidth / 2,
-                    emitterY: window.innerHeight / 2,
-                    isTracking: false,
-                    prevEmitterX: window.innerWidth / 2,
-                    prevEmitterY: window.innerHeight / 2,
-                };
-
-                class Stardust {
-                    constructor() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.size = Math.random() * 2 + 0.5;
-                        this.speedY = (Math.random() * 0.5 + 0.2) * (Math.random() < 0.5 ? 1 : -1);
-                        this.opacity = Math.random() * 0.5 + 0.2;
-                        this.color = getStardustColor();
-                    }
-                    update() {
-                        this.y += this.speedY;
-                        if (this.y > canvas.height) { this.y = 0; this.x = Math.random() * canvas.width; }
-                        else if (this.y < 0) { this.y = canvas.height; this.x = Math.random() * canvas.width; }
-                    }
-                    draw() {
-                        ctx.globalAlpha = this.opacity;
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fillStyle = this.color;
-                        ctx.fill();
-                    }
-                }
-
-                function initStardust() {
-                    stardusts = [];
-                    for (let i = 0; i < stardustCount; i++) { stardusts.push(new Stardust()); }
-                }
-
-                class Particle {
-                    constructor(x, y) {
-                        this.x = x; this.y = y;
-                        this.size = Math.random() * 3.5 + 1;
-                        this.speedX = Math.random() * 3 - 1.5; this.speedY = Math.random() * 3 - 1.5;
-                        const colors = getColors();
-                        this.color = colors[Math.floor(Math.random() * colors.length)];
-                        this.life = 1; this.decay = Math.random() * 0.02 + 0.015;
-                    }
-                    update() {
-                        this.x += this.speedX;
-                        this.y += this.speedY;
-                        this.life -= this.decay;
-                        if (this.size > 0.2) this.size -= 0.1;
-                    }
-                    draw() {
-                        ctx.globalAlpha = this.life;
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fillStyle = this.color;
-                        ctx.fill();
-                    }
-                }
-
-                function animate() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    stardusts.forEach(star => { star.update(); star.draw(); });
-                    
-                    pointer.prevEmitterX = pointer.emitterX;
-                    pointer.prevEmitterY = pointer.emitterY;
-
-                    const dx = pointer.targetX - pointer.emitterX;
-                    const dy = pointer.targetY - pointer.emitterY;
-
-                    if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
-                        pointer.emitterX += dx * LERP_SPEED;
-                        pointer.emitterY += dy * LERP_SPEED;
-                    } else if (!pointer.isTracking) {
-                        pointer.emitterX = pointer.targetX;
-                        pointer.emitterY = pointer.targetY;
-                    }
-                    
-                    if (pointer.isTracking) {
-                        const moveDx = pointer.emitterX - pointer.prevEmitterX;
-                        const moveDy = pointer.emitterY - pointer.prevEmitterY;
-                        const dist = Math.hypot(moveDx, moveDy);
-                        const particleDensity = 4;
-                        const steps = Math.max(1, Math.floor(dist / particleDensity));
-                        
-                        if (particles.length < 200) {
-                            for (let i = 0; i < steps; i++) {
-                                const t = i / steps;
-                                const x = pointer.prevEmitterX + moveDx * t;
-                                const y = pointer.prevEmitterY + moveDy * t;
-                                particles.push(new Particle(x, y));
-                                if (particles.length >= 200) break;
-                            }
-                        }
-                    }
-
-                    for (let i = particles.length - 1; i >= 0; i--) {
-                        const p = particles[i];
-                        p.update();
-                        p.draw();
-                        if (p.life <= 0 || p.size <= 0.2) { particles.splice(i, 1); }
-                    }
-
-                    ctx.globalAlpha = 1;
-                    requestAnimationFrame(animate);
-                }
-                
-                const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                const handleThemeChange = () => {
-                    initStardust();
-                };
-
-                colorSchemeQuery.addEventListener('change', handleThemeChange);
-
-                function onPointerMove(e) {
-                    const isTouch = e.type.includes('touch');
-                    const target = isTouch ? e.touches[0] : e;
-                    pointer.targetX = target.clientX;
-                    pointer.targetY = target.clientY;
-
-                    if (!pointer.isTracking) {
-                       onPointerStart(e);
-                    }
-                }
-
-                function onPointerStart(e) {
-                    pointer.isTracking = true;
-                    const isTouch = e.type.includes('touch');
-                    const target = isTouch ? e.touches[0] : e;
-                    
-                    const x = target.clientX;
-                    const y = target.clientY;
-                    
-                    pointer.targetX = x;
-                    pointer.targetY = y;
-                    pointer.emitterX = x;
-                    pointer.emitterY = y;
-                    pointer.prevEmitterX = x;
-                    pointer.prevEmitterY = y;
-                }
-
-                function onPointerEnd(e) {
-                    pointer.isTracking = false;
-                }
-                
-                function onPointerLeave(e) {
-                    pointer.isTracking = false;
-                }
-
-                window.addEventListener('resize', () => {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                    initStardust();
-                });
-
-                window.addEventListener('mousemove', onPointerMove);
-                window.addEventListener('mousedown', onPointerStart);
-                window.addEventListener('mouseup', onPointerEnd);
-                window.addEventListener('mouseleave', onPointerLeave);
-
-                window.addEventListener('touchstart', onPointerStart, { passive: true });
-                window.addEventListener('touchmove', onPointerMove, { passive: true });
-                window.addEventListener('touchend', onPointerEnd);
-                window.addEventListener('touchcancel', onPointerEnd);
-
-                initStardust();
-                animate();
-            `;
+            update() {
+                this.y += this.speedY;
+                if (this.y > canvas.height) { this.y = 0; this.x = Math.random() * canvas.width; }
+                else if (this.y < 0) { this.y = canvas.height; this.x = Math.random() * canvas.width; }
+            }
+            draw() {
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
         }
+
+        function initStardust() {
+            stardusts = [];
+            for (let i = 0; i < stardustCount; i++) { stardusts.push(new Stardust()); }
+        }
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x; this.y = y;
+                this.size = Math.random() * 3.5 + 1;
+                this.speedX = Math.random() * 3 - 1.5; this.speedY = Math.random() * 3 - 1.5;
+                const colors = getColors();
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.life = 1; this.decay = Math.random() * 0.02 + 0.015;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                this.life -= this.decay;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+            draw() {
+                ctx.globalAlpha = this.life;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stardusts.forEach(star => { star.update(); star.draw(); });
+
+            const dx = pointer.targetX - pointer.emitterX;
+            const dy = pointer.targetY - pointer.emitterY;
+
+            if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+                pointer.emitterX += dx * LERP_SPEED;
+                pointer.emitterY += dy * LERP_SPEED;
+            } else if (!pointer.isTracking) {
+                pointer.emitterX = pointer.targetX;
+                pointer.emitterY = pointer.targetY;
+            }
+
+            if (pointer.isTracking) {
+                if (particles.length < 200) {
+                    for (let i = 0; i < 8; i++) {
+                        particles.push(new Particle(pointer.emitterX, pointer.emitterY));
+                    }
+                }
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.update();
+                p.draw();
+                if (p.life <= 0 || p.size <= 0.2) { particles.splice(i, 1); }
+            }
+
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(animate);
+        }
+        
+        const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleThemeChange = () => {
+            initStardust();
+        };
+
+        colorSchemeQuery.addEventListener('change', handleThemeChange);
+
+        function onPointerMove(e) {
+            const isTouch = e.type.includes('touch');
+            const target = isTouch ? e.touches[0] : e;
+            pointer.targetX = target.clientX;
+            pointer.targetY = target.clientY;
+
+            if (!isTouch) {
+                pointer.isTracking = true;
+                clearTimeout(stopTimeout);
+                stopTimeout = setTimeout(() => {
+                    pointer.isTracking = false;
+                }, 200);
+            }
+        }
+
+        function onPointerStart(e) {
+            const isTouch = e.type.includes('touch');
+            if (isTouch) {
+                pointer.isTracking = true;
+                const target = e.touches[0];
+                const x = target.clientX;
+                const y = target.clientY;
+                pointer.targetX = x;
+                pointer.targetY = y;
+                pointer.emitterX = x;
+                pointer.emitterY = y;
+            }
+        }
+
+        function onPointerEnd(e) {
+            const isTouch = e.type.includes('touch');
+            if (isTouch) {
+                pointer.isTracking = false;
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initStardust();
+        });
+
+        window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('mouseleave', () => {
+             pointer.isTracking = false;
+        });
+
+        window.addEventListener('touchstart', onPointerStart, { passive: true });
+        window.addEventListener('touchmove', onPointerMove, { passive: true });
+        window.addEventListener('touchend', onPointerEnd);
+        window.addEventListener('touchcancel', onPointerEnd);
+
+        initStardust();
+        animate();
     </script>
 </body>
 </html>
