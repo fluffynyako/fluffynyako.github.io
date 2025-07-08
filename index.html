@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ヾ(≧▽≦*)o 歡迎來到 fluffynyako 的小天地！這裡是一個對開源軟體充滿熱愛的小粉絲的個人網站，快來看看吧～ 💖">
     <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix">
+    <meta name="color-scheme" content="light dark">
     <title>fluffynyako</title>
     <link rel="icon" type="image/jpeg" href="https://fluffynyako.netlify.app/192x192.jpg">
     <link rel="shortcut icon" type="image/jpeg" href="https://fluffynyako.netlify.app/192x192.jpg">
@@ -45,10 +46,73 @@
         }
         :root {
             --card-transition-duration: 0.4s;
+
+            --bg-gradient: linear-gradient(135deg, #bde9f8 0%, #fcdce5 25%, #ffffff 50%, #fcdce5 75%, #bde9f8 100%);
+            --stardust-color: #ffffff;
+
+            --card-bg: rgba(255, 255, 255, 0.25);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --card-shadow: rgba(0, 0, 0, 0.15);
+            --card-border-glow: rgba(255, 255, 255, 0.1);
+            --card-inset-glow: rgba(255, 255, 255, 0.3);
+
+            --section-bg: rgba(255, 255, 255, 0.2);
+            --section-border: rgba(255, 255, 255, 0.3);
+            --section-shadow: rgba(0, 0, 0, 0.1);
+
+            --achievement-card-bg: rgba(255, 255, 255, 0.4);
+            --achievement-card-border: rgba(255, 255, 255, 0.3);
+            --achievement-card-shadow: rgba(0, 0, 0, 0.05);
+
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-shadow: rgba(255, 255, 255, 0.5);
+
+            --avatar-border: #fff;
+            --avatar-shadow: rgba(0, 0, 0, 0.2);
+            
+            --easter-egg-bg: rgba(255, 255, 255, 0.2);
+            --easter-egg-border: rgba(255, 255, 255, 0.3);
+            --easter-egg-hover-bg: rgba(255, 255, 255, 0.3);
+            --easter-egg-shadow: rgba(0, 0, 0, 0.1);
         }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-gradient: linear-gradient(135deg, #334652 0%, #664553 25%, #5c5c63 50%, #664553 75%, #334652 100%);
+                --stardust-color: #e0e0e0;
+
+                --card-bg: rgba(18, 18, 22, 0.4);
+                --card-border: rgba(255, 255, 255, 0.1);
+                --card-shadow: rgba(0, 0, 0, 0.5);
+                --card-border-glow: rgba(255, 255, 255, 0.05);
+                --card-inset-glow: rgba(255, 255, 255, 0.1);
+                
+                --section-bg: rgba(30, 30, 35, 0.3);
+                --section-border: rgba(255, 255, 255, 0.15);
+                --section-shadow: rgba(0, 0, 0, 0.2);
+
+                --achievement-card-bg: rgba(40, 40, 45, 0.4);
+                --achievement-card-border: rgba(255, 255, 255, 0.15);
+                --achievement-card-shadow: rgba(0, 0, 0, 0.1);
+
+                --text-primary: #e5e5e5;
+                --text-secondary: #b0b0b0;
+                --text-shadow: rgba(0, 0, 0, 0.5);
+
+                --avatar-border: rgba(255, 255, 255, 0.5);
+                --avatar-shadow: rgba(0, 0, 0, 0.4);
+
+                --easter-egg-bg: rgba(30, 30, 35, 0.2);
+                --easter-egg-border: rgba(255, 255, 255, 0.2);
+                --easter-egg-hover-bg: rgba(255, 255, 255, 0.2);
+                --easter-egg-shadow: rgba(0, 0, 0, 0.3);
+            }
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #a0e7fa 0%, #fbc2d1 25%, #ffffff 50%, #fbc2d1 75%, #a0e7fa 100%);
+            background: var(--bg-gradient);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -73,10 +137,10 @@
             right: 10px;
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--easter-egg-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--easter-egg-border);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -85,11 +149,11 @@
             cursor: pointer;
             transition: transform 0.3s ease, background 0.3s ease;
             z-index: 2001;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px var(--easter-egg-shadow);
         }
         .easter-egg:hover {
             transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.3);
+            background: var(--easter-egg-hover-bg);
         }
         .main-wrapper.screen-shake .card-shaker {
             animation: shake 0.5s ease-in-out;
@@ -149,13 +213,13 @@
             transform: translateY(0);
         }
         .container {
-            background: rgba(255, 255, 255, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 30px;
             padding: 40px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
             position: relative;
             overflow: hidden;
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
@@ -165,8 +229,8 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--avatar-border);
+            box-shadow: 0 10px 30px var(--avatar-shadow);
             margin: 0 auto 20px;
             position: relative;
             z-index: 1;
@@ -176,41 +240,41 @@
         .name {
             font-size: 2.5em;
             font-weight: bold;
-            color: #2d3436;
+            color: var(--text-primary);
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            text-shadow: 2px 2px 4px var(--text-shadow);
             position: relative;
             z-index: 1;
         }
         .subtitle {
-            color: #636e72;
+            color: var(--text-secondary);
             margin-bottom: 30px;
             font-size: 1.1em;
             position: relative;
             z-index: 1;
         }
         .introduction {
-            background: rgba(255, 255, 255, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
             padding: 20px;
             border-radius: 20px;
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px var(--section-shadow);
             transition: transform 0.1s ease-out;
         }
         .introduction p {
-            color: #2d3436;
+            color: var(--text-primary);
             font-size: 1em;
             line-height: 1.6;
             margin: 0;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            text-shadow: 1px 1px 2px var(--text-shadow);
             font-weight: 500;
         }
         .achievements-section {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
             padding: 20px;
             border-radius: 20px;
             margin-bottom: 0;
@@ -218,19 +282,19 @@
             z-index: 1;
         }
         .achievements-section h2 {
-            color: #2d3436;
+            color: var(--text-primary);
             margin-bottom: 20px;
             font-size: 1.5em;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            text-shadow: 1px 1px 2px var(--text-shadow);
         }
         .achievements-list { display: grid; gap: 15px; margin-bottom: 25px; }
         .achievement-card {
-            background: rgba(255, 255, 255, 0.4);
+            background: var(--achievement-card-bg);
             border-radius: 20px;
             padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--achievement-card-border);
+            box-shadow: 0 4px 15px var(--achievement-card-shadow);
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
             will-change: transform;
         }
@@ -248,22 +312,22 @@
             25% { transform: rotate(-8deg); }
             75% { transform: rotate(8deg); }
         }
-        .achievement-card h3 { font-size: 1.2em; color: #2d3436; margin-bottom: 5px; }
-        .achievement-card p { font-size: 0.9em; color: #636e72; line-height: 1.5; margin: 0; }
+        .achievement-card h3 { font-size: 1.2em; color: var(--text-primary); margin-bottom: 5px; }
+        .achievement-card p { font-size: 0.9em; color: var(--text-secondary); line-height: 1.5; margin: 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 10px; }
         .stat-item { padding: 10px 0; }
-        .stat-item .number { font-size: 2em; font-weight: bold; color: #2d3436; display: block; }
-        .stat-item .label { font-size: 0.9em; color: #636e72; }
+        .stat-item .number { font-size: 2em; font-weight: bold; color: var(--text-primary); display: block; }
+        .stat-item .label { font-size: 0.9em; color: var(--text-secondary); }
         .links-column .container-section {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
             padding: 20px;
             border-radius: 20px;
             position: relative;
             z-index: 1;
         }
         .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
-        .container-section h2 { color: #2d3436; margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); }
+        .container-section h2 { color: var(--text-primary); margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px var(--text-shadow); }
         .contact-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .contact-item, .social-link, .support-link {
             text-decoration: none;
@@ -276,7 +340,7 @@
             will-change: transform;
         }
         .contact-item, .social-link {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px var(--section-shadow);
         }
         .contact-item { padding: 10px 15px; border-radius: 15px; }
         .social-link { padding: 15px 10px; border-radius: 15px; }
@@ -291,7 +355,7 @@
             transition: left 0.5s;
         }
         .contact-item:hover, .social-link:hover, .support-link:hover {
-             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+             box-shadow: 0 8px 25px var(--section-shadow);
         }
         .contact-item:hover { transform: scale(1.05); }
         .social-link:hover { transform: scale(1.05); }
@@ -528,7 +592,11 @@
 
         let particles = [];
         let stardusts = [];
-        const colors = ['#a0e7fa', '#ff6b9d', '#ffffff'];
+        const getColors = () => {
+            return ['#a0e7fa', '#ff6b9d', '#ffffff'];
+        };
+        const getStardustColor = () => getComputedStyle(document.documentElement).getPropertyValue('--stardust-color').trim();
+
         const stardustCount = 70;
         const LERP_SPEED = 0.2;
         let stopTimeout;
@@ -548,6 +616,7 @@
                 this.size = Math.random() * 2 + 0.5;
                 this.speedY = (Math.random() * 0.5 + 0.2) * (Math.random() < 0.5 ? 1 : -1);
                 this.opacity = Math.random() * 0.5 + 0.2;
+                this.color = getStardustColor();
             }
             update() {
                 this.y += this.speedY;
@@ -558,12 +627,13 @@
                 ctx.globalAlpha = this.opacity;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#ffffff';
+                ctx.fillStyle = this.color;
                 ctx.fill();
             }
         }
 
         function initStardust() {
+            stardusts = [];
             for (let i = 0; i < stardustCount; i++) { stardusts.push(new Stardust()); }
         }
 
@@ -572,6 +642,7 @@
                 this.x = x; this.y = y;
                 this.size = Math.random() * 3.5 + 1;
                 this.speedX = Math.random() * 3 - 1.5; this.speedY = Math.random() * 3 - 1.5;
+                const colors = getColors();
                 this.color = colors[Math.floor(Math.random() * colors.length)];
                 this.life = 1; this.decay = Math.random() * 0.02 + 0.015;
             }
@@ -622,6 +693,13 @@
             ctx.globalAlpha = 1;
             requestAnimationFrame(animate);
         }
+        
+        const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleThemeChange = () => {
+            initStardust();
+        };
+
+        colorSchemeQuery.addEventListener('change', handleThemeChange);
 
         function onPointerMove(e) {
             const isTouch = e.type.includes('touch');
@@ -662,7 +740,6 @@
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            stardusts = [];
             initStardust();
         });
 
