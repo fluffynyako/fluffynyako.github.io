@@ -126,7 +126,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        :is(a, button):focus-visible {
+        :is(a, button, .achievement-card) {
+            -webkit-tap-highlight-color: transparent;
+        }
+        :is(a, button, .achievement-card):focus {
+            outline: none;
+        }
+        :is(a, button, .achievement-card):focus-visible {
             outline: 3px solid var(--focus-outline-color);
             outline-offset: 3px;
             border-radius: 10px;
@@ -176,6 +182,8 @@
             transition: transform 0.3s ease, background 0.3s ease;
             z-index: 2001;
             box-shadow: 0 4px 15px var(--easter-egg-shadow);
+            -webkit-user-select: none;
+            user-select: none;
         }
         .easter-egg:hover {
             transform: scale(1.1);
@@ -319,6 +327,7 @@
             box-shadow: 0 4px 15px var(--achievement-card-shadow);
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
             will-change: transform;
+            cursor: pointer;
         }
         .achievement-card .icon {
             font-size: 2.2em;
@@ -326,7 +335,7 @@
             display: block;
             transition: transform 0.3s ease;
         }
-        .achievement-card:hover .icon {
+        .icon.is-wobbling {
             animation: wobble 0.8s ease-in-out;
         }
         @keyframes wobble {
@@ -470,9 +479,9 @@
                     <section class="achievements-section anim-on-load">
                         <h2 class="anim-on-load"><span aria-hidden="true">🏆</span> 我的小成就 <span aria-hidden="true">✨</span></h2>
                         <div class="achievements-list">
-                            <div class="achievement-card anim-on-load"><span class="icon" aria-hidden="true">🗺️</span><h3>OSM 貢獻者</h3><p>努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</p></div>
-                            <div class="achievement-card anim-on-load"><span class="icon" aria-hidden="true">🌐</span><h3>翻譯志工</h3><p>超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p></div>
-                            <div class="achievement-card anim-on-load"><span class="icon" aria-hidden="true">💻</span><h3>開源愛好者</h3><p>不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p></div>
+                            <div class="achievement-card anim-on-load" role="button" tabindex="0"><span class="icon" aria-hidden="true">🗺️</span><h3>OSM 貢獻者</h3><p>努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</p></div>
+                            <div class="achievement-card anim-on-load" role="button" tabindex="0"><span class="icon" aria-hidden="true">🌐</span><h3>翻譯志工</h3><p>超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p></div>
+                            <div class="achievement-card anim-on-load" role="button" tabindex="0"><span class="icon" aria-hidden="true">💻</span><h3>開源愛好者</h3><p>不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p></div>
                         </div>
                         <dl class="stats-grid">
                             <div class="stat-item">
@@ -634,6 +643,18 @@
                     createHeartBurst(e.touches[0]);
                 });
             }
+
+            document.querySelectorAll('.achievement-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const icon = card.querySelector('.icon');
+                    if (icon && !icon.classList.contains('is-wobbling')) {
+                        icon.classList.add('is-wobbling');
+                        icon.addEventListener('animationend', () => {
+                            icon.classList.remove('is-wobbling');
+                        }, { once: true });
+                    }
+                });
+            });
         });
     </script>
     <script>
