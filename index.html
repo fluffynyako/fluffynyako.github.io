@@ -361,43 +361,18 @@
                     stardustColor: stardustColor,
                 }, [offscreen]);
 
-                function postPointerEvents(type, event) {
-                    let events = [];
-                    if (event.getCoalescedEvents) {
-                        events = event.getCoalescedEvents();
-                    } else {
-                        events.push(event);
-                    }
-                    
-                    const points = events.map(e => {
-                        const isTouch = e.type.includes('touch');
-                        const target = isTouch && e.touches ? e.touches[0] : e;
-                        return { x: target.clientX, y: target.clientY };
-                    });
-
-                    if (points.length > 0) {
-                         worker.postMessage({
-                            type: type,
-                            points: points
-                        });
-                    }
-                }
-                
-                function postPointerStart(type, e) {
+                function postPointerEvent(type, e) {
                     const isTouch = e.type.includes('touch');
                     const target = isTouch && e.touches.length > 0 ? e.touches[0] : e;
                     if (!target || typeof target.clientX === 'undefined') return;
-                     worker.postMessage({
+
+                    worker.postMessage({
                         type: type,
                         x: target.clientX,
                         y: target.clientY
                     });
                 }
                 
-                function postPointerEnd(type, e) {
-                    worker.postMessage({ type: type });
-                }
-
                 window.addEventListener('resize', () => {
                     worker.postMessage({
                         type: 'resize',
@@ -414,16 +389,16 @@
                     });
                 });
 
-                window.addEventListener('mousedown', (e) => postPointerStart('pointerStart', e));
-                window.addEventListener('touchstart', (e) => postPointerStart('pointerStart', e), { passive: true });
+                window.addEventListener('mousedown', (e) => postPointerEvent('start', e));
+                window.addEventListener('touchstart', (e) => postPointerEvent('start', e), { passive: true });
                 
-                window.addEventListener('mousemove', (e) => postPointerEvents('pointerMove', e));
-                window.addEventListener('touchmove', (e) => postPointerEvents('pointerMove', e), { passive: true });
-
-                window.addEventListener('mouseup', (e) => postPointerEnd('pointerEnd', e));
-                window.addEventListener('touchend', (e) => postPointerEnd('pointerEnd', e));
-                window.addEventListener('mouseleave', (e) => postPointerEnd('pointerEnd', e));
-                window.addEventListener('touchcancel', (e) => postPointerEnd('pointerEnd', e));
+                window.addEventListener('mousemove', (e) => postPointerEvent('move', e));
+                window.addEventListener('touchmove', (e) => postPointerEvent('move', e), { passive: true });
+                
+                window.addEventListener('mouseup', (e) => postPointerEvent('end', e));
+                window.addEventListener('touchend', (e) => postPointerEvent('end', e));
+                window.addEventListener('mouseleave', (e) => postPointerEvent('end', e));
+                window.addEventListener('touchcancel', (e) => postPointerEvent('end', e));
             } else {
                 throw new Error("OffscreenCanvas not supported.");
             }
@@ -433,7 +408,6 @@
             fallbackScript.id = 'fallback-particle-script';
             document.body.appendChild(fallbackScript);
             
-            // Your original script, which works perfectly on desktop.
             document.getElementById('fallback-particle-script').textContent = `
                 const canvas = document.getElementById('particle-canvas');
                 const ctx = canvas.getContext('2d');
@@ -456,7 +430,9 @@
                     targetY: window.innerHeight / 2,
                     emitterX: window.innerWidth / 2,
                     emitterY: window.innerHeight / 2,
-                    isTracking: false
+                    isTracking: false,
+                    prevEmitterX: window.innerWidth / 2,
+                    prevEmitterY: window.innerHeight / 2,
                 };
 
                 class Stardust {
@@ -514,6 +490,9 @@
                 function animate() {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     stardusts.forEach(star => { star.update(); star.draw(); });
+                    
+                    pointer.prevEmitterX = pointer.emitterX;
+                    pointer.prevEmitterY = pointer.emitterY;
 
                     const dx = pointer.targetX - pointer.emitterX;
                     const dy = pointer.targetY - pointer.emitterY;
@@ -525,11 +504,21 @@
                         pointer.emitterX = pointer.targetX;
                         pointer.emitterY = pointer.targetY;
                     }
-
+                    
                     if (pointer.isTracking) {
+                        const moveDx = pointer.emitterX - pointer.prevEmitterX;
+                        const moveDy = pointer.emitterY - pointer.prevEmitterY;
+                        const dist = Math.hypot(moveDx, moveDy);
+                        const particleDensity = 4;
+                        const steps = Math.max(1, Math.floor(dist / particleDensity));
+                        
                         if (particles.length < 200) {
-                            for (let i = 0; i < 8; i++) {
-                                particles.push(new Particle(pointer.emitterX, pointer.emitterY));
+                            for (let i = 0; i < steps; i++) {
+                                const t = i / steps;
+                                const x = pointer.prevEmitterX + moveDx * t;
+                                const y = pointer.prevEmitterY + moveDy * t;
+                                particles.push(new Particle(x, y));
+                                if (particles.length >= 200) break;
                             }
                         }
                     }
@@ -558,34 +547,33 @@
                     pointer.targetX = target.clientX;
                     pointer.targetY = target.clientY;
 
-                    if (!isTouch) {
-                        pointer.isTracking = true;
-                        clearTimeout(stopTimeout);
-                        stopTimeout = setTimeout(() => {
-                            pointer.isTracking = false;
-                        }, 200);
+                    if (!pointer.isTracking) {
+                       onPointerStart(e);
                     }
                 }
 
                 function onPointerStart(e) {
+                    pointer.isTracking = true;
                     const isTouch = e.type.includes('touch');
-                    if (isTouch) {
-                        pointer.isTracking = true;
-                        const target = e.touches[0];
-                        const x = target.clientX;
-                        const y = target.clientY;
-                        pointer.targetX = x;
-                        pointer.targetY = y;
-                        pointer.emitterX = x;
-                        pointer.emitterY = y;
-                    }
+                    const target = isTouch ? e.touches[0] : e;
+                    
+                    const x = target.clientX;
+                    const y = target.clientY;
+                    
+                    pointer.targetX = x;
+                    pointer.targetY = y;
+                    pointer.emitterX = x;
+                    pointer.emitterY = y;
+                    pointer.prevEmitterX = x;
+                    pointer.prevEmitterY = y;
                 }
 
                 function onPointerEnd(e) {
-                    const isTouch = e.type.includes('touch');
-                    if (isTouch) {
-                        pointer.isTracking = false;
-                    }
+                    pointer.isTracking = false;
+                }
+                
+                function onPointerLeave(e) {
+                    pointer.isTracking = false;
                 }
 
                 window.addEventListener('resize', () => {
@@ -595,9 +583,9 @@
                 });
 
                 window.addEventListener('mousemove', onPointerMove);
-                window.addEventListener('mouseleave', () => {
-                     pointer.isTracking = false;
-                });
+                window.addEventListener('mousedown', onPointerStart);
+                window.addEventListener('mouseup', onPointerEnd);
+                window.addEventListener('mouseleave', onPointerLeave);
 
                 window.addEventListener('touchstart', onPointerStart, { passive: true });
                 window.addEventListener('touchmove', onPointerMove, { passive: true });

@@ -2,11 +2,25 @@ let canvas;
 let ctx;
 let particles = [];
 let stardusts = [];
+let pathQueue = [];
 
 let config = {
     stardustColor: '#ffffff',
     stardustCount: 70,
     maxParticles: 250,
+};
+
+const pointer = {
+    isTracking: false,
+};
+
+const emitter = {
+    x: 0,
+    y: 0,
+    prevX: 0,
+    prevY: 0,
+    lerpAmount: 0.22,
+    particleDensity: 2,
 };
 
 class Particle {
@@ -76,6 +90,41 @@ function animate() {
         star.draw(ctx);
     });
     
+    if (pathQueue.length > 0) {
+        const target = pathQueue[0];
+        const dx = target.x - emitter.x;
+        const dy = target.y - emitter.y;
+        
+        emitter.prevX = emitter.x;
+        emitter.prevY = emitter.y;
+
+        if (Math.hypot(dx, dy) < 0.1) {
+            emitter.x = target.x;
+            emitter.y = target.y;
+            pathQueue.shift();
+        } else {
+            emitter.x += dx * emitter.lerpAmount;
+            emitter.y += dy * emitter.lerpAmount;
+        }
+
+        const moveDist = Math.hypot(emitter.x - emitter.prevX, emitter.y - emitter.prevY);
+        if (moveDist > 1) {
+             const steps = Math.max(1, Math.floor(moveDist / emitter.particleDensity));
+             for (let i = 0; i < steps; i++) {
+                 if (particles.length >= config.maxParticles) break;
+                 const t = i / steps;
+                 const x = emitter.prevX + (emitter.x - emitter.prevX) * t;
+                 const y = emitter.prevY + (emitter.y - emitter.prevY) * t;
+                 particles.push(new Particle(x, y));
+             }
+        }
+    } else if (!pointer.isTracking) {
+        // Queue is empty and pointer is up, do nothing.
+    } else {
+        // Queue is empty but pointer is still down, means it's stationary.
+        // We can add a subtle breathing effect here if desired, but for now, do nothing.
+    }
+    
     particles = particles.filter(p => {
         p.update();
         return p.draw(ctx);
@@ -104,21 +153,19 @@ self.onmessage = (e) => {
         case 'themeChange':
             config.stardustColor = e.data.stardustColor;
             break;
-        case 'pointerStart':
-            if (particles.length < config.maxParticles) {
-                particles.push(new Particle(e.data.x, e.data.y));
+        case 'start':
+            pointer.isTracking = true;
+            pathQueue = [{ x: e.data.x, y: e.data.y }];
+            emitter.x = e.data.x;
+            emitter.y = e.data.y;
+            break;
+        case 'move':
+            if (pointer.isTracking) {
+                pathQueue.push({ x: e.data.x, y: e.data.y });
             }
             break;
-        case 'pointerMove':
-            if (e.data.points) {
-                e.data.points.forEach(point => {
-                    if (particles.length < config.maxParticles) {
-                        particles.push(new Particle(point.x, point.y));
-                    }
-                });
-            }
-            break;
-        case 'pointerEnd':
+        case 'end':
+            pointer.isTracking = false;
             break;
     }
 };
