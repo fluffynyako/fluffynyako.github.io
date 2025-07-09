@@ -2,6 +2,14 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function() {
+            var isModernBrowser = 'IntersectionObserver' in window && typeof CSS !== 'undefined' && CSS.supports('display', 'grid');
+            if (!isModernBrowser) {
+                window.location.replace('fallback.html');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="歡迎來到 fluffynyako 的小天地！這是一個充滿熱情的開源軟體粉絲的個人網站，分享關於 Linux、LineageOS、OpenStreetMap (OSM) 與 Matrix 的點滴。快來探索我的貢獻與愛好吧！">
     <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix">
