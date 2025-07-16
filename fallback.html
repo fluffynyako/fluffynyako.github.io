@@ -12,7 +12,7 @@
     請不要在這裡加上任何花俏的 CSS 或複雜的 JS (ES6+) 新功能喔！
     (ಥ _ ಥ) 不然它就失去存在的意義，會哭哭的喔！
 
-    ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+    ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
     它是怎麼運作的呢 🤔
 
@@ -113,6 +113,13 @@
         li {
             margin-bottom: 10px;
         }
+        .achievements-list p {
+            margin: 0;
+            display: inline;
+        }
+        .achievements-list strong {
+            display: inline;
+        }
         .links-list a, .action-button {
             display: block;
             padding: 8px;
@@ -138,6 +145,7 @@
         .stats-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 30px;
         }
         .stats-table td {
             border: 1px solid #ddd;
@@ -159,91 +167,100 @@
         .about-section-content a {
             color: #337ab7;
         }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="main-content-fallback">
-            <div class="fallback-notice">
-                <p><strong>🥹 小小提醒：</strong>您的瀏覽器寶寶需要長大一下下呢！</p>
-                <p>(｡◕‿◕｡) 我們貼心地開啟了溫柔兼容模式～ 雖然有些漂亮特效在害羞躲貓貓，但所有重要功能都乖乖在這裡等您哦！更新瀏覽器就能解鎖更多驚喜啦！✨</p>
+            <!-- (´｡• ᵕ •｡`) ♡ 這個提示對盲人朋友沒意義，因為盲人朋友們也看不見 `index.html` 中絢麗的特效呀，所以就讓它在螢幕閱讀器裡躲貓貓啦！ -->
+            <div class="fallback-notice" aria-hidden="true">
+                <p><strong><span aria-hidden="true">🥹 </span>小小提醒：</strong>您的瀏覽器寶寶需要長大一下下呢！</p>
+                <p><span aria-hidden="true">(｡◕‿◕｡) </span>我們貼心地開啟了溫柔兼容模式<span aria-hidden="true">～</span><span class="sr-only">，</span> 雖然有些漂亮特效在害羞躲貓貓，但所有重要功能都乖乖在這裡等您哦！更新瀏覽器就能解鎖更多驚喜啦！<span aria-hidden="true">✨</span></p>
             </div>
 
             <div class="header">
-                <img src="https://fluffynyako.onrender.com/512x512.jpg" alt="fluffynyako 的頭像" class="avatar">
+                <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好～ -->
+                <img src="https://fluffynyako.onrender.com/avatar/192x192.jpg" alt="" class="avatar" aria-hidden="true">
                 <h1>fluffynyako</h1>
-                <p>✨ 歡迎來到我的小天地 ✨</p>
+                <p><span aria-hidden="true">✨ </span>歡迎來到我的小天地<span aria-hidden="true"> ✨</span></p>
             </div>
 
-            <p>ヽ(＾◡＾)ﾉ 開源軟體的忠實小粉絲一枚～ 🎉💕 對 Linux 🐧、LineageOS 📱、OpenStreetMap 🗺️、Matrix 💬 等項目愛得不行不行的！雖然不會寫程式碼 👩‍💻❌，但超喜歡為 OSM 貢獻地圖數據 📍🎯 和幫忙翻譯軟體 🌐✍️，是個用心用愛支持開源的小天使呢 😇💝</p>
+            <p><span aria-hidden="true">ヽ(＾◡＾)ﾉ </span>開源軟體的忠實小粉絲一枚<span aria-hidden="true">～</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕 </span>對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></p>
             
-            <h2>🏆 我的小成就</h2>
-            <ul>
-                <li>
-                    <strong>OSM 貢獻者:</strong>
-                    <p>努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</p>
-                </li>
-                <li>
-                    <strong>翻譯志工:</strong>
-                    <p>超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p>
-                </li>
-                <li>
-                    <strong>開源愛好者:</strong>
-                    <p>不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p>
-                </li>
+            <h2><span aria-hidden="true">🏆 </span>我的小成就</h2>
+            <ul class="achievements-list">
+                <li><strong>OSM 貢獻者:</strong> 努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</li>
+                <li><strong>翻譯志工:</strong> 超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</li>
+                <li><strong>開源愛好者:</strong> 不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</li>
             </ul>
 
             <table class="stats-table">
-                <tr>
-                    <td>
-                        <div class="number">1400+</div>
-                        <div class="label">OSM 編輯次數</div>
-                    </td>
-                    <td>
-                        <div class="number">2+</div>
-                        <div class="label">開源軟體使用年數</div>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="number" aria-hidden="true">1400+</div>
+                            <div class="label" aria-hidden="true">OSM 編輯次數</div>
+                            <span class="sr-only">OSM 編輯次數：超過 1400 次</span>
+                        </td>
+                        <td>
+                            <div class="number" aria-hidden="true">2+</div>
+                            <div class="label" aria-hidden="true">開源軟體使用年數</div>
+                            <span class="sr-only">開源軟體使用年數：超過 2 年</span>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
             
-            <h2>📱 聯絡方式</h2>
+            <h2><span aria-hidden="true">📱 </span>聯絡方式</h2>
             <div class="links-list">
-                <a href="https://t.me/fluffynyako" target="_blank" rel="noopener noreferrer">Telegram</a>
-                <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" target="_blank" rel="noopener noreferrer">Matrix</a>
+                <a href="https://t.me/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
+                <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako">Matrix<span class="sr-only">（另開新分頁）</span></a>
             </div>
             
-            <h2>🌐 其它平臺</h2>
+            <h2><span aria-hidden="true">🌐 </span>其它平臺</h2>
             <div class="links-list">
-                <a href="https://mastodon.social/@fluffynyako" target="_blank" rel="noopener noreferrer">Mastodon</a>
-                <a href="https://space.bilibili.com/678665731" target="_blank" rel="noopener noreferrer">Bilibili</a>
-                <a href="https://github.com/fluffynyako" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://codeberg.org/fluffynyako" target="_blank" rel="noopener noreferrer">Codeberg</a>
+                <a href="https://mastodon.social/@fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako">Mastodon<span class="sr-only">（另開新分頁）</span></a>
+                <a href="https://space.bilibili.com/678665731" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間">Bilibili<span class="sr-only">（另開新分頁）</span></a>
+                <a href="https://github.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料">GitHub<span class="sr-only">（另開新分頁）</span></a>
+                <a href="https://codeberg.org/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料">Codeberg<span class="sr-only">（另開新分頁）</span></a>
             </div>
             
-            <h2>💖 支持我</h2>
+            <h2><span aria-hidden="true">💖 </span>支持我</h2>
             <div class="links-list">
-                <a href="https://ko-fi.com/fluffynyako" target="_blank" rel="noopener noreferrer">在 Ko-fi 上支持我</a>
+                <a href="https://ko-fi.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Ko-fi 上支持我">在 Ko-fi 上支持我<span class="sr-only">（另開新分頁）</span></a>
             </div>
 
-            <button type="button" class="action-button" onclick="toggleAbout()">ℹ️ 關於這個小天地</button>
+            <button type="button" class="action-button" id="toggle-about-button" onclick="toggleAbout()" aria-expanded="false" aria-controls="about-section-fallback"><span aria-hidden="true">ℹ️ </span>關於這個小天地</button>
         </div>
 
         <div id="about-section-fallback" style="display:none;">
             <div class="about-section-content">
-                <h2>✨ 關於這個小天地 ✨</h2>
-                <p>哈囉～！(｡･∀･)ﾉﾞ 謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽～ 💕</p>
-                <p>🌐😊 為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
+                <h2 id="about-heading-fallback" tabindex="-1"><span aria-hidden="true">✨ </span>關於這個小天地<span aria-hidden="true"> ✨</span></h2>
+                <div id="about-intro-sr-fallback" class="sr-only">哈囉！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽。</div>
+                <p aria-labelledby="about-intro-sr-fallback"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉～！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔-助技術，都能輕鬆愉快地瀏覽～<span aria-hidden="true"> 💕</span></p>
+                <p><span aria-hidden="true">🌐😊 </span>為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
                 <div class="links-list">
-                    <a href="https://fluffynyako.github.io" target="_blank" rel="noopener noreferrer">fluffynyako.github.io</a>
-                    <a href="https://fluffynyako.gitlab.io" target="_blank" rel="noopener noreferrer">fluffynyako.gitlab.io</a>
-                    <a href="https://fluffynyako.pages.dev" target="_blank" rel="noopener noreferrer">fluffynyako.pages.dev</a>
-                    <a href="https://fluffynyako.netlify.app" target="_blank" rel="noopener noreferrer">fluffynyako.netlify.app</a>
-                    <a href="https://fluffynyako.onrender.com" target="_blank" rel="noopener noreferrer">fluffynyako.onrender.com</a>
-                    <a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer">fluffynyako.vercel.app</a>
+                    <a href="https://fluffynyako.github.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 github 點 io">fluffynyako.github.io<span class="sr-only">（另開新分頁）</span></a>
+                    <a href="https://fluffynyako.gitlab.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 gitlab 點 io">fluffynyako.gitlab.io<span class="sr-only">（另開新分頁）</span></a>
+                    <a href="https://fluffynyako.pages.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 pages 點 dev">fluffynyako.pages.dev<span class="sr-only">（另開新分頁）</span></a>
+                    <a href="https://fluffynyako.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 netlify 點 app">fluffynyako.netlify.app<span class="sr-only">（另開新分頁）</span></a>
+                    <a href="https://fluffynyako.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 onrender 點 com">fluffynyako.onrender.com<span class="sr-only">（另開新分頁）</span></a>
+                    <a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 vercel 點 app">fluffynyako.vercel.app<span class="sr-only">（另開新分頁）</span></a>
                 </div>
-                <p style="margin-top:1em;">(´∀｀)♡ 哦對了對了！為了瞭解小網站的訪問情況呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer">GoatCounter</a> 來統計網站的訪問情況呢～ ✨🌸 它們都是超級超級隱私友好的小工具喔！😊💖 完全完全不會追蹤你的個人資訊，請放心啦～ 😌🎀 如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer">GoatCounter 的隱私政策</a>查看詳細資訊哦！💕✨ 謝謝你的理解呢～ 😌</p>
+                <div id="about-privacy-sr-fallback" class="sr-only">哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 Umami 和 GoatCounter 來統計網站的訪問情況呢。它們都是超級超級隱私友好的小工具喔！完全完全不會追蹤你的個人資訊，請放心啦。如果有任何小疑問的話，歡迎去看看 Umami 的隱私政策或 GoatCounter 的隱私政策查看詳細資訊哦！謝謝你的理解呢。</div>
+                <p style="margin-top:1em;" aria-labelledby="about-privacy-sr-fallback"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢～<span aria-hidden="true"> ✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦～<span aria-hidden="true"> 😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢～ <span aria-hidden="true">😌</span></p>
                 
-                <button type="button" class="action-button" onclick="toggleAbout()">❌ 關閉返回</button>
+                <button type="button" class="action-button" onclick="toggleAbout()"><span aria-hidden="true">❌ </span>關閉返回</button>
             </div>
         </div>
     </div>
@@ -251,14 +268,22 @@
         function toggleAbout() {
             var mainContent = document.getElementById('main-content-fallback');
             var aboutSection = document.getElementById('about-section-fallback');
+            var toggleButton = document.getElementById('toggle-about-button');
+            var aboutHeading = document.getElementById('about-heading-fallback');
 
-            if (mainContent.style.display === 'none') {
+            var isAboutVisible = aboutSection.style.display === 'block';
+
+            if (isAboutVisible) {
                 mainContent.style.display = 'block';
                 aboutSection.style.display = 'none';
+                toggleButton.setAttribute('aria-expanded', 'false');
+                toggleButton.focus();
             } else {
                 window.scrollTo(0, 0);
                 mainContent.style.display = 'none';
                 aboutSection.style.display = 'block';
+                toggleButton.setAttribute('aria-expanded', 'true');
+                aboutHeading.focus();
             }
         }
     </script>
