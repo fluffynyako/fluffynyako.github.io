@@ -12,11 +12,11 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="歡迎來到 fluffynyako 的小天地！這是一個充滿熱情的開源軟體粉絲的個人網站，分享關於 Linux、LineageOS、OpenStreetMap (OSM) 與 Matrix 的點滴。快來探索我的貢獻與愛好吧！">
-    <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix">
+    <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix, Signal, Misskey, GitLab, Codeberg, GitHub, 軟體在地化">
     <meta name="color-scheme" content="light dark">
     <title>fluffynyako | 開源愛好者的小天地</title>
     <meta property="og:title" content="fluffynyako | 開源愛好者的小天地">
-    <meta property="og:description" content="歡迎來到 fluffynyako 的小天地！開源軟體粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 貢獻。">
+    <meta property="og:description" content="一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。">
     <meta property="og:image" content="https://fluffynyako.onrender.com/avatar/512x512.jpg">
     <meta property="og:url" content="https://fluffynyako.netlify.app">
     <meta property="og:type" content="website">
@@ -36,10 +36,13 @@
       "knowsAbout": ["Linux", "LineageOS", "OpenStreetMap", "Matrix", "軟體在地化", "開源軟體"],
       "sameAs": [
         "https://t.me/fluffynyako",
+        "https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI",
         "https://matrix.to/#/@nachonekonya:transgirl.cafe",
         "https://mastodon.social/@fluffynyako",
+        "https://transgirl.cafe/@nachonekonya",
         "https://space.bilibili.com/678665731",
         "https://github.com/fluffynyako",
+        "https://gitlab.com/fluffynyako",
         "https://codeberg.org/fluffynyako",
         "https://ko-fi.com/fluffynyako"
       ]
@@ -461,13 +464,16 @@
         .support-link:hover { transform: scale(1.1); }
         .contact-item:hover::before, .social-link:hover::before { left: 100%; }
         .contact-item.telegram { background: rgba(30, 58, 138, 0.6); }
+        .contact-item.signal { background: linear-gradient(135deg, rgba(58, 118, 240, 0.6), rgba(90, 80, 220, 0.6)); }
         .contact-item.matrix { background: rgba(107, 114, 128, 0.6); }
         .social-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; position: relative; z-index: 1; }
         .social-link.telegram { background: linear-gradient(135deg, rgba(0, 136, 204, 0.6), rgba(0, 102, 153, 0.6)); }
         .social-link.matrix { background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 51, 51, 0.5)); }
         .social-link.mastodon { background: linear-gradient(135deg, rgba(99, 100, 255, 0.6), rgba(86, 58, 204, 0.6)); }
+        .social-link.misskey { background: linear-gradient(135deg, rgba(134, 179, 0, 0.6), rgba(110, 150, 0, 0.6)); }
         .social-link.bilibili { background: linear-gradient(135deg, rgba(251, 114, 153, 0.6), rgba(233, 77, 107, 0.6)); }
         .social-link.github { background: linear-gradient(135deg, rgba(51, 51, 51, 0.6), rgba(36, 41, 46, 0.6)); }
+        .social-link.gitlab { background: linear-gradient(135deg, rgba(252, 163, 38, 0.6), rgba(226, 67, 41, 0.6)); }
         .social-link.codeberg { background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(93, 173, 226, 0.6)); }
         .support-section.container-section { background: rgba(253, 121, 168, 0.3); }
         .support-link { font-size: 1.3em; display: inline-block; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); border-radius: 20px; padding: 10px 20px; }
@@ -648,8 +654,8 @@
 <body>
     <a href="#main-content" class="sr-only">跳到主要內容</a>
     <canvas id="particle-canvas" aria-hidden="true"></canvas>
-    <!-- (๑´ㅂ`๑) 這個 🎉 按鈕對盲人朋友來說只是個謎之按鈕，而且散發的特效需要用眼睛才能看，所以就讓它在熒幕閱讀器中隱藏起來吧！🫣 -->
-    <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1"><span aria-hidden="true">🎉</span></button>
+    <!-- (๑´ㅂ`๑) 這個 🎉 按鈕對盲人朋友來說只是個謎之按鈕，而且散發的特效需要用眼睛才能看得見呢，所以就讓它在熒幕閱讀器中隱藏起來吧！🫣 -->
+    <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1" title="(｡◕‿◕｡) 點我有驚喜哦～"><span aria-hidden="true">🎉</span></button>
     <button type="button" class="about-modal-closer" aria-label="關閉關於視窗"><span aria-hidden="true">❌</span></button>
     <div class="fireworks" id="fireworks" aria-hidden="true"></div>
     <main id="main-content">
@@ -693,24 +699,27 @@
                     <section class="contact-info container-section anim-on-load">
                         <h2 class="anim-on-load"><span aria-hidden="true">📱 </span>聯絡方式<span aria-hidden="true"> 💬</span></h2>
                         <div class="contact-methods">
-                            <a href="https://t.me/fluffynyako" class="contact-item telegram anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" class="contact-item matrix anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako">Matrix<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://t.me/fluffynyako" class="contact-item telegram anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako" title="@fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI" class="contact-item signal anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Signal 聯絡 fluffynyako" title="@fluffynyako.520">Signal<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" class="contact-item matrix anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako" title="@nachonekonya:transgirl.cafe">Matrix<span class="sr-only">（另開新分頁）</span></a>
                         </div>
                     </section>
                     <section class="social-section container-section anim-on-load">
                         <h2 class="anim-on-load"><span aria-hidden="true">🌐 </span>其它平臺<span aria-hidden="true"> 🔗</span></h2>
                         <div class="social-links">
-                            <a href="https://mastodon.social/@fluffynyako" class="social-link mastodon anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako">Mastodon<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://space.bilibili.com/678665731" class="social-link bilibili anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間">Bilibili<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://github.com/fluffynyako" class="social-link github anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料">GitHub<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://codeberg.org/fluffynyako" class="social-link codeberg anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料">Codeberg<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://mastodon.social/@fluffynyako" class="social-link mastodon anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako" title="@fluffynyako@mastodon.social">Mastodon<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://transgirl.cafe/@nachonekonya" class="social-link misskey anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Misskey 上追蹤 fluffynyako" title="@nachonekonya@transgirl.cafe">Misskey<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://space.bilibili.com/678665731" class="social-link bilibili anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間" title="UID:678665731">Bilibili<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://github.com/fluffynyako" class="social-link github anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料" title="fluffynyako">GitHub<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://gitlab.com/fluffynyako" class="social-link gitlab anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitLab 上查看 fluffynyako 的個人資料" title="fluffynyako">GitLab<span class="sr-only">（另開新分頁）</span></a>
+                            <a href="https://codeberg.org/fluffynyako" class="social-link codeberg anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料" title="fluffynyako">Codeberg<span class="sr-only">（另開新分頁）</span></a>
                         </div>
                     </section>
                     <section class="support-section container-section anim-on-load">
                         <a href="https://ko-fi.com/fluffynyako" class="support-link anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Ko-fi 上支持 fluffynyako"><span class="hearts" aria-hidden="true">💖</span> 支持我 <span class="hearts" aria-hidden="true">💖</span><span class="sr-only">（另開新分頁）</span></a>
                     </section>
                 </div>
-                <button type="button" class="about-button anim-on-load" aria-label="關於本站" aria-haspopup="dialog"><span aria-hidden="true">ℹ️</span></button>
+                <button type="button" class="about-button anim-on-load" aria-label="關於本站" aria-haspopup="dialog" title="✨ 關於這個小天地 ✨"><span aria-hidden="true">ℹ️</span></button>
             </div>
         </div>
         <div class="about-overlay" aria-modal="true" role="dialog" aria-labelledby="about-heading">
