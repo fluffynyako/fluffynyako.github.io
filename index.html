@@ -86,7 +86,8 @@
             --easter-egg-hover-bg: rgba(255, 255, 255, 0.3);
             --easter-egg-shadow: rgba(0, 0, 0, 0.1);
             --focus-outline-color: #ff6b9d;
-            --about-overlay-bg: rgba(0, 0, 0, 0.2);
+            --about-overlay-bg: rgba(255, 255, 255, 0.4);
+            --about-overlay-blur: 8px;
         }
         .sr-only {
             position: absolute;
@@ -125,6 +126,7 @@
                 --easter-egg-shadow: rgba(0, 0, 0, 0.3);
                 --focus-outline-color: #bde9f8;
                 --about-overlay-bg: rgba(0, 0, 0, 0.5);
+                --about-overlay-blur: 5px;
             }
         }
         html {
@@ -514,6 +516,8 @@
             visibility: hidden;
             transition: opacity 0.5s ease, visibility 0.5s;
             will-change: opacity, visibility;
+            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
+            backdrop-filter: blur(var(--about-overlay-blur));
         }
         body.is-about-open .about-overlay {
             opacity: 1;
@@ -887,12 +891,16 @@
             const aboutOverlay = document.querySelector('.about-overlay');
             const aboutButton = document.querySelector('.about-button');
             const aboutCloseButton = document.querySelector('.about-modal-closer');
+            const aboutCard = document.querySelector('.about-card');
             const body = document.body;
             let lastActiveElement;
 
             const focusableElementsSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
             function openAboutModal() {
+                if (aboutCard) {
+                    aboutCard.scrollTop = 0;
+                }
                 lastActiveElement = document.activeElement;
                 body.classList.add('is-about-open');
                 aboutButton.setAttribute('aria-expanded', 'true');
