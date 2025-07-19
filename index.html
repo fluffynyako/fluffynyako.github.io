@@ -962,6 +962,27 @@
                 return;
             }
 
+            function debounce(func, wait) {
+                let timeout;
+                return function(...args) {
+                    const context = this;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(context, args), wait);
+                };
+            }
+
+            function throttle(func, limit) {
+                let inCooldown;
+                return function(...args) {
+                    const context = this;
+                    if (!inCooldown) {
+                        func.apply(context, args);
+                        inCooldown = true;
+                        setTimeout(() => inCooldown = false, limit);
+                    }
+                };
+            }
+
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
@@ -1039,30 +1060,32 @@
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 stardusts.forEach(star => { star.update(); star.draw(); });
 
-                const dx = pointer.targetX - pointer.emitterX;
-                const dy = pointer.targetY - pointer.emitterY;
+                if (particles.length > 0 || pointer.isTracking) {
+                    const dx = pointer.targetX - pointer.emitterX;
+                    const dy = pointer.targetY - pointer.emitterY;
 
-                if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
-                    pointer.emitterX += dx * LERP_SPEED;
-                    pointer.emitterY += dy * LERP_SPEED;
-                } else if (!pointer.isTracking) {
-                    pointer.emitterX = pointer.targetX;
-                    pointer.emitterY = pointer.targetY;
-                }
+                    if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+                        pointer.emitterX += dx * LERP_SPEED;
+                        pointer.emitterY += dy * LERP_SPEED;
+                    } else if (!pointer.isTracking) {
+                        pointer.emitterX = pointer.targetX;
+                        pointer.emitterY = pointer.targetY;
+                    }
 
-                if (pointer.isTracking) {
-                    if (particles.length < 200) {
-                        for (let i = 0; i < 8; i++) {
-                            particles.push(new Particle(pointer.emitterX, pointer.emitterY));
+                    if (pointer.isTracking) {
+                        if (particles.length < 200) {
+                            for (let i = 0; i < 8; i++) {
+                                particles.push(new Particle(pointer.emitterX, pointer.emitterY));
+                            }
                         }
                     }
-                }
 
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.update();
-                    p.draw();
-                    if (p.life <= 0 || p.size <= 0.2) { particles.splice(i, 1); }
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        const p = particles[i];
+                        p.update();
+                        p.draw();
+                        if (p.life <= 0 || p.size <= 0.2) { particles.splice(i, 1); }
+                    }
                 }
 
                 ctx.globalAlpha = 1;
@@ -1106,17 +1129,19 @@
                     pointer.isTracking = false;
                 }
             }
-
-            window.addEventListener('resize', () => {
+            
+            const handleResize = () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
                 initStardust();
-            });
-
-            window.addEventListener('mousemove', onPointerMove);
+            };
+            
+            window.addEventListener('resize', debounce(handleResize, 250));
+            
+            window.addEventListener('mousemove', throttle(onPointerMove, 16));
             window.addEventListener('mouseleave', () => { pointer.isTracking = false; });
             window.addEventListener('touchstart', onPointerStart, { passive: true });
-            window.addEventListener('touchmove', onPointerMove, { passive: true });
+            window.addEventListener('touchmove', throttle(onPointerMove, 16), { passive: true });
             window.addEventListener('touchend', onPointerEnd);
             window.addEventListener('touchcancel', onPointerEnd);
 
