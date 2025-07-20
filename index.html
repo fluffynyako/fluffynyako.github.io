@@ -24,6 +24,7 @@
     <link rel="icon" type="image/jpeg" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
     <link rel="shortcut icon" type="image/jpeg" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
     <link rel="apple-touch-icon" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
+    <link rel="preload" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/font/font.woff2" as="font" type="font/woff2" crossorigin>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,6 +57,12 @@
     <script data-goatcounter="https://fluffynyako.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <style>
+        @font-face {
+            font-family: 'GenSenRounded-Bold';
+            src: url('https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/font/font.woff2') format('woff2');
+            font-weight: bold;
+            font-display: swap;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -134,7 +141,7 @@
             background: var(--bg-gradient);
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'GenSenRounded-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
