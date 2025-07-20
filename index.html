@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="fonts-loading">
 <head>
     <meta charset="UTF-8">
     <script>
@@ -50,6 +50,25 @@
     }
     </script>
     <script>
+        (function() {
+            if (!('fonts' in document)) {
+                document.documentElement.classList.remove('fonts-loading');
+                return;
+            }
+
+            var font = document.fonts.load('bold 1em "GenSenRounded-Bold"');
+            var timeout = new Promise(function(resolve, reject) {
+                setTimeout(function() { reject(); }, 8000);
+            });
+
+            Promise.race([font, timeout]).then(function() {
+                document.documentElement.classList.remove('fonts-loading');
+            }).catch(function() {
+                document.documentElement.classList.remove('fonts-loading');
+            });
+        })();
+    </script>
+    <script>
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
@@ -61,7 +80,6 @@
             font-family: 'GenSenRounded-Bold';
             src: url('./font/font.woff2') format('woff2');
             font-weight: bold;
-            font-display: swap;
         }
         * {
             margin: 0;
@@ -150,6 +168,9 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        html.fonts-loading body {
+            visibility: hidden;
         }
         body.is-about-open {
             overflow: hidden;
