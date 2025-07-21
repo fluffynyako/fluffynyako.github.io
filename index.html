@@ -981,9 +981,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const body = document.body;
             let animationsInitialized = false;
-
             function runAnimations() {
                 if (animationsInitialized) return;
                 animationsInitialized = true;
@@ -993,11 +991,16 @@
             if (!document.documentElement.classList.contains('fonts-loading')) {
                 runAnimations();
             } else {
-                body.addEventListener('transitionend', (event) => {
-                    if (event.propertyName === 'opacity') {
-                        runAnimations();
+                const observer = new MutationObserver((mutationsList, observer) => {
+                    for(const mutation of mutationsList) {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'class' && !mutation.target.classList.contains('fonts-loading')) {
+                            setTimeout(runAnimations, 50);
+                            observer.disconnect();
+                            return;
+                        }
                     }
-                }, { once: true });
+                });
+                observer.observe(document.documentElement, { attributes: true });
             }
         });
     </script>
