@@ -53,6 +53,10 @@
         (function() {
             if (!('fonts' in document)) {
                 document.documentElement.classList.remove('fonts-loading');
+                // If fonts API is not supported, run animations immediately.
+                if (typeof initPageAnimations === 'function') {
+                    initPageAnimations();
+                }
                 return;
             }
 
@@ -63,8 +67,14 @@
 
             Promise.race([font, timeout]).then(function() {
                 document.documentElement.classList.remove('fonts-loading');
+                if (typeof initPageAnimations === 'function') {
+                    initPageAnimations();
+                }
             }).catch(function() {
                 document.documentElement.classList.remove('fonts-loading');
+                if (typeof initPageAnimations === 'function') {
+                    initPageAnimations();
+                }
             });
         })();
     </script>
@@ -814,7 +824,7 @@
             window.scrollTo(0, 0);
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
+        function initPageAnimations() {
             function animateCounter(el) {
                 const text = el.textContent;
                 const target = parseInt(text.replace(/[^0-9]/g, ''), 10);
@@ -979,6 +989,16 @@
             if (aboutButton && aboutCloseButton && aboutOverlay) {
                 aboutButton.addEventListener('click', openAboutModal);
                 aboutCloseButton.addEventListener('click', closeAboutModal);
+            }
+        }
+
+        // We wait for the font to load (or fail) before initializing animations.
+        // The call to initPageAnimations() is now handled by the font loading script in the <head>.
+        // We only add a fallback for when the font loader script itself fails to run.
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!document.documentElement.classList.contains('fonts-loading')) {
+                // If fonts are already loaded by the time DOM is ready, just run animations.
+                initPageAnimations();
             }
         });
     </script>
