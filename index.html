@@ -166,6 +166,7 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            opacity: 1;
             transition: opacity 0.5s ease;
         }
         html.fonts-loading body {
@@ -339,7 +340,7 @@
             opacity: 0;
             transform: translateY(20px);
         }
-        body.animations-ready .anim-on-load {
+        body.animations-active .anim-on-load {
             transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform, opacity;
         }
@@ -987,8 +988,13 @@
             function runAnimations() {
                 if (animationsInitialized) return;
                 animationsInitialized = true;
-                document.body.classList.add('animations-ready');
-                initPageAnimations();
+                
+                requestAnimationFrame(() => {
+                    document.body.classList.add('animations-active');
+                    requestAnimationFrame(() => {
+                        initPageAnimations();
+                    });
+                });
             }
 
             if (!document.documentElement.classList.contains('fonts-loading')) {
@@ -997,7 +1003,7 @@
                 const observer = new MutationObserver((mutationsList, observer) => {
                     for(const mutation of mutationsList) {
                         if (mutation.type === 'attributes' && mutation.attributeName === 'class' && !mutation.target.classList.contains('fonts-loading')) {
-                            setTimeout(runAnimations, 100);
+                            runAnimations();
                             observer.disconnect();
                             return;
                         }
