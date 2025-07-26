@@ -844,8 +844,7 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('play-anim');
                         if (entry.target.classList.contains('number')) {
-                            const visualEl = entry.target.querySelector('[aria-hidden="true"]');
-                            if(visualEl) animateCounter(visualEl);
+                            animateCounter(entry.target);
                         }
                         observer.unobserve(entry.target);
                     }
