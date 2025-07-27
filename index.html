@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- (´,,•ω•,,)♡ 開發者們注意啦：TalkBack 這個小淘氣會把可愛的「～」波浪號念成「tilda」哦！為了視障朋友的體驗，記得要用 `aria-hidden` 把這小玩意藏起來，不要放進 `aria-label` 裡喔！也可以用逗號之類的東西代替呢 😁 -->
 <html lang="zh-TW" class="fonts-loading">
 <head>
     <meta charset="UTF-8">
@@ -178,13 +179,13 @@
         :is(a, button, .achievement-card) {
             -webkit-tap-highlight-color: transparent;
         }
-        :is(a, button, .achievement-card):focus {
+        :is(a, button, .achievement-card-a11y-wrapper):focus {
             outline: none;
         }
-        :is(a, button, .achievement-card):focus-visible {
+        :is(a, button, .achievement-card-a11y-wrapper):focus-visible {
             outline: 3px solid var(--focus-outline-color);
-            outline-offset: 3px;
-            border-radius: 10px;
+            outline-offset: 0;
+            border-radius: 20px;
         }
         .sr-only:focus {
             position: static;
@@ -434,6 +435,16 @@
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
             will-change: transform;
             cursor: pointer;
+            position: relative;
+        }
+        .achievement-card-a11y-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
         }
         .achievement-card .icon {
             font-size: 2.2em;
@@ -703,9 +714,25 @@
                     <section class="achievements-section anim-on-load">
                         <h2 class="anim-on-load"><span aria-hidden="true">🏆 </span>我的小成就<span aria-hidden="true"> ✨</span></h2>
                         <div class="achievements-list">
-                            <div class="achievement-card anim-on-load" role="button" tabindex="0"><span class="icon" aria-hidden="true">🗺️</span><h3>OSM 貢獻者<span class="sr-only">，</span></h3><p>努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點<span aria-hidden="true">～</span><span class="sr-only">。</span></p></div>
-                            <div class="achievement-card anim-on-load" role="button" tabindex="0"><span class="icon" aria-hidden="true">🌐</span><h3>翻譯志工<span class="sr-only">，</span></h3><p>超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p></div>
-                            <div class="achievement-card anim-on-load" role="button" tabindex="0"><span class="icon" aria-hidden="true">💻</span><h3>開源愛好者<span class="sr-only">，</span></h3><p>不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p></div>
+                            <!-- (｡>﹏<｡) 這是一段充滿血淚的無障礙優化筆記！為了讓卡片能被完整朗讀、有大大的觸控區域，又不會念出「輕觸兩下即可啟用」的討厭提示，我們可是試了好久呢！😣 失敗方案記錄：1. 只用 `role="button"` 會被當成真按鈕並在最後念出「按鈕，輕觸兩下即可啟用」；2. 只用 `tabindex="0"` 在 `div` 上還是會被提示啟用；3. 用 `role="group"` 也沒能壓制住 `tabindex` 的啟用提示…… 😓 最終方案：我們用了一個隱形的 `a11y-wrapper` (span)，蓋在整個卡片上，用 `tabindex="0"` 接收焦點，用 `aria-label` 提供完整乾淨的朗讀內容，再用 `pointer-events: none;` 讓它可以正常複製！而卡片裡原本的文字則用 `aria-hidden="true"` 藏起來，這樣就完美解決所有問題啦！耶！✌️ -->
+                            <div class="achievement-card anim-on-load">
+                                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="OSM 貢獻者，努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點。"></span>
+                                <span class="icon" aria-hidden="true">🗺️</span>
+                                <h3 aria-hidden="true">OSM 貢獻者<span class="sr-only">，</span></h3>
+                                <p aria-hidden="true">努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點<span aria-hidden="true">～</span><span class="sr-only">。</span></p>
+                            </div>
+                            <div class="achievement-card anim-on-load">
+                                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="翻譯志工，超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！"></span>
+                                <span class="icon" aria-hidden="true">🌐</span>
+                                <h3 aria-hidden="true">翻譯志工<span class="sr-only">，</span></h3>
+                                <p aria-hidden="true">超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p>
+                            </div>
+                            <div class="achievement-card anim-on-load">
+                                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="開源愛好者，不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！"></span>
+                                <span class="icon" aria-hidden="true">💻</span>
+                                <h3 aria-hidden="true">開源愛好者<span class="sr-only">，</span></h3>
+                                <p aria-hidden="true">不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p>
+                            </div>
                         </div>
                         <dl class="stats-grid">
                             <div class="stat-item">
@@ -903,12 +930,16 @@
 
             document.querySelectorAll('.achievement-card').forEach(card => {
                 card.addEventListener('click', () => triggerCardAnimation(card));
-                card.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        triggerCardAnimation(card);
-                    }
-                });
+                
+                const a11yWrapper = card.querySelector('.achievement-card-a11y-wrapper');
+                if (a11yWrapper) {
+                    a11yWrapper.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            triggerCardAnimation(card);
+                        }
+                    });
+                }
             });
 
             const aboutOverlay = document.querySelector('.about-overlay');
