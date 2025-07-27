@@ -204,7 +204,7 @@
         .easter-egg:focus-visible, .about-button:focus-visible, .about-modal-closer:focus-visible {
             border-radius: 50%;
         }
-        #particle-canvas {
+        #particle-wrapper {
             position: fixed;
             top: 0;
             left: 0;
@@ -212,6 +212,45 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
+        }
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #floating-emojis-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .floating-emoji {
+            position: absolute;
+            color: var(--text-primary);
+            will-change: transform, opacity;
+            animation-name: float-complex;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        @keyframes float-complex {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: var(--start-opacity, 0.5);
+            }
+            50% {
+                transform: translateY(-15px) translateX(5px) rotate(3deg);
+                opacity: calc(var(--start-opacity, 0.5) * 0.5);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: var(--start-opacity, 0.5);
+            }
         }
         .easter-egg, .about-modal-closer {
             width: 50px;
@@ -692,7 +731,10 @@
 </head>
 <body>
     <a href="#main-content" class="sr-only">跳到主要內容</a>
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div id="floating-emojis-container" aria-hidden="true"></div>
+    <div id="particle-wrapper" aria-hidden="true">
+        <canvas id="particle-canvas"></canvas>
+    </div>
     <!-- (๑´ㅂ`๑) 這個 🎉 按鈕對盲人朋友來說只是個謎之按鈕，而且散發的特效需要用眼睛才能看得見呢，所以就讓它在熒幕閱讀器中隱藏起來吧！🫣 -->
     <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1" title="(｡◕‿◕｡) 點我有驚喜哦～"><span aria-hidden="true">🎉</span></button>
     <button type="button" class="about-modal-closer" aria-label="關閉關於視窗"><span aria-hidden="true">❌</span></button>
@@ -1038,22 +1080,24 @@
         });
     </script>
     <script>
+        <!-- (╯°□°）╯︵ ┻━┻ 這是一段充滿血淚的 Canvas 穩定性優化筆記！也就是這裡的白色粒子生成效果，最初的問題是在某些手機瀏覽器上滑動頁面時，地址欄和工具欄的伸縮（如果有的話）會導致 Canvas 背景出現討厭的抖動和錯位！第一次嘗試修改 `resize` 事件不重新生成粒子，但發現只要動到 `canvas.width` 就會清空畫布，所以還是會閃！😱 第二次嘗試更狠，直接把 `resize` 事件監聽整個刪掉，結果還是不行！😭 因為就算 JS 不動它，CSS 的 `width: 100%` 還是會讓 Canvas 元素本身跟著瀏覽器 UI 一起伸縮，引發重繪，造成那個可惡的小跳動！所以！最終的必殺技來啦！💪 我們用了一個叫「隔離艙」的絕招：用一個新的 `div` (`#particle-wrapper`) 把 `canvas` 包起來，然後在頁面加載時，用 JS 一次性把這個 `wrapper` 的高度設定成固定的像素值，徹底鎖死它的大小！這樣一來，不管瀏覽器地址欄怎麼伸縮，我們的「隔離艙」和裡面的畫布都穩如泰山，紋絲不動，徹底根除了那個困擾我們好久的抖動問題！完美！🎉💖 -->
         (function() {
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReducedMotion) {
-                const canvas = document.getElementById('particle-canvas');
-                if(canvas) canvas.style.display = 'none';
+            const particleWrapper = document.getElementById('particle-wrapper');
+
+            if (prefersReducedMotion || !particleWrapper) {
+                if(particleWrapper) particleWrapper.style.display = 'none';
                 return;
             }
 
-            function debounce(func, wait) {
-                let timeout;
-                return function(...args) {
-                    const context = this;
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(context, args), wait);
-                };
-            }
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
+
+            particleWrapper.style.height = particleWrapper.offsetHeight + 'px';
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = particleWrapper.offsetWidth;
+            canvas.height = particleWrapper.offsetHeight;
 
             function throttle(func, limit) {
                 let inCooldown;
@@ -1066,11 +1110,6 @@
                     }
                 };
             }
-
-            const canvas = document.getElementById('particle-canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
 
             let particles = [];
             let stardusts = [];
@@ -1214,14 +1253,6 @@
                 }
             }
             
-            const handleResize = () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                initStardust();
-            };
-            
-            window.addEventListener('resize', debounce(handleResize, 250));
-            
             window.addEventListener('mousemove', throttle(onPointerMove, 16));
             window.addEventListener('mouseleave', () => { pointer.isTracking = false; });
             window.addEventListener('touchstart', onPointerStart, { passive: true });
@@ -1231,6 +1262,56 @@
 
             initStardust();
             animate();
+        })();
+    </script>
+    <script>
+        (function() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+
+            const container = document.getElementById('floating-emojis-container');
+            if (!container) return;
+
+            const emojis = ['💖', '✨', '🌸', '🦋', '⭐', '💫', '💕', '🌈'];
+            const emojiCount = 15;
+            const horizontalPositions = [];
+            const minHorizontalGap = 6;
+
+            for (let i = 0; i < emojiCount; i++) {
+                let newLeft;
+                let isTooClose;
+                let retries = 0;
+
+                do {
+                    newLeft = Math.random() * 100;
+                    isTooClose = horizontalPositions.some(pos => Math.abs(newLeft - pos) < minHorizontalGap);
+                    retries++;
+                } while (isTooClose && retries < 10);
+
+                if (isTooClose && retries >= 10) {
+                    continue;
+                }
+
+                horizontalPositions.push(newLeft);
+
+                const emoji = document.createElement('span');
+                emoji.className = 'floating-emoji';
+                emoji.setAttribute('aria-hidden', 'true');
+                
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                const startOpacity = Math.random() * 0.4 + 0.1;
+                emoji.style.setProperty('--start-opacity', startOpacity.toFixed(2));
+
+                emoji.style.left = newLeft + 'vw';
+                emoji.style.top = (Math.random() * 10 - 2) + 'vh';
+                emoji.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                emoji.style.animationDuration = (Math.random() * 8 + 7) + 's';
+                emoji.style.animationDelay = -(Math.random() * 15) + 's';
+
+                container.appendChild(emoji);
+            }
         })();
     </script>
 </body>
