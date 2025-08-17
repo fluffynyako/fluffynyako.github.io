@@ -404,14 +404,15 @@
         }
         .card-shaker {
             width: 100%;
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
             will-change: transform, opacity;
+            transform: translateZ(0);
         }
         .links-shaker {
             position: relative;
         }
         body.is-about-open .card-shaker, body.is-love-launcher-open .card-shaker, body.is-love-letter-open .card-shaker {
-            transform: scale(0.95) translateY(50px);
+            transform: scale(0.95) translateY(50px) translateZ(0);
             opacity: 0;
             pointer-events: none;
         }
@@ -644,18 +645,14 @@
             opacity: 0;
             pointer-events: none;
             visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s;
-            will-change: opacity, visibility;
-        }
-        .about-overlay.is-blurred, .love-launcher-overlay.is-blurred, .love-letter-overlay.is-blurred {
-            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
-            backdrop-filter: blur(var(--about-overlay-blur));
-        }
-        .about-overlay, .love-launcher-overlay, .love-letter-overlay {
             -webkit-backdrop-filter: blur(0px);
             backdrop-filter: blur(0px);
             transition: opacity 0.5s ease, visibility 0.5s, -webkit-backdrop-filter 0.3s ease-out, backdrop-filter 0.3s ease-out;
             will-change: opacity, visibility, backdrop-filter;
+        }
+        .about-overlay.is-blurred, .love-launcher-overlay.is-blurred, .love-letter-overlay.is-blurred {
+            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
+            backdrop-filter: blur(var(--about-overlay-blur));
         }
         body.is-about-open .about-overlay,
         body.is-love-launcher-open .love-launcher-overlay,
