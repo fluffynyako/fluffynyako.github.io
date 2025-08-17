@@ -644,15 +644,17 @@
             opacity: 0;
             pointer-events: none;
             visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s;
-            will-change: opacity, visibility;
-            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
-            backdrop-filter: blur(var(--about-overlay-blur));
+            transition: opacity 0.5s ease, visibility 0.5s, backdrop-filter 0.5s ease;
+            will-change: opacity, visibility, backdrop-filter;
+            -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
         }
         body.is-about-open .about-overlay {
             opacity: 1;
             pointer-events: auto;
             visibility: visible;
+            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
+            backdrop-filter: blur(var(--about-overlay-blur));
         }
         .about-card {
             background: var(--card-bg);
@@ -773,15 +775,17 @@
             opacity: 0;
             pointer-events: none;
             visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s;
-            will-change: opacity, visibility;
-            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
-            backdrop-filter: blur(var(--about-overlay-blur));
+            transition: opacity 0.5s ease, visibility 0.5s, backdrop-filter 0.5s ease;
+            will-change: opacity, visibility, backdrop-filter;
+            -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
         }
         body.is-love-launcher-open .love-launcher-overlay, body.is-love-letter-open .love-letter-overlay {
             opacity: 1;
             pointer-events: auto;
             visibility: visible;
+            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
+            backdrop-filter: blur(var(--about-overlay-blur));
         }
         .love-launcher-card, .love-letter-card {
             background: var(--card-bg);
