@@ -404,13 +404,15 @@
         }
         .card-shaker {
             width: 100%;
-            transition: opacity 0.4s ease;
-            will-change: opacity;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
+            will-change: transform, opacity;
+            transform: translateZ(0);
         }
         .links-shaker {
             position: relative;
         }
         body.is-about-open .card-shaker, body.is-love-launcher-open .card-shaker, body.is-love-letter-open .card-shaker {
+            transform: scale(0.95) translateY(50px) translateZ(0);
             opacity: 0;
             pointer-events: none;
         }
@@ -434,7 +436,7 @@
             padding: 40px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
+            box-shadow: 0 15px 35px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
             position: relative;
             overflow: hidden;
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
@@ -446,7 +448,7 @@
             height: 120px;
             border-radius: 50%;
             border: 5px solid var(--avatar-border);
-            box-shadow: 0 10px 30px var(--avatar-shadow);
+            box-shadow: 0 10px 20px var(--avatar-shadow);
             margin: 0 auto 20px;
             position: relative;
             z-index: 1;
@@ -487,7 +489,7 @@
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
-            box-shadow: 0 8px 25px var(--section-shadow);
+            box-shadow: 0 8px 15px var(--section-shadow);
             transition: transform 0.1s ease-out;
         }
         .introduction p {
@@ -669,7 +671,7 @@
             max-height: 100%;
             overflow-y: auto;
             text-align: left;
-            box-shadow: 0 25px 80px var(--card-shadow);
+            box-shadow: 0 15px 35px var(--card-shadow);
             position: relative;
             transform: scale(0.9) translateY(-30px) translateZ(0);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -771,7 +773,7 @@
             width: 100%;
             max-width: 450px;
             text-align: center;
-            box-shadow: 0 25px 80px var(--card-shadow);
+            box-shadow: 0 15px 35px var(--card-shadow);
             position: relative;
             transform: scale(0.9) translateY(-30px) translateZ(0);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
