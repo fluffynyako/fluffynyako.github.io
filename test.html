@@ -260,8 +260,6 @@
             width: 50px;
             height: 50px;
             background: var(--easter-egg-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--easter-egg-border);
             border-radius: 50%;
             display: flex;
@@ -303,8 +301,6 @@
             width: 50px;
             height: 50px;
             background: var(--easter-egg-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--easter-egg-border);
             border-radius: 50%;
             display: flex;
@@ -406,13 +402,12 @@
             width: 100%;
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
             will-change: transform, opacity;
-            transform: translateZ(0);
         }
         .links-shaker {
             position: relative;
         }
         body.is-about-open .card-shaker, body.is-love-launcher-open .card-shaker, body.is-love-letter-open .card-shaker {
-            transform: scale(0.95) translateY(50px) translateZ(0);
+            transform: scale(0.95) translateY(50px);
             opacity: 0;
             pointer-events: none;
         }
@@ -436,7 +431,7 @@
             padding: 40px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 15px 35px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
+            box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
             position: relative;
             overflow: hidden;
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
@@ -448,7 +443,7 @@
             height: 120px;
             border-radius: 50%;
             border: 5px solid var(--avatar-border);
-            box-shadow: 0 10px 20px var(--avatar-shadow);
+            box-shadow: 0 10px 30px var(--avatar-shadow);
             margin: 0 auto 20px;
             position: relative;
             z-index: 1;
@@ -489,7 +484,7 @@
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
-            box-shadow: 0 8px 15px var(--section-shadow);
+            box-shadow: 0 8px 25px var(--section-shadow);
             transition: transform 0.1s ease-out;
         }
         .introduction p {
@@ -527,7 +522,6 @@
             will-change: transform;
             cursor: pointer;
             position: relative;
-            transform: translateZ(0);
         }
         .achievement-card-a11y-wrapper {
             position: absolute;
@@ -645,14 +639,8 @@
             opacity: 0;
             pointer-events: none;
             visibility: hidden;
-            -webkit-backdrop-filter: blur(0px);
-            backdrop-filter: blur(0px);
-            transition: opacity 0.5s ease, visibility 0.5s, -webkit-backdrop-filter 0.3s ease-out, backdrop-filter 0.3s ease-out;
-            will-change: opacity, visibility, backdrop-filter;
-        }
-        .about-overlay.is-blurred, .love-launcher-overlay.is-blurred, .love-letter-overlay.is-blurred {
-            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
-            backdrop-filter: blur(var(--about-overlay-blur));
+            transition: opacity 0.5s ease, visibility 0.5s;
+            will-change: opacity, visibility;
         }
         body.is-about-open .about-overlay,
         body.is-love-launcher-open .love-launcher-overlay,
@@ -671,17 +659,17 @@
             max-height: 100%;
             overflow-y: auto;
             text-align: left;
-            box-shadow: 0 15px 35px var(--card-shadow);
+            box-shadow: 0 25px 80px var(--card-shadow);
             position: relative;
-            transform: scale(0.9) translateY(-30px) translateZ(0);
+            transform: scale(0.9) translateY(-30px);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             will-change: transform;
         }
         body.is-about-open .about-card {
-            transform: scale(1) translateY(0) translateZ(0);
+            transform: scale(1) translateY(0);
         }
         body.is-about-open .about-card:active {
-            transform: scale(0.995) translateY(0) translateZ(0);
+            transform: scale(0.995) translateY(0);
             transition: transform 0.1s ease-out;
         }
         .about-card h2 {
@@ -739,8 +727,6 @@
             width: 50px;
             height: 50px;
             background: var(--easter-egg-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--easter-egg-border);
             border-radius: 50%;
             display: flex;
@@ -773,18 +759,18 @@
             width: 100%;
             max-width: 450px;
             text-align: center;
-            box-shadow: 0 15px 35px var(--card-shadow);
+            box-shadow: 0 25px 80px var(--card-shadow);
             position: relative;
-            transform: scale(0.9) translateY(-30px) translateZ(0);
+            transform: scale(0.9) translateY(-30px);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
             will-change: transform;
         }
         body.is-love-launcher-open .love-launcher-card, body.is-love-letter-open .love-letter-card {
-            transform: scale(1) translateY(0) translateZ(0);
+            transform: scale(1) translateY(0);
         }
         body.is-love-launcher-open .love-launcher-card:active,
         body.is-love-letter-open .love-letter-card:active {
-            transform: scale(0.995) translateY(0) translateZ(0);
+            transform: scale(0.995) translateY(0);
             transition: transform 0.1s ease-out;
         }
         .love-launcher-card.is-hiding {
@@ -1262,13 +1248,6 @@
                 lastActiveElement = document.activeElement;
                 body.classList.add('is-about-open');
                 aboutButton.setAttribute('aria-expanded', 'true');
-                
-                setTimeout(() => {
-                    if (body.classList.contains('is-about-open')) {
-                        aboutOverlay.classList.add('is-blurred');
-                    }
-                }, 450);
-
                 aboutCloseButton.focus();
                 
                 aboutOverlay.addEventListener('keydown', trapFocus);
@@ -1276,7 +1255,6 @@
             }
 
             function closeAboutModal() {
-                aboutOverlay.classList.remove('is-blurred');
                 body.classList.remove('is-about-open');
                 aboutButton.setAttribute('aria-expanded', 'false');
                 if (lastActiveElement) {
@@ -1378,18 +1356,10 @@
                 resetLoveLauncherState();
                 loveLauncherCard.classList.remove('is-hiding');
                 body.classList.add('is-love-launcher-open');
-                
-                setTimeout(() => {
-                    if (body.classList.contains('is-love-launcher-open')) {
-                        loveLauncherOverlay.classList.add('is-blurred');
-                    }
-                }, 450);
-
                 document.addEventListener('keydown', handleLoveEsc);
             }
 
             function closeLoveLauncher() {
-                loveLauncherOverlay.classList.remove('is-blurred');
                 if (!loveLetterUnlocked) {
                     resetLoveLauncherState();
                 }
@@ -1399,16 +1369,10 @@
             
             function openLoveLetter() {
                 body.classList.add('is-love-letter-open');
-                setTimeout(() => {
-                    if (body.classList.contains('is-love-letter-open')) {
-                        loveLetterOverlay.classList.add('is-blurred');
-                    }
-                }, 450);
                 document.addEventListener('keydown', handleLoveEsc);
             }
 
             function closeLoveLetter() {
-                loveLetterOverlay.classList.remove('is-blurred');
                 body.classList.remove('is-love-letter-open');
                 document.removeEventListener('keydown', handleLoveEsc);
             }
