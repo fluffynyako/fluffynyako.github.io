@@ -400,12 +400,13 @@
             width: 100%;
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
             will-change: transform, opacity;
+            transform: translateZ(0);
         }
         .links-shaker {
             position: relative;
         }
         body.is-about-open .card-shaker, body.is-love-launcher-open .card-shaker, body.is-love-letter-open .card-shaker {
-            transform: scale(0.95) translateY(50px);
+            transform: scale(0.95) translateY(50px) translateZ(0);
             opacity: 0;
             pointer-events: none;
         }
@@ -435,6 +436,7 @@
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
             will-change: transform;
             transform: translateZ(0);
+            background-clip: padding-box;
         }
         .avatar {
             width: 120px;
@@ -484,6 +486,7 @@
             z-index: 1;
             box-shadow: 0 6px 15px var(--section-shadow);
             transition: transform 0.1s ease-out;
+            background-clip: padding-box;
         }
         .introduction p {
             color: var(--text-primary);
@@ -501,6 +504,7 @@
             margin-bottom: 0;
             position: relative;
             z-index: 1;
+            background-clip: padding-box;
         }
         .achievements-section h2 {
             color: var(--text-primary);
@@ -520,6 +524,7 @@
             will-change: transform;
             cursor: pointer;
             position: relative;
+            background-clip: padding-box;
         }
         .achievement-card-a11y-wrapper {
             position: absolute;
@@ -558,6 +563,7 @@
             border-radius: 20px;
             position: relative;
             z-index: 1;
+            background-clip: padding-box;
         }
         .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
         .container-section h2 { color: var(--text-primary); margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px var(--text-shadow); }
@@ -586,9 +592,9 @@
             transition: left 0.5s;
         }
         .contact-item:hover, .social-link:hover, .support-link:hover { box-shadow: 0 8px 25px var(--section-shadow); }
-        .contact-item:hover { transform: scale(1.05); }
-        .social-link:hover { transform: scale(1.05); }
-        .support-link:hover { transform: scale(1.1); }
+        .contact-item:hover { transform: translateY(-2px) scale(1.05); }
+        .social-link:hover { transform: translateY(-2px) scale(1.05); }
+        .support-link:hover { transform: translateY(-2px) scale(1.1); }
         .contact-item:hover::before, .social-link:hover::before { left: 100%; }
         .contact-item.telegram { background: rgba(30, 58, 138, 0.6); }
         .contact-item.signal { background: linear-gradient(135deg, rgba(58, 118, 240, 0.6), rgba(90, 80, 220, 0.6)); }
@@ -662,6 +668,7 @@
             transform: scale(0.9) translateY(-30px);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             will-change: transform;
+            background-clip: padding-box;
         }
         body.is-about-open .about-card {
             transform: scale(1) translateY(0);
@@ -762,6 +769,7 @@
             transform: scale(0.9) translateY(-30px);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
             will-change: transform;
+            background-clip: padding-box;
         }
         body.is-love-launcher-open .love-launcher-card, body.is-love-letter-open .love-letter-card {
             transform: scale(1) translateY(0);
