@@ -110,7 +110,8 @@
             --easter-egg-hover-bg: rgba(255, 255, 255, 0.3);
             --easter-egg-shadow: rgba(0, 0, 0, 0.1);
             --focus-outline-color: #ff6b9d;
-            --about-overlay-bg: rgba(255, 255, 255, 0.6);
+            --about-overlay-bg: rgba(255, 255, 255, 0.4);
+            --about-overlay-blur: 8px;
             --love-launcher-progress-bg: rgba(0, 0, 0, 0.1);
             --love-launcher-progress-fill: #ff6b9d;
         }
@@ -150,7 +151,8 @@
                 --easter-egg-hover-bg: rgba(255, 255, 255, 0.2);
                 --easter-egg-shadow: rgba(0, 0, 0, 0.3);
                 --focus-outline-color: #bde9f8;
-                --about-overlay-bg: rgba(0, 0, 0, 0.6);
+                --about-overlay-bg: rgba(0, 0, 0, 0.5);
+                --about-overlay-blur: 5px;
                 --love-launcher-progress-bg: rgba(255, 255, 255, 0.1);
                 --love-launcher-progress-fill: #f7a8b8;
             }
@@ -258,6 +260,8 @@
             width: 50px;
             height: 50px;
             background: var(--easter-egg-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--easter-egg-border);
             border-radius: 50%;
             display: flex;
@@ -299,6 +303,8 @@
             width: 50px;
             height: 50px;
             background: var(--easter-egg-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--easter-egg-border);
             border-radius: 50%;
             display: flex;
@@ -430,20 +436,19 @@
             padding: 40px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 20px 40px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
+            box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
             position: relative;
             overflow: hidden;
             transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
             will-change: transform;
             transform: translateZ(0);
-            background-clip: padding-box;
         }
         .avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             border: 5px solid var(--avatar-border);
-            box-shadow: 0 8px 20px var(--avatar-shadow);
+            box-shadow: 0 10px 30px var(--avatar-shadow);
             margin: 0 auto 20px;
             position: relative;
             z-index: 1;
@@ -484,9 +489,8 @@
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
-            box-shadow: 0 6px 15px var(--section-shadow);
+            box-shadow: 0 8px 25px var(--section-shadow);
             transition: transform 0.1s ease-out;
-            background-clip: padding-box;
         }
         .introduction p {
             color: var(--text-primary);
@@ -504,7 +508,6 @@
             margin-bottom: 0;
             position: relative;
             z-index: 1;
-            background-clip: padding-box;
         }
         .achievements-section h2 {
             color: var(--text-primary);
@@ -524,7 +527,6 @@
             will-change: transform;
             cursor: pointer;
             position: relative;
-            background-clip: padding-box;
         }
         .achievement-card-a11y-wrapper {
             position: absolute;
@@ -563,7 +565,6 @@
             border-radius: 20px;
             position: relative;
             z-index: 1;
-            background-clip: padding-box;
         }
         .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
         .container-section h2 { color: var(--text-primary); margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px var(--text-shadow); }
@@ -592,9 +593,9 @@
             transition: left 0.5s;
         }
         .contact-item:hover, .social-link:hover, .support-link:hover { box-shadow: 0 8px 25px var(--section-shadow); }
-        .contact-item:hover { transform: translateY(-2px) scale(1.05); }
-        .social-link:hover { transform: translateY(-2px) scale(1.05); }
-        .support-link:hover { transform: translateY(-2px) scale(1.1); }
+        .contact-item:hover { transform: scale(1.05); }
+        .social-link:hover { transform: scale(1.05); }
+        .support-link:hover { transform: scale(1.1); }
         .contact-item:hover::before, .social-link:hover::before { left: 100%; }
         .contact-item.telegram { background: rgba(30, 58, 138, 0.6); }
         .contact-item.signal { background: linear-gradient(135deg, rgba(58, 118, 240, 0.6), rgba(90, 80, 220, 0.6)); }
@@ -663,12 +664,11 @@
             max-height: 100%;
             overflow-y: auto;
             text-align: left;
-            box-shadow: 0 20px 40px var(--card-shadow);
+            box-shadow: 0 25px 80px var(--card-shadow);
             position: relative;
             transform: scale(0.9) translateY(-30px);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             will-change: transform;
-            background-clip: padding-box;
         }
         body.is-about-open .about-card {
             transform: scale(1) translateY(0);
@@ -764,12 +764,11 @@
             width: 100%;
             max-width: 450px;
             text-align: center;
-            box-shadow: 0 20px 40px var(--card-shadow);
+            box-shadow: 0 25px 80px var(--card-shadow);
             position: relative;
             transform: scale(0.9) translateY(-30px);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
             will-change: transform;
-            background-clip: padding-box;
         }
         body.is-love-launcher-open .love-launcher-card, body.is-love-letter-open .love-letter-card {
             transform: scale(1) translateY(0);
@@ -954,6 +953,52 @@
             .contact-methods { flex-direction: column; gap: 10px; }
             .about-card { padding: 30px 20px; }
             .love-launcher-card, .love-letter-card { padding: 25px 20px; }
+        }
+
+        @-moz-document url-prefix() {
+            :root {
+                --card-bg: #ffffff;
+                --card-border: #E0E0E0;
+                --section-bg: #F5F5F5;
+                --section-border: #EEEEEE;
+                --achievement-card-bg: #FFFFFF;
+                --achievement-card-border: #F5F5F5;
+                --easter-egg-bg: #FFFFFF;
+                --easter-egg-border: #E0E0E0;
+                --about-overlay-bg: rgba(90, 90, 90, 0.7);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --card-bg: #2d2d33;
+                    --card-border: #424242;
+                    --section-bg: #38383e;
+                    --section-border: #4a4a52;
+                    --achievement-card-bg: #3c3c42;
+                    --achievement-card-border: #505058;
+                    --easter-egg-bg: #38383e;
+                    --easter-egg-border: #505058;
+                    --about-overlay-bg: rgba(0, 0, 0, 0.7);
+                }
+            }
+
+            .container, .about-card, .love-launcher-card, .love-letter-card {
+                box-shadow: none !important;
+                border-width: 2px;
+            }
+
+            .avatar, .introduction, .achievement-card, .easter-egg, .about-button, .love-egg-button {
+                box-shadow: none !important;
+            }
+
+            .introduction, .achievement-card {
+                border-width: 2px;
+            }
+
+            .easter-egg, .about-modal-closer, .about-button, .love-egg-button {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
         }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="0d001ce5-a970-4141-889d-acef32d958eb"></script>
