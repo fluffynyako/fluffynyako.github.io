@@ -1,32 +1,34 @@
+<!-- (´｡• ᵕ •｡`) ♡ 給開發人員的溫馨小提示：為了讓網站跑得快快，以後的程式碼也要像這樣保持緊湊風格哦！拜託拜託啦〜 ✨ -->
 <!DOCTYPE html>
 <!-- (´,,•ω•,,)♡ 開發者們注意啦：TalkBack 這個小淘氣會把可愛的「～」波浪號念成「tilda」哦！為了視障朋友的體驗，記得要用 `aria-hidden` 把這小玩意藏起來，不要放進 `aria-label` 裡喔！也可以用逗號之類的東西代替呢 😁 -->
 <html lang="zh-TW" class="fonts-loading">
 <head>
-    <meta charset="UTF-8">
-    <script>
-        (function() {
-            var isModernBrowser = 'IntersectionObserver' in window && typeof CSS !== 'undefined' && CSS.supports('display', 'grid');
-            if (!isModernBrowser) {
-                window.location.replace('fallback.html');
-            }
-        })();
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="歡迎來到 fluffynyako 的小天地！這是一個充滿熱情的開源軟體粉絲的個人網站，分享關於 Linux、LineageOS、OpenStreetMap (OSM) 與 Matrix 的點滴。快來探索我的貢獻與愛好吧！">
-    <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix, Signal, Misskey, GitLab, Codeberg, GitHub, 軟體在地化">
-    <meta name="color-scheme" content="light dark">
-    <title>fluffynyako | 開源愛好者的小天地</title>
-    <meta property="og:title" content="fluffynyako | 開源愛好者的小天地">
-    <meta property="og:description" content="一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。">
-    <meta property="og:image" content="https://fluffynyako.onrender.com/avatar/512x512.jpg">
-    <meta property="og:url" content="https://fluffynyako.netlify.app">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" type="image/jpeg" href="./avatar/192x192.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="./avatar/192x192.jpg">
-    <link rel="apple-touch-icon" href="./avatar/192x192.jpg">
-    <link rel="preload" href="./font/font.woff2" as="font" type="font/woff2" crossorigin>
-    <script type="application/ld+json">
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var e = "IntersectionObserver" in window && typeof CSS != "undefined" && CSS.supports("display", "grid");
+      if (!e) { window.location.replace("fallback.html") }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="歡迎來到 fluffynyako 的小天地！這是一個充滿熱情的開源軟體粉絲的個人網站，分享關於 Linux、LineageOS、OpenStreetMap (OSM) 與 Matrix 的點滴。快來探索我的貢獻與愛好吧！">
+  <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix, Signal, Misskey, GitLab, Codeberg, GitHub, 軟體在地化">
+  <meta name="color-scheme" content="light dark">
+  <title>fluffynyako | 開源愛好者的小天地</title>
+  <meta property="og:title" content="fluffynyako | 開源愛好者的小天地">
+  <meta property="og:description" content="一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。">
+  <meta property="og:image" content="https://fluffynyako.onrender.com/avatar/512x512.jpg">
+  <meta property="og:url" content="https://fluffynyako.netlify.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/jpeg" href="./avatar/192x192.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="./avatar/192x192.jpg">
+  <link rel="apple-touch-icon" href="./avatar/192x192.jpg">
+  <!-- (*´∀`)~♥ 這是為了讓 Mastodon 驗證我的小天地，證明這個網站是我的喔！ -->
+  <link href="https://mastodon.social/@9xlsr6op4so1393ewzo056pqy9s3" rel="me">
+  <link href="https://mastodon.social/@fluffynyako" rel="me">
+  <link rel="preload" href="./font/font.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -37,6 +39,7 @@
       "description": "歡迎來到 fluffynyako 的小天地！一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。",
       "knowsAbout": ["Linux", "LineageOS", "OpenStreetMap", "Matrix", "軟體在地化", "開源軟體"],
       "sameAs": [
+        "https://fluffynyako.is-a.dev",
         "https://t.me/fluffynyako",
         "https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI",
         "https://matrix.to/#/@nachonekonya:transgirl.cafe",
@@ -49,1272 +52,711 @@
         "https://ko-fi.com/fluffynyako"
       ]
     }
-    </script>
-    <script>
-        (function() {
-            if (!('fonts' in document)) {
-                document.documentElement.classList.remove('fonts-loading');
-                return;
-            }
-
-            var font = document.fonts.load('bold 1em "GenSenRounded-Bold"');
-            var timeout = new Promise(function(resolve, reject) {
-                setTimeout(function() { reject(); }, 8000);
-            });
-
-            Promise.race([font, timeout]).finally(function() {
-                document.documentElement.classList.remove('fonts-loading');
-            });
-        })();
-    </script>
-    <script>
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-    </script>
-    <script data-goatcounter="https://fluffynyako.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
-    <style>
-        @font-face {
-            font-family: 'GenSenRounded-Bold';
-            src: url('./font/font.woff2') format('woff2');
-            font-weight: bold;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --card-transition-duration: 0.4s;
-            --bg-gradient: linear-gradient(135deg, #bde9f8 0%, #fcdce5 25%, #ffffff 50%, #fcdce5 75%, #bde9f8 100%);
-            --stardust-color: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.25);
-            --card-border: rgba(255, 255, 255, 0.2);
-            --card-shadow: rgba(0, 0, 0, 0.15);
-            --card-border-glow: rgba(255, 255, 255, 0.1);
-            --card-inset-glow: rgba(255, 255, 255, 0.3);
-            --section-bg: rgba(255, 255, 255, 0.2);
-            --section-border: rgba(255, 255, 255, 0.3);
-            --section-shadow: rgba(0, 0, 0, 0.1);
-            --achievement-card-bg: rgba(255, 255, 255, 0.4);
-            --achievement-card-border: rgba(255, 255, 255, 0.3);
-            --achievement-card-shadow: rgba(0, 0, 0, 0.05);
-            --text-primary: #2d3436;
-            --text-secondary: #636e72;
-            --text-shadow: rgba(255, 255, 255, 0.5);
-            --avatar-border: #fff;
-            --avatar-shadow: rgba(0, 0, 0, 0.2);
-            --easter-egg-bg: rgba(255, 255, 255, 0.2);
-            --easter-egg-border: rgba(255, 255, 255, 0.3);
-            --easter-egg-hover-bg: rgba(255, 255, 255, 0.3);
-            --easter-egg-shadow: rgba(0, 0, 0, 0.1);
-            --focus-outline-color: #ff6b9d;
-            --about-overlay-bg: rgba(255, 255, 255, 0.4);
-            --about-overlay-blur: 8px;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-gradient: linear-gradient(135deg, #334652 0%, #664553 25%, #5c5c63 50%, #664553 75%, #334652 100%);
-                --stardust-color: #e0e0e0;
-                --card-bg: rgba(18, 18, 22, 0.4);
-                --card-border: rgba(255, 255, 255, 0.1);
-                --card-shadow: rgba(0, 0, 0, 0.5);
-                --card-border-glow: rgba(255, 255, 255, 0.05);
-                --card-inset-glow: rgba(255, 255, 255, 0.1);
-                --section-bg: rgba(30, 30, 35, 0.3);
-                --section-border: rgba(255, 255, 255, 0.15);
-                --section-shadow: rgba(0, 0, 0, 0.2);
-                --achievement-card-bg: rgba(40, 40, 45, 0.4);
-                --achievement-card-border: rgba(255, 255, 255, 0.15);
-                --achievement-card-shadow: rgba(0, 0, 0, 0.1);
-                --text-primary: #e5e5e5;
-                --text-secondary: #b0b0b0;
-                --text-shadow: rgba(0, 0, 0, 0.5);
-                --avatar-border: rgba(255, 255, 255, 0.5);
-                --avatar-shadow: rgba(0, 0, 0, 0.4);
-                --easter-egg-bg: rgba(30, 30, 35, 0.2);
-                --easter-egg-border: rgba(255, 255, 255, 0.2);
-                --easter-egg-hover-bg: rgba(255, 255, 255, 0.2);
-                --easter-egg-shadow: rgba(0, 0, 0, 0.3);
-                --focus-outline-color: #bde9f8;
-                --about-overlay-bg: rgba(0, 0, 0, 0.5);
-                --about-overlay-blur: 5px;
-            }
-        }
-        html {
-            min-height: 100%;
-            background: var(--bg-gradient);
-        }
-        body {
-            font-family: 'GenSenRounded-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-        html.fonts-loading body {
-            opacity: 0;
-        }
-        body.is-about-open {
-            overflow: hidden;
-        }
-        :is(a, button, .achievement-card) {
-            -webkit-tap-highlight-color: transparent;
-        }
-        :is(a, button, .achievement-card-a11y-wrapper):focus {
-            outline: none;
-        }
-        :is(a, button, .achievement-card-a11y-wrapper):focus-visible {
-            outline: 3px solid var(--focus-outline-color);
-            outline-offset: 0;
-            border-radius: 20px;
-        }
-        .sr-only:focus {
-            position: static;
-            width: auto;
-            height: auto;
-            padding: 10px;
-            margin: 10px;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-            background: var(--card-bg);
-            color: var(--text-primary);
-            border-radius: 15px;
-            z-index: 10000;
-        }
-        .easter-egg:focus-visible, .about-button:focus-visible, .about-modal-closer:focus-visible {
-            border-radius: 50%;
-        }
-        #particle-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-        }
-        #particle-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        #floating-emojis-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .floating-emoji {
-            position: absolute;
-            color: var(--text-primary);
-            will-change: transform, opacity;
-            animation-name: float-complex;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-        }
-        @keyframes float-complex {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: var(--start-opacity, 0.5);
-            }
-            50% {
-                transform: translateY(-15px) translateX(5px) rotate(3deg);
-                opacity: calc(var(--start-opacity, 0.5) * 0.5);
-            }
-            100% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: var(--start-opacity, 0.5);
-            }
-        }
-        .easter-egg, .about-modal-closer {
-            width: 50px;
-            height: 50px;
-            background: var(--easter-egg-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--easter-egg-border);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
-            transition: transform 0.3s ease, background 0.3s ease, opacity 0.4s ease;
-            box-shadow: 0 4px 15px var(--easter-egg-shadow);
-            -webkit-user-select: none;
-            user-select: none;
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 2001;
-        }
-        body.is-about-open .fireworks-button {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0.8);
-        }
-        .about-modal-closer {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0.8);
-            z-index: 3001;
-        }
-        body.is-about-open .about-modal-closer {
-            opacity: 1;
-            pointer-events: auto;
-            transform: scale(1);
-        }
-        .about-button {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 30px;
-            z-index: 10;
-            width: 50px;
-            height: 50px;
-            background: var(--easter-egg-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--easter-egg-border);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
-            transition: transform 0.3s ease, background 0.3s ease, opacity 0.4s ease;
-            box-shadow: 0 4px 15px var(--easter-egg-shadow);
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        .easter-egg:hover, .about-modal-closer:hover {
-            transform: scale(1.1);
-        }
-        .about-button:hover {
-            transform: scale(1.1);
-            background: var(--easter-egg-hover-bg);
-        }
-        .main-wrapper.screen-shake .card-shaker {
-            animation: shake 0.5s ease-in-out;
-        }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-            20%, 40%, 60%, 80% { transform: translateX(10px); }
-        }
-        .fireworks {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
-        }
-        .firework {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            animation: fireworkAnim 1.2s ease-out forwards;
-            will-change: transform, opacity;
-        }
-        @keyframes fireworkAnim {
-            0% { transform: scale(0.5); opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { transform: scale(3); opacity: 0; }
-        }
-        .main-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            width: 100%;
-            max-width: 500px;
-            transition: max-width 0.3s ease;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 100px;
-        }
-        .card-shaker {
-            width: 100%;
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
-            will-change: transform, opacity;
-        }
-        .links-shaker {
-            position: relative;
-        }
-        body.is-about-open .card-shaker {
-            transform: scale(0.95) translateY(50px);
-            opacity: 0;
-            pointer-events: none;
-        }
-        .info-shaker { position: relative; }
-        .anim-on-load {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        body.animations-active .anim-on-load {
-            transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform, opacity;
-        }
-        .anim-on-load.play-anim {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .container {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 30px;
-            padding: 40px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 25px 80px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
-            position: relative;
-            overflow: hidden;
-            transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
-            will-change: transform;
-        }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid var(--avatar-border);
-            box-shadow: 0 10px 30px var(--avatar-shadow);
-            margin: 0 auto 20px;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
-            will-change: transform;
-        }
-        .name {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px var(--text-shadow);
-            position: relative;
-            z-index: 1;
-        }
-        .subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            font-size: 1.1em;
-            position: relative;
-            z-index: 1;
-        }
-        .introduction {
-            background: var(--section-bg);
-            border: 1px solid var(--section-border);
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 8px 25px var(--section-shadow);
-            transition: transform 0.1s ease-out;
-        }
-        .introduction p {
-            color: var(--text-primary);
-            font-size: 1em;
-            line-height: 1.6;
-            margin: 0;
-            text-shadow: 1px 1px 2px var(--text-shadow);
-            font-weight: 500;
-        }
-        .achievements-section {
-            background: var(--section-bg);
-            border: 1px solid var(--section-border);
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 0;
-            position: relative;
-            z-index: 1;
-        }
-        .achievements-section h2 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px var(--text-shadow);
-        }
-        .achievements-list { display: grid; gap: 15px; margin-bottom: 25px; }
-        .achievement-card {
-            background: var(--achievement-card-bg);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid var(--achievement-card-border);
-            box-shadow: 0 4px 15px var(--achievement-card-shadow);
-            transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
-            will-change: transform;
-            cursor: pointer;
-            position: relative;
-        }
-        .achievement-card-a11y-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .achievement-card .icon {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .icon.is-wobbling {
-            animation: wobble 0.8s ease-in-out;
-        }
-        @keyframes wobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-8deg); }
-            75% { transform: rotate(8deg); }
-        }
-        .achievement-card h3 { font-size: 1.2em; color: var(--text-primary); margin-bottom: 5px; }
-        .achievement-card p { font-size: 0.9em; color: var(--text-secondary); line-height: 1.5; margin: 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 10px; }
-        .stat-item { padding: 10px 0; text-align: center; }
-        .stat-item .number { font-size: 2em; font-weight: bold; color: var(--text-primary); display: block; }
-        .stat-item .label { font-size: 0.9em; color: var(--text-secondary); }
-        .links-column .container { position: relative; }
-        .links-column .container-section {
-            background: var(--section-bg);
-            border: 1px solid var(--section-border);
-            padding: 20px;
-            border-radius: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
-        .container-section h2 { color: var(--text-primary); margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px var(--text-shadow); }
-        .contact-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-item, .social-link, .support-link {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            will-change: transform;
-        }
-        .contact-item, .social-link { box-shadow: 0 5px 20px var(--section-shadow); }
-        .contact-item { padding: 10px 15px; border-radius: 15px; }
-        .social-link { padding: 15px 10px; border-radius: 15px; }
-        .contact-item::before, .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-        .contact-item:hover, .social-link:hover, .support-link:hover { box-shadow: 0 8px 25px var(--section-shadow); }
-        .contact-item:hover { transform: scale(1.05); }
-        .social-link:hover { transform: scale(1.05); }
-        .support-link:hover { transform: scale(1.1); }
-        .contact-item:hover::before, .social-link:hover::before { left: 100%; }
-        .contact-item.telegram { background: rgba(30, 58, 138, 0.6); }
-        .contact-item.signal { background: linear-gradient(135deg, rgba(58, 118, 240, 0.6), rgba(90, 80, 220, 0.6)); }
-        .contact-item.matrix { background: rgba(107, 114, 128, 0.6); }
-        .social-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; position: relative; z-index: 1; }
-        .social-link.telegram { background: linear-gradient(135deg, rgba(0, 136, 204, 0.6), rgba(0, 102, 153, 0.6)); }
-        .social-link.matrix { background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 51, 51, 0.5)); }
-        .social-link.mastodon { background: linear-gradient(135deg, rgba(99, 100, 255, 0.6), rgba(86, 58, 204, 0.6)); }
-        .social-link.misskey { background: linear-gradient(135deg, rgba(134, 179, 0, 0.6), rgba(110, 150, 0, 0.6)); }
-        .social-link.bilibili { background: linear-gradient(135deg, rgba(251, 114, 153, 0.6), rgba(233, 77, 107, 0.6)); }
-        .social-link.github { background: linear-gradient(135deg, rgba(51, 51, 51, 0.6), rgba(36, 41, 46, 0.6)); }
-        .social-link.gitlab { background: linear-gradient(135deg, rgba(252, 163, 38, 0.6), rgba(226, 67, 41, 0.6)); }
-        .social-link.codeberg { background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(93, 173, 226, 0.6)); }
-        .support-section.container-section { background: rgba(253, 121, 168, 0.3); }
-        .support-link { font-size: 1.3em; display: inline-block; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); border-radius: 20px; padding: 10px 20px; }
-        .hearts { font-size: 1.5em; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-        :is(.container, .contact-item, .social-link, .support-link, .achievement-card, .introduction, .achievements-section, .container-section, .about-card):active {
-            transform: scale(0.995);
-            transition-duration: 0.1s;
-        }
-        .easter-egg:active, .about-button:active, .about-modal-closer:active {
-            transform: scale(0.995);
-        }
-        .heart-particle {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            animation-name: heart-burst;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-            will-change: transform, opacity;
-        }
-        @keyframes heart-burst {
-            0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--tx, 0), var(--ty, -100px)) scale(0); opacity: 0; }
-        }
-        .about-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            z-index: 3000;
-            background: var(--about-overlay-bg);
-            opacity: 0;
-            pointer-events: none;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s;
-            will-change: opacity, visibility;
-            -webkit-backdrop-filter: blur(var(--about-overlay-blur));
-            backdrop-filter: blur(var(--about-overlay-blur));
-        }
-        body.is-about-open .about-overlay {
-            opacity: 1;
-            pointer-events: auto;
-            visibility: visible;
-        }
-        .about-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 30px;
-            padding: 35px 30px;
-            width: 100%;
-            max-width: 550px;
-            max-height: 100%;
-            overflow-y: auto;
-            text-align: left;
-            box-shadow: 0 25px 80px var(--card-shadow);
-            position: relative;
-            transform: scale(0.9) translateY(-30px);
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            will-change: transform;
-        }
-        body.is-about-open .about-card {
-            transform: scale(1) translateY(0);
-            transition: transform 0.1s ease-out;
-        }
-        body.is-about-open .about-card:active {
-            transform: scale(0.995) translateY(0);
-        }
-        .about-card h2 {
-            color: var(--text-primary);
-            text-shadow: 1px 1px 2px var(--text-shadow);
-            font-size: 1.6em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .about-card p {
-            color: var(--text-primary);
-            font-size: 1em;
-            line-height: 1.7;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        .about-card a {
-            color: var(--text-primary);
-            font-weight: bold;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            transition: color 0.2s;
-        }
-        .about-card a:hover {
-            color: var(--focus-outline-color);
-        }
-        .about-card .mirror-sites {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 0;
-            display: grid;
-            gap: 10px;
-        }
-        .about-card .mirror-sites li a {
-            display: block;
-            padding: 10px 15px;
-            background: var(--section-bg);
-            border: 1px solid var(--section-border);
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            text-align: center;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .about-card .mirror-sites li a:hover {
-            transform: scale(1.03);
-            background: var(--easter-egg-hover-bg);
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-delay: -1ms !important;
-                animation-duration: 1ms !important;
-                animation-iteration-count: 1 !important;
-                background-attachment: initial !important;
-                scroll-behavior: auto !important;
-                transition-delay: 0s !important;
-                transition-duration: 0s !important;
-            }
-            .anim-on-load {
-                opacity: 1;
-                transform: none;
-            }
-            .fireworks-button {
-                display: none;
-            }
-            .about-card {
-                transform: none;
-                transition: none;
-            }
-            :is(.container, .contact-item, .social-link, .support-link, .achievement-card, .introduction, .achievements-section, .container-section, .easter-egg, .about-button, .about-card):active {
-                transform: none;
-            }
-            body.is-about-open .about-card:active {
-                transform: none;
-            }
-        }
-        @media (min-width: 992px) {
-            .main-wrapper {
-                flex-direction: row;
-                align-items: flex-start;
-                max-width: 1100px;
-                gap: 20px;
-            }
-            .info-shaker { flex: 1.2 1 0; min-width: 0; }
-            .links-shaker { flex: 0.8 1 0; min-width: 0; }
-            .links-column .container-section { margin: 0 0 20px 0; }
-            .links-column .container-section:last-child { margin-bottom: 0; }
-            .avatar:hover { transform: scale(1.1) rotate(5deg); }
-            .about-card .mirror-sites { grid-template-columns: repeat(2, 1fr); }
-            .about-button:active {
-                transform: scale(0.995);
-            }
-        }
-        @media (max-width: 600px) {
-            .container { padding: 30px 20px; }
-            .name { font-size: 2em; }
-            .achievements-list { grid-template-columns: 1fr; }
-            .social-links { grid-template-columns: 1fr; }
-            .contact-methods { flex-direction: column; gap: 10px; }
-            .about-card { padding: 30px 20px; }
-        }
-    </style>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="0d001ce5-a970-4141-889d-acef32d958eb"></script>
+  </script>
+  <script>
+    (function() {
+      if (!("fonts" in document)) {
+        document.documentElement.classList.remove("fonts-loading");
+        return
+      }
+      var e = document.fonts.load('bold 1em "GenSenRounded-Bold"');
+      var t = new Promise(function(e, t) { setTimeout(function() { t() }, 8e3) });
+      Promise.race([e, t]).finally(function() { document.documentElement.classList.remove("fonts-loading") })
+    })();
+  </script>
+  <script>
+    if (history.scrollRestoration) { history.scrollRestoration = "manual" }
+  </script>
+  <script data-goatcounter="https://fluffynyako.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <style>
+    @font-face { font-family: 'GenSenRounded-Bold'; src: url('./font/font.woff2') format('woff2'); font-weight: bold; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --card-transition-duration: 0.4s;
+      --bg-gradient: linear-gradient(135deg, #bde9f8 0%, #fcdce5 25%, #ffffff 50%, #fcdce5 75%, #bde9f8 100%);
+      --stardust-color: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.25);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --card-shadow: rgba(0, 0, 0, 0.15);
+      --card-border-glow: rgba(255, 255, 255, 0.1);
+      --card-inset-glow: rgba(255, 255, 255, 0.3);
+      --section-bg: rgba(255, 255, 255, 0.2);
+      --section-border: rgba(255, 255, 255, 0.3);
+      --section-shadow: rgba(0, 0, 0, 0.1);
+      --achievement-card-bg: rgba(255, 255, 255, 0.4);
+      --achievement-card-border: rgba(255, 255, 255, 0.3);
+      --achievement-card-shadow: rgba(0, 0, 0, 0.05);
+      --text-primary: #2d3436;
+      --text-secondary: #636e72;
+      --text-shadow: rgba(255, 255, 255, 0.5);
+      --avatar-border: #fff;
+      --avatar-shadow: rgba(0, 0, 0, 0.2);
+      --easter-egg-bg: rgba(255, 255, 255, 0.2);
+      --easter-egg-border: rgba(255, 255, 255, 0.3);
+      --easter-egg-hover-bg: rgba(255, 255, 255, 0.3);
+      --easter-egg-shadow: rgba(0, 0, 0, 0.1);
+      --focus-outline-color: #ff6b9d;
+      --about-overlay-bg: rgba(255, 255, 255, 0.6);
+      --love-launcher-progress-bg: rgba(0, 0, 0, 0.1);
+      --love-launcher-progress-fill: #ff6b9d;
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-gradient: linear-gradient(135deg, #334652 0%, #664553 25%, #5c5c63 50%, #664553 75%, #334652 100%);
+        --stardust-color: #e0e0e0;
+        --card-bg: rgba(18, 18, 22, 0.4);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --card-shadow: rgba(0, 0, 0, 0.5);
+        --card-border-glow: rgba(255, 255, 255, 0.05);
+        --card-inset-glow: rgba(255, 255, 255, 0.1);
+        --section-bg: rgba(30, 30, 35, 0.3);
+        --section-border: rgba(255, 255, 255, 0.15);
+        --section-shadow: rgba(0, 0, 0, 0.2);
+        --achievement-card-bg: rgba(40, 40, 45, 0.4);
+        --achievement-card-border: rgba(255, 255, 255, 0.15);
+        --achievement-card-shadow: rgba(0, 0, 0, 0.1);
+        --text-primary: #e5e5e5;
+        --text-secondary: #b0b0b0;
+        --text-shadow: rgba(0, 0, 0, 0.5);
+        --avatar-border: rgba(255, 255, 255, 0.5);
+        --avatar-shadow: rgba(0, 0, 0, 0.4);
+        --easter-egg-bg: rgba(30, 30, 35, 0.2);
+        --easter-egg-border: rgba(255, 255, 255, 0.2);
+        --easter-egg-hover-bg: rgba(255, 255, 255, 0.2);
+        --easter-egg-shadow: rgba(0, 0, 0, 0.3);
+        --focus-outline-color: #bde9f8;
+        --about-overlay-bg: rgba(0, 0, 0, 0.6);
+        --love-launcher-progress-bg: rgba(255, 255, 255, 0.1);
+        --love-launcher-progress-fill: #f7a8b8;
+      }
+    }
+    html { min-height: 100%; background: var(--bg-gradient); }
+    body {
+      font-family: 'GenSenRounded-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      opacity: 1;
+      transition: opacity .5s ease;
+    }
+    html.fonts-loading body { opacity: 0; }
+    body.is-about-open, body.is-love-launcher-open, body.is-love-letter-open { overflow: hidden; }
+    :is(a, button, .achievement-card) { -webkit-tap-highlight-color: transparent; }
+    :is(a, button, .achievement-card-a11y-wrapper):focus { outline: none; }
+    :is(a, button, .achievement-card-a11y-wrapper):focus-visible { outline: 3px solid var(--focus-outline-color); outline-offset: 0; border-radius: 20px; }
+    .sr-only:focus { position: static; width: auto; height: auto; padding: 10px; margin: 10px; overflow: visible; clip: auto; white-space: normal; background: var(--card-bg); color: var(--text-primary); border-radius: 15px; z-index: 10000; }
+    .easter-egg:focus-visible, .about-button:focus-visible, .about-modal-closer:focus-visible, .love-egg-button:focus-visible { border-radius: 50%; }
+    #particle-wrapper { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+    #particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    #floating-emojis-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+    .floating-emoji { position: absolute; color: var(--text-primary); will-change: transform, opacity; animation-name: float-complex; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    @keyframes float-complex {
+      0% { transform: translateY(0) translateX(0) rotate(0); opacity: var(--start-opacity, .5); }
+      50% { transform: translateY(-15px) translateX(5px) rotate(3deg); opacity: calc(var(--start-opacity, .5) * .5); }
+      100% { transform: translateY(0) translateX(0) rotate(0); opacity: var(--start-opacity, .5); }
+    }
+    .easter-egg, .about-modal-closer {
+      width: 50px; height: 50px; background: var(--easter-egg-bg); border: 1px solid var(--easter-egg-border); border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;
+      transition: transform .3s ease, background .3s ease, opacity .4s ease;
+      box-shadow: 0 4px 15px var(--easter-egg-shadow);
+      -webkit-user-select: none; user-select: none;
+      position: fixed; top: 10px; right: 10px; z-index: 2001;
+    }
+    body.is-about-open .fireworks-button, body.is-love-launcher-open .fireworks-button, body.is-love-letter-open .fireworks-button { opacity: 0; pointer-events: none; transform: scale(.8); }
+    .about-modal-closer { opacity: 0; pointer-events: none; transform: scale(.8); z-index: 5001; }
+    body.is-about-open .about-modal-closer, body.is-love-launcher-open .about-modal-closer, body.is-love-letter-open .about-modal-closer { opacity: 1; pointer-events: auto; transform: scale(1); }
+    .about-button {
+      position: absolute; top: 100%; right: 0; margin-top: 30px; z-index: 10;
+      width: 50px; height: 50px; background: var(--easter-egg-bg); border: 1px solid var(--easter-egg-border); border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;
+      transition: transform .3s ease, background .3s ease, opacity .4s ease;
+      box-shadow: 0 4px 15px var(--easter-egg-shadow);
+      -webkit-user-select: none; user-select: none;
+    }
+    .easter-egg:hover, .about-modal-closer:hover, .about-button:hover, .love-egg-button:hover { transform: scale(1.1); background: var(--easter-egg-hover-bg); }
+    .easter-egg:active, .easter-egg:focus { transform: scale(1.1) !important; background: var(--easter-egg-hover-bg) !important; transition: transform .1s ease, background .1s ease !important; }
+    .about-modal-closer:active, .about-modal-closer:focus { transform: scale(1.1) !important; background: var(--easter-egg-hover-bg) !important; transition: transform .1s ease, background .1s ease !important; }
+    .about-button:active, .about-button:focus { transform: scale(1.1) !important; background: var(--easter-egg-hover-bg) !important; transition: transform .1s ease, background .1s ease !important; }
+    .love-egg-button:active, .love-egg-button:focus { transform: scale(1.1) !important; background: var(--easter-egg-hover-bg) !important; transition: transform .1s ease, background .1s ease !important; }
+    .love-egg-button.is-visible:active, .love-egg-button.is-visible:focus { transform: translateX(0) scale(1.1) !important; background: var(--easter-egg-hover-bg) !important; transition: transform .1s ease, background .1s ease !important; }
+    .main-wrapper.screen-shake .card-shaker { animation: shake .5s ease-in-out; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+      20%, 40%, 60%, 80% { transform: translateX(10px); }
+    }
+    .fireworks { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
+    .firework { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: fireworkAnim 1.2s ease-out forwards; will-change: transform, opacity; }
+    @keyframes fireworkAnim {
+      0% { transform: scale(.5); opacity: 1; }
+      50% { opacity: .8; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+    .main-wrapper { display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 500px; transition: max-width .3s ease; align-items: center; position: relative; z-index: 1; margin-bottom: 100px; }
+    .card-shaker { width: 100%; transition: transform .5s cubic-bezier(.68, -.55, .27, 1.55), opacity .5s ease; will-change: transform, opacity; transform: translateZ(0); }
+    .links-shaker { position: relative; }
+    body.is-about-open .card-shaker, body.is-love-launcher-open .card-shaker, body.is-love-letter-open .card-shaker { transform: scale(.95) translateY(50px) translateZ(0); opacity: 0; pointer-events: none; }
+    .info-shaker { position: relative; }
+    .anim-on-load { opacity: 0; transform: translateY(20px); }
+    body.animations-active .anim-on-load { transition: opacity .6s cubic-bezier(.25, .46, .45, .94), transform .6s cubic-bezier(.25, .46, .45, .94); will-change: transform, opacity; }
+    .anim-on-load.play-anim { opacity: 1; transform: translateY(0); }
+    .container {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 30px; padding: 40px;
+      width: 100%; text-align: center;
+      box-shadow: 0 20px 40px var(--card-shadow), 0 0 0 1px var(--card-border-glow), inset 0 1px 0 var(--card-inset-glow);
+      position: relative; overflow: hidden;
+      transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
+      will-change: transform; transform: translateZ(0);
+      /* (づ｡◕‿‿◕｡)づ 效能優化血淚史最終章！之前在安卓版火狐上面，不管是剛打開頁面的淡入動畫，還是點擊按鈕時的彈窗效果，都感覺卡卡的，FPS 好低好低，跟那些基於 Chromium 的瀏覽器簡直是天壤之別，真的快氣哭啦〜 😢 我們經歷了一場漫長的戰鬥才發現，元兇其實是兩個超級吃效能的 CSS 屬性：`backdrop-filter` 和超大範圍的 `box-shadow`！這兩個小淘氣在別的瀏覽器上表現很好，但在安卓版火狐上卻像效能怪獸一樣，瘋狂壓榨 GPU 的計算資源，導致頁面在靜態時就已經不堪重負，一有動畫就立刻「效能雪崩」，卡得不行！😭 所以，我們的最終解決方案是一次「釜底抽薪」式的優化手術：首先，我們忍痛割愛，徹底移除了所有元素的 `backdrop-filter` 模糊效果，這是最關鍵的一步；接著，我們對所有卡片上的 `box-shadow` 進行了「減負」，大幅縮減了陰影的模糊半徑和擴散距離，在幾乎不影響美觀的前提下，極大地降低了靜態渲染成本；最後，我們還為所有半透明背景的卡片悄悄加上了 `background-clip: padding-box` 這個小魔法，它可以巧妙地減少 GPU 在繪製半透明區域時的像素混合計算，進一步提升填充率效率！經過這番三管 çi 的「極致優化」後，頁面的基礎負載終於降下來了，現在所有動畫都恢復了最初的設計，雖然在安卓版火狐上可能還是比不過 Chromium 那種極致的流暢感，但真的已經好太多太多啦！是我們努力換來的勝利果實呢！耶！🎉💖✨ */
+      background-clip: padding-box;
+    }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; border: 5px solid var(--avatar-border); box-shadow: 0 8px 20px var(--avatar-shadow); margin: 0 auto 20px; position: relative; z-index: 1; transition: transform .3s ease; will-change: transform; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+    .avatar.avatar-hit { animation: avatar-hit-anim .4s cubic-bezier(.34, 1.56, .64, 1); }
+    @keyframes avatar-hit-anim {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); box-shadow: 0 10px 40px var(--focus-outline-color); }
+    }
+    .name { font-size: 2.5em; font-weight: bold; color: var(--text-primary); margin-bottom: 10px; text-shadow: 2px 2px 4px var(--text-shadow); position: relative; z-index: 1; }
+    .subtitle { color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1em; position: relative; z-index: 1; }
+    .introduction { background: var(--section-bg); border: 1px solid var(--section-border); padding: 20px; border-radius: 20px; margin-bottom: 30px; position: relative; z-index: 1; box-shadow: 0 6px 15px var(--section-shadow); transition: transform .1s ease-out; background-clip: padding-box; }
+    .introduction p { color: var(--text-primary); font-size: 1em; line-height: 1.6; margin: 0; text-shadow: 1px 1px 2px var(--text-shadow); font-weight: 500; }
+    .achievements-section { background: var(--section-bg); border: 1px solid var(--section-border); padding: 20px; border-radius: 20px; margin-bottom: 0; position: relative; z-index: 1; background-clip: padding-box; }
+    .achievements-section h2 { color: var(--text-primary); margin-bottom: 20px; font-size: 1.5em; font-weight: bold; text-shadow: 1px 1px 2px var(--text-shadow); }
+    .achievements-list { display: grid; gap: 15px; margin-bottom: 25px; }
+    .achievement-card { background: var(--achievement-card-bg); border-radius: 20px; padding: 20px; border: 1px solid var(--achievement-card-border); box-shadow: 0 4px 15px var(--achievement-card-shadow); transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out; will-change: transform; cursor: pointer; position: relative; background-clip: padding-box; }
+    .achievement-card-a11y-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+    .achievement-card .icon { font-size: 2.2em; margin-bottom: 10px; display: block; transition: transform .3s ease; }
+    .icon.is-wobbling { animation: wobble .8s ease-in-out; }
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+    }
+    .achievement-card h3 { font-size: 1.2em; color: var(--text-primary); margin-bottom: 5px; }
+    .achievement-card p { font-size: .9em; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 10px; }
+    .stat-item { padding: 10px 0; text-align: center; }
+    .stat-item .number { font-size: 2em; font-weight: bold; color: var(--text-primary); display: block; }
+    .stat-item .label { font-size: .9em; color: var(--text-secondary); }
+    .links-column .container { position: relative; }
+    .links-column .container-section { background: var(--section-bg); border: 1px solid var(--section-border); padding: 20px; border-radius: 20px; position: relative; z-index: 1; background-clip: padding-box; }
+    .links-column .container-section:not(:last-child) { margin-bottom: 30px; }
+    .container-section h2 { color: var(--text-primary); margin-bottom: 15px; font-size: 1.3em; text-shadow: 1px 1px 2px var(--text-shadow); }
+    .contact-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .contact-item, .social-link, .support-link { text-decoration: none; color: white; font-weight: bold; transition: transform .3s ease, box-shadow .3s ease; position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, .2); will-change: transform; }
+    .contact-item, .social-link { box-shadow: 0 5px 20px var(--section-shadow); }
+    .contact-item { padding: 10px 15px; border-radius: 15px; }
+    .social-link { padding: 15px 10px; border-radius: 15px; }
+    .contact-item::before, .social-link::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .3), transparent); transition: left .5s; }
+    .contact-item:hover, .social-link:hover, .support-link:hover { box-shadow: 0 8px 25px var(--section-shadow); }
+    .contact-item:hover { transform: translateY(-2px) scale(1.05); }
+    .social-link:hover { transform: translateY(-2px) scale(1.05); }
+    .support-link:hover { transform: translateY(-2px) scale(1.1); }
+    .contact-item:hover::before, .social-link:hover::before { left: 100%; }
+    .contact-item.telegram { background: rgba(30, 58, 138, .6); }
+    .contact-item.signal { background: linear-gradient(135deg, rgba(58, 118, 240, .6), rgba(90, 80, 220, .6)); }
+    .contact-item.matrix { background: rgba(107, 114, 128, .6); }
+    .social-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; position: relative; z-index: 1; }
+    .social-link.telegram { background: linear-gradient(135deg, rgba(0, 136, 204, .6), rgba(0, 102, 153, .6)); }
+    .social-link.matrix { background: linear-gradient(135deg, rgba(0, 0, 0, .5), rgba(51, 51, 51, .5)); }
+    .social-link.mastodon { background: linear-gradient(135deg, rgba(99, 100, 255, .6), rgba(86, 58, 204, .6)); }
+    .social-link.misskey { background: linear-gradient(135deg, rgba(134, 179, 0, .6), rgba(110, 150, 0, .6)); }
+    .social-link.bilibili { background: linear-gradient(135deg, rgba(251, 114, 153, .6), rgba(233, 77, 107, .6)); }
+    .social-link.github { background: linear-gradient(135deg, rgba(51, 51, 51, .6), rgba(36, 41, 46, .6)); }
+    .social-link.gitlab { background: linear-gradient(135deg, rgba(252, 163, 38, .6), rgba(226, 67, 41, .6)); }
+    .social-link.codeberg { background: linear-gradient(135deg, rgba(135, 206, 235, .6), rgba(93, 173, 226, .6)); }
+    .support-section.container-section { background: rgba(253, 121, 168, .3); }
+    .support-link { font-size: 1.3em; display: inline-block; text-shadow: 1px 1px 2px rgba(0, 0, 0, .3); border-radius: 20px; padding: 10px 20px; }
+    .hearts { font-size: 1.5em; animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    :is(.container, .contact-item, .social-link, .support-link, .achievement-card, .introduction, .achievements-section, .container-section, .about-card, .love-launcher-card, .love-letter-card):active { transform: scale(.995); transition-duration: .1s; }
+    .heart-particle { position: fixed; pointer-events: none; z-index: 9999; animation-name: heart-burst; animation-timing-function: ease-out; animation-fill-mode: forwards; will-change: transform, opacity; }
+    @keyframes heart-burst {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx, 0), var(--ty, -100px)) scale(0); opacity: 0; }
+    }
+    .about-overlay, .love-launcher-overlay, .love-letter-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      display: flex; justify-content: center; align-items: center;
+      padding: 20px; z-index: 3000; background: var(--about-overlay-bg);
+      opacity: 0; pointer-events: none; visibility: hidden;
+      transition: opacity .5s ease, visibility .5s;
+      will-change: opacity, visibility;
+    }
+    body.is-about-open .about-overlay, body.is-love-launcher-open .love-launcher-overlay, body.is-love-letter-open .love-letter-overlay { opacity: 1; pointer-events: auto; visibility: visible; }
+    .about-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 30px; padding: 35px 30px;
+      width: 100%; max-width: 550px; max-height: 100%; overflow-y: auto; text-align: left;
+      box-shadow: 0 20px 40px var(--card-shadow); position: relative;
+      transform: scale(.9) translateY(-30px);
+      transition: transform .5s cubic-bezier(.68, -.55, .27, 1.55);
+      will-change: transform; background-clip: padding-box;
+    }
+    body.is-about-open .about-card { transform: scale(1) translateY(0); }
+    body.is-about-open .about-card:active { transform: scale(.995) translateY(0); transition: transform .1s ease-out; }
+    .about-card h2 { color: var(--text-primary); text-shadow: 1px 1px 2px var(--text-shadow); font-size: 1.6em; margin-bottom: 20px; text-align: center; }
+    .about-card p { color: var(--text-primary); font-size: 1em; line-height: 1.7; margin-bottom: 15px; font-weight: 500; }
+    .about-card a { color: var(--text-primary); font-weight: bold; text-decoration: underline; text-underline-offset: 4px; transition: color .2s; }
+    .about-card a:hover { color: var(--focus-outline-color); }
+    .about-card .mirror-sites { list-style-type: none; padding: 0; margin: 20px 0; display: grid; gap: 10px; }
+    .about-card .mirror-sites li a { display: block; padding: 10px 15px; background: var(--section-bg); border: 1px solid var(--section-border); border-radius: 12px; text-decoration: none; font-weight: 500; text-align: center; transition: background .2s, transform .2s; }
+    .about-card .mirror-sites li a:hover { transform: scale(1.03); background: var(--easter-egg-hover-bg); }
+    .love-egg-button {
+      position: absolute; top: 100%; right: 60px; margin-top: 30px; z-index: 10;
+      width: 50px; height: 50px; background: var(--easter-egg-bg); border: 1px solid var(--easter-egg-border); border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;
+      box-shadow: 0 4px 15px var(--easter-egg-shadow);
+      -webkit-user-select: none; user-select: none;
+      opacity: 0; transform: translateX(20px) scale(.8); pointer-events: none;
+      transition: transform .3s ease, background .3s ease, opacity .5s ease;
+    }
+    .love-egg-button.is-visible { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; transition: transform .5s cubic-bezier(.34, 1.56, .64, 1), opacity .5s ease, background .3s ease; }
+    .love-egg-button.is-visible:hover { transform: translateX(0) scale(1.1); }
+    .love-launcher-card, .love-letter-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 30px; padding: 30px;
+      width: 100%; max-width: 450px; text-align: center;
+      box-shadow: 0 20px 40px var(--card-shadow); position: relative;
+      transform: scale(.9) translateY(-30px);
+      transition: transform .5s cubic-bezier(.68, -.55, .27, 1.55), opacity .4s ease;
+      will-change: transform; background-clip: padding-box;
+    }
+    body.is-love-launcher-open .love-launcher-card, body.is-love-letter-open .love-letter-card { transform: scale(1) translateY(0); }
+    body.is-love-launcher-open .love-launcher-card:active, body.is-love-letter-open .love-letter-card:active { transform: scale(.995) translateY(0); transition: transform .1s ease-out; }
+    .love-launcher-card.is-hiding { transform: scale(.8); opacity: 0; }
+    .love-launcher-card h2, .love-letter-card h2 { color: var(--text-primary); text-shadow: 1px 1px 2px var(--text-shadow); font-size: 1.6em; margin-bottom: 10px; }
+    .love-launcher-card p, .love-letter-card p { color: var(--text-primary); font-size: 1em; line-height: 1.7; margin-bottom: 15px; font-weight: 500; }
+    .love-launcher-avatar {
+      width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--avatar-border); box-shadow: 0 5px 15px var(--avatar-shadow); margin: 0 auto 15px;
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+      -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-drag: none; -khtml-user-select: none; pointer-events: none;
+    }
+    .love-launcher-avatar.is-pulsing { animation: love-avatar-pulse .3s cubic-bezier(.5, 0, .5, 2); }
+    @keyframes love-avatar-pulse { 50% { transform: scale(1.05); } }
+    .confetti-particle { position: fixed; width: 10px; height: 10px; pointer-events: none; z-index: 6000; will-change: transform, opacity; animation-name: confetti-fall; animation-timing-function: linear; animation-fill-mode: forwards; }
+    @keyframes confetti-fall {
+      0% { transform: translate(var(--tx-start), var(--ty-start)) rotate(0); opacity: 1; }
+      100% { transform: translate(var(--tx-end), var(--ty-end)) rotate(720deg); opacity: 0; }
+    }
+    .love-progress-bar { width: 100%; height: 15px; background: var(--love-launcher-progress-bg); border-radius: 10px; margin: 20px 0; overflow: hidden; }
+    .love-progress-fill { width: 0%; height: 100%; background: var(--love-launcher-progress-fill); border-radius: 10px; transition: width .2s ease-out; }
+    .love-counter { font-size: 1.1em; color: var(--text-secondary); font-weight: bold; }
+    .love-launch-button { font-size: 50px; width: 100px; height: 100px; border-radius: 50%; border: none; background: transparent; cursor: pointer; margin-top: 10px; transition: transform .2s cubic-bezier(.34, 1.56, .64, 1); -webkit-user-select: none; user-select: none; }
+    .love-launch-button:hover { transform: scale(1.1); }
+    .love-launch-button:active { transform: scale(.9); transition-duration: .1s; }
+    .flying-heart { position: fixed; font-size: 24px; pointer-events: none; z-index: 5000; will-change: transform, opacity; animation-fill-mode: forwards; text-shadow: 0 0 10px rgba(255, 107, 157, .7); }
+    .love-letter-card { text-align: left; padding: 40px; max-width: 550px; }
+    .love-letter-card p { margin-bottom: 25px; }
+    .love-letter-card .signature { text-align: right; font-style: italic; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-delay: -1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; background-attachment: initial !important; scroll-behavior: auto !important; transition-delay: 0s !important; transition-duration: 0s !important; }
+      .anim-on-load { opacity: 1; transform: none; }
+      .fireworks-button { display: none; }
+      .about-card, .love-launcher-card, .love-letter-card { transform: none; transition: none; }
+      :is(.container, .contact-item, .social-link, .support-link, .achievement-card, .introduction, .achievements-section, .container-section, .easter-egg, .about-button, .about-card, .love-egg-button):active { transform: none; }
+      body.is-about-open .about-card:active { transform: none; }
+    }
+    @media (min-width: 992px) {
+      .main-wrapper { flex-direction: row; align-items: flex-start; max-width: 1100px; gap: 20px; }
+      .info-shaker { flex: 1.2 1 0; min-width: 0; }
+      .links-shaker { flex: .8 1 0; min-width: 0; }
+      .links-column .container-section { margin: 0 0 20px 0; }
+      .links-column .container-section:last-child { margin-bottom: 0; }
+      .avatar:hover { transform: scale(1.1) rotate(5deg); }
+      .about-card .mirror-sites { grid-template-columns: repeat(2, 1fr); }
+      .about-button:active { transform: scale(.995); }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 30px 20px; }
+      .name { font-size: 2em; }
+      .achievements-list { grid-template-columns: 1fr; }
+      .social-links { grid-template-columns: 1fr; }
+      .contact-methods { flex-direction: column; gap: 10px; }
+      .about-card { padding: 30px 20px; }
+      .love-launcher-card, .love-letter-card { padding: 25px 20px; }
+    }
+  </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="0d001ce5-a970-4141-889d-acef32d958eb"></script>
 </head>
 <body>
-    <a href="#main-content" class="sr-only">跳到主要內容</a>
-    <div id="floating-emojis-container" aria-hidden="true"></div>
-    <div id="particle-wrapper" aria-hidden="true">
-        <canvas id="particle-canvas"></canvas>
+  <a href="#main-content" class="sr-only">跳到主要內容</a>
+  <div id="floating-emojis-container" aria-hidden="true"></div>
+  <div id="particle-wrapper" aria-hidden="true">
+    <canvas id="particle-canvas"></canvas>
+  </div>
+  <!-- (๑´ㅂ`๑) 這個 🎉 按鈕對盲人朋友來說只是個謎之按鈕，而且散發的特效需要用眼睛才能看得見呢，所以就讓它在熒幕閱讀器中隱藏起來吧！🫣 -->
+  <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1" title="(｡◕‿◕｡) 點我有驚喜哦～"><span aria-hidden="true">🎉</span></button>
+  <button type="button" class="about-modal-closer" aria-label="關閉視窗"><span aria-hidden="true">❌</span></button>
+  <div class="fireworks" id="fireworks" aria-hidden="true"></div>
+  <main id="main-content">
+    <div class="main-wrapper">
+      <div class="card-shaker info-shaker anim-on-load">
+        <div class="info-column container">
+          <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好～ -->
+          <img src="./avatar/512x512.jpg" alt="" class="avatar anim-on-load" width="120" height="120" loading="lazy" decoding="async" aria-hidden="true" draggable="false">
+          <h1 class="name anim-on-load">fluffynyako</h1>
+          <p class="subtitle anim-on-load"><span aria-hidden="true">✨</span> 歡迎來到我的小天地 <span aria-hidden="true">✨</span></p>
+          <section class="introduction anim-on-load">
+            <p>
+              <span aria-hidden="true"><span lang="ja">ヽ(＾◡＾)ﾉ</span> 開源軟體的忠實小粉絲一枚<span aria-hidden="true">～</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕</span> 對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></span>
+              <span class="sr-only">開源軟體的忠實小粉絲一枚，對 Linux、LineageOS、OpenStreetMap、Matrix 等項目愛得不行不行的！雖然不會寫程式碼，但超喜歡為 OSM 貢獻地圖數據和幫忙翻譯軟體，是個用心用愛支持開源的小天使呢。</span>
+            </p>
+          </section>
+          <section class="achievements-section anim-on-load">
+            <h2 class="anim-on-load"><span aria-hidden="true">🏆 </span>我的小成就<span aria-hidden="true"> ✨</span></h2>
+            <div class="achievements-list">
+              <!-- (｡>﹏<｡) 這是一段充滿血淚的無障礙優化筆記！為了讓卡片能被完整朗讀、有大大的觸控區域，又不會念出「輕觸兩下即可啟用」的討厭提示，我們可是試了好久呢！😣 失敗方案記錄：1. 只用 `role="button"` 會被當成真按鈕並在最後念出「按鈕，輕觸兩下即可啟用」；2. 只用 `tabindex="0"` 在 `div` 上還是會被提示啟用；3. 用 `role="group"` 也沒能壓制住 `tabindex` 的啟用提示…… 😓 最終方案：我們用了一個隱形的 `a11y-wrapper` (span)，蓋在整個卡片上，用 `tabindex="0"` 接收焦點，用 `aria-label` 提供完整乾淨的朗讀內容，再用 `pointer-events: none;` 讓它可以正常複製！而卡片裡原本的文字則用 `aria-hidden="true"` 藏起來，這樣就完美解決所有問題啦！耶！✌️ -->
+              <div class="achievement-card anim-on-load">
+                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="OSM 貢獻者，努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點。"></span>
+                <span class="icon" aria-hidden="true">🗺️</span>
+                <h3 aria-hidden="true">OSM 貢獻者<span class="sr-only">，</span></h3>
+                <p aria-hidden="true">努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點<span aria-hidden="true">～</span><span class="sr-only">。</span></p>
+              </div>
+              <div class="achievement-card anim-on-load">
+                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="翻譯志工，超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！"></span>
+                <span class="icon" aria-hidden="true">🌐</span>
+                <h3 aria-hidden="true">翻譯志工<span class="sr-only">，</span></h3>
+                <p aria-hidden="true">超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p>
+              </div>
+              <div class="achievement-card anim-on-load">
+                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="開源愛好者，不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！"></span>
+                <span class="icon" aria-hidden="true">💻</span>
+                <h3 aria-hidden="true">開源愛好者<span class="sr-only">，</span></h3>
+                <p aria-hidden="true">不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p>
+              </div>
+            </div>
+            <dl class="stats-grid">
+              <div class="stat-item">
+                <dd class="number anim-on-load" aria-hidden="true">1400+</dd>
+                <dt class="label" aria-hidden="true">OSM 編輯次數</dt>
+                <span class="sr-only">OSM 編輯次數：超過一千四百次。</span>
+              </div>
+              <div class="stat-item">
+                <dd class="number anim-on-load" aria-hidden="true">2+</dd>
+                <dt class="label" aria-hidden="true">開源軟體使用年數</dt>
+                <span class="sr-only">開源軟體使用年數：超過兩年。</span>
+              </div>
+            </dl>
+          </section>
+        </div>
+      </div>
+      <div class="card-shaker links-shaker anim-on-load">
+        <div class="links-column container">
+          <section class="contact-info container-section anim-on-load">
+            <h2 class="anim-on-load"><span aria-hidden="true">📱 </span>聯絡方式<span aria-hidden="true"> 💬</span></h2>
+            <div class="contact-methods">
+              <a href="https://t.me/fluffynyako" class="contact-item telegram anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako" title="@fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI" class="contact-item signal anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Signal 聯絡 fluffynyako" title="@fluffynyako.520">Signal<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" class="contact-item matrix anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako" title="@nachonekonya:transgirl.cafe">Matrix<span class="sr-only">（另開新分頁）</span></a>
+            </div>
+          </section>
+          <section class="social-section container-section anim-on-load">
+            <h2 class="anim-on-load"><span aria-hidden="true">🌐 </span>其它平臺<span aria-hidden="true"> 🔗</span></h2>
+            <div class="social-links">
+              <a href="https://mastodon.social/@fluffynyako" class="social-link mastodon anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako" title="@fluffynyako@mastodon.social">Mastodon<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://transgirl.cafe/@nachonekonya" class="social-link misskey anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Misskey 上追蹤 fluffynyako" title="@nachonekonya@transgirl.cafe">Misskey<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://space.bilibili.com/678665731" class="social-link bilibili anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間" title="UID:678665731">Bilibili<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://github.com/fluffynyako" class="social-link github anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料" title="fluffynyako">GitHub<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://gitlab.com/fluffynyako" class="social-link gitlab anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitLab 上查看 fluffynyako 的個人資料" title="fluffynyako">GitLab<span class="sr-only">（另開新分頁）</span></a>
+              <a href="https://codeberg.org/fluffynyako" class="social-link codeberg anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料" title="fluffynyako">Codeberg<span class="sr-only">（另開新分頁）</span></a>
+            </div>
+          </section>
+          <section class="support-section container-section anim-on-load">
+            <a href="https://ko-fi.com/fluffynyako" class="support-link anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Ko-fi 上支持 fluffynyako"><span class="hearts" aria-hidden="true">💖</span> 支持我 <span class="hearts" aria-hidden="true">💖</span><span class="sr-only">（另開新分頁）</span></a>
+          </section>
+        </div>
+        <button type="button" class="love-egg-button" aria-label="觸發愛心彩蛋" aria-hidden="true" tabindex="-1" title="💖 發射愛心 💖"><span aria-hidden="true">💕</span></button>
+        <button type="button" class="about-button anim-on-load" aria-label="關於本站" aria-haspopup="dialog" title="✨ 關於這個小天地 ✨"><span aria-hidden="true">ℹ️</span></button>
+      </div>
     </div>
-    <!-- (๑´ㅂ`๑) 這個 🎉 按鈕對盲人朋友來說只是個謎之按鈕，而且散發的特效需要用眼睛才能看得見呢，所以就讓它在熒幕閱讀器中隱藏起來吧！🫣 -->
-    <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1" title="(｡◕‿◕｡) 點我有驚喜哦～"><span aria-hidden="true">🎉</span></button>
-    <button type="button" class="about-modal-closer" aria-label="關閉關於視窗"><span aria-hidden="true">❌</span></button>
-    <div class="fireworks" id="fireworks" aria-hidden="true"></div>
-    <main id="main-content">
-        <div class="main-wrapper">
-            <div class="card-shaker info-shaker anim-on-load">
-                <div class="info-column container">
-                    <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好～ -->
-                    <img src="./avatar/512x512.jpg" alt="" class="avatar anim-on-load" width="120" height="120" loading="lazy" decoding="async" aria-hidden="true">
-                    <h1 class="name anim-on-load">fluffynyako</h1>
-                    <p class="subtitle anim-on-load"><span aria-hidden="true">✨</span> 歡迎來到我的小天地 <span aria-hidden="true">✨</span></p>
-                    <section class="introduction anim-on-load">
-                        <p>
-                            <span aria-hidden="true"><span lang="ja">ヽ(＾◡＾)ﾉ</span> 開源軟體的忠實小粉絲一枚<span aria-hidden="true">～</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕</span> 對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></span>
-                            <span class="sr-only">開源軟體的忠實小粉絲一枚，對 Linux、LineageOS、OpenStreetMap、Matrix 等項目愛得不行不行的！雖然不會寫程式碼，但超喜歡為 OSM 貢獻地圖數據和幫忙翻譯軟體，是個用心用愛支持開源的小天使呢。</span>
-                        </p>
-                    </section>
-                    <section class="achievements-section anim-on-load">
-                        <h2 class="anim-on-load"><span aria-hidden="true">🏆 </span>我的小成就<span aria-hidden="true"> ✨</span></h2>
-                        <div class="achievements-list">
-                            <!-- (｡>﹏<｡) 這是一段充滿血淚的無障礙優化筆記！為了讓卡片能被完整朗讀、有大大的觸控區域，又不會念出「輕觸兩下即可啟用」的討厭提示，我們可是試了好久呢！😣 失敗方案記錄：1. 只用 `role="button"` 會被當成真按鈕並在最後念出「按鈕，輕觸兩下即可啟用」；2. 只用 `tabindex="0"` 在 `div` 上還是會被提示啟用；3. 用 `role="group"` 也沒能壓制住 `tabindex` 的啟用提示…… 😓 最終方案：我們用了一個隱形的 `a11y-wrapper` (span)，蓋在整個卡片上，用 `tabindex="0"` 接收焦點，用 `aria-label` 提供完整乾淨的朗讀內容，再用 `pointer-events: none;` 讓它可以正常複製！而卡片裡原本的文字則用 `aria-hidden="true"` 藏起來，這樣就完美解決所有問題啦！耶！✌️ -->
-                            <div class="achievement-card anim-on-load">
-                                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="OSM 貢獻者，努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點。"></span>
-                                <span class="icon" aria-hidden="true">🗺️</span>
-                                <h3 aria-hidden="true">OSM 貢獻者<span class="sr-only">，</span></h3>
-                                <p aria-hidden="true">努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點<span aria-hidden="true">～</span><span class="sr-only">。</span></p>
-                            </div>
-                            <div class="achievement-card anim-on-load">
-                                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="翻譯志工，超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！"></span>
-                                <span class="icon" aria-hidden="true">🌐</span>
-                                <h3 aria-hidden="true">翻譯志工<span class="sr-only">，</span></h3>
-                                <p aria-hidden="true">超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</p>
-                            </div>
-                            <div class="achievement-card anim-on-load">
-                                <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="開源愛好者，不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！"></span>
-                                <span class="icon" aria-hidden="true">💻</span>
-                                <h3 aria-hidden="true">開源愛好者<span class="sr-only">，</span></h3>
-                                <p aria-hidden="true">不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</p>
-                            </div>
-                        </div>
-                        <dl class="stats-grid">
-                            <div class="stat-item">
-                                <dd class="number anim-on-load" aria-hidden="true">1400+</dd>
-                                <dt class="label" aria-hidden="true">OSM 編輯次數</dt>
-                                <span class="sr-only">OSM 編輯次數：超過一千四百次。</span>
-                            </div>
-                            <div class="stat-item">
-                                <dd class="number anim-on-load" aria-hidden="true">2+</dd>
-                                <dt class="label" aria-hidden="true">開源軟體使用年數</dt>
-                                <span class="sr-only">開源軟體使用年數：超過兩年。</span>
-                            </div>
-                        </dl>
-                    </section>
-                </div>
-            </div>
-            <div class="card-shaker links-shaker anim-on-load">
-                <div class="links-column container">
-                    <section class="contact-info container-section anim-on-load">
-                        <h2 class="anim-on-load"><span aria-hidden="true">📱 </span>聯絡方式<span aria-hidden="true"> 💬</span></h2>
-                        <div class="contact-methods">
-                            <a href="https://t.me/fluffynyako" class="contact-item telegram anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako" title="@fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI" class="contact-item signal anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Signal 聯絡 fluffynyako" title="@fluffynyako.520">Signal<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" class="contact-item matrix anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako" title="@nachonekonya:transgirl.cafe">Matrix<span class="sr-only">（另開新分頁）</span></a>
-                        </div>
-                    </section>
-                    <section class="social-section container-section anim-on-load">
-                        <h2 class="anim-on-load"><span aria-hidden="true">🌐 </span>其它平臺<span aria-hidden="true"> 🔗</span></h2>
-                        <div class="social-links">
-                            <a href="https://mastodon.social/@fluffynyako" class="social-link mastodon anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako" title="@fluffynyako@mastodon.social">Mastodon<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://transgirl.cafe/@nachonekonya" class="social-link misskey anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Misskey 上追蹤 fluffynyako" title="@nachonekonya@transgirl.cafe">Misskey<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://space.bilibili.com/678665731" class="social-link bilibili anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間" title="UID:678665731">Bilibili<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://github.com/fluffynyako" class="social-link github anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料" title="fluffynyako">GitHub<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://gitlab.com/fluffynyako" class="social-link gitlab anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 GitLab 上查看 fluffynyako 的個人資料" title="fluffynyako">GitLab<span class="sr-only">（另開新分頁）</span></a>
-                            <a href="https://codeberg.org/fluffynyako" class="social-link codeberg anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料" title="fluffynyako">Codeberg<span class="sr-only">（另開新分頁）</span></a>
-                        </div>
-                    </section>
-                    <section class="support-section container-section anim-on-load">
-                        <a href="https://ko-fi.com/fluffynyako" class="support-link anim-on-load" target="_blank" rel="noopener noreferrer" aria-label="在 Ko-fi 上支持 fluffynyako"><span class="hearts" aria-hidden="true">💖</span> 支持我 <span class="hearts" aria-hidden="true">💖</span><span class="sr-only">（另開新分頁）</span></a>
-                    </section>
-                </div>
-                <button type="button" class="about-button anim-on-load" aria-label="關於本站" aria-haspopup="dialog" title="✨ 關於這個小天地 ✨"><span aria-hidden="true">ℹ️</span></button>
-            </div>
+    <div class="about-overlay" aria-modal="true" role="dialog" aria-labelledby="about-heading">
+      <div class="about-card">
+        <h2 id="about-heading"><span aria-hidden="true">✨ </span>關於這個小天地<span aria-hidden="true"> ✨</span></h2>
+        <div id="about-intro-sr" class="sr-only">哈囉！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽。</div>
+        <p aria-labelledby="about-intro-sr"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉～！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽～<span aria-hidden="true"> 💕</span></p>
+        <p><span aria-hidden="true">🌐😊 </span>為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
+        <ul class="mirror-sites">
+          <li><a href="https://fluffynyako.is-a.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 is 橫槓 a 點 dev">fluffynyako.is-a.dev</a></li>
+          <li><a href="https://fluffynyako.github.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 github 點 io">fluffynyako.github.io</a></li>
+          <li><a href="https://fluffynyako.gitlab.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 gitlab 點 io">fluffynyako.gitlab.io</a></li>
+          <li><a href="https://fluffynyako.pages.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 pages 點 dev">fluffynyako.pages.dev</a></li>
+          <li><a href="https://fluffynyako.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 netlify 點 app">fluffynyako.netlify.app</a></li>
+          <li><a href="https://fluffynyako.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 onrender 點 com">fluffynyako.onrender.com</a></li>
+          <li><a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 vercel 點 app">fluffynyako.vercel.app</a></li>
+        </ul>
+        <div id="about-privacy-sr" class="sr-only">哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 Umami 和 GoatCounter 來統計網站的訪問情況呢。它們都是超級超級隱私友好的小工具喔！完全完全不會追蹤你的個人資訊，請放心啦。如果有任何小疑問的話，歡迎去看看 Umami 的隱私政策或 GoatCounter 的隱私政策查看詳細資訊哦！謝謝你的理解呢。</div>
+        <p aria-labelledby="about-privacy-sr"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢～ <span aria-hidden="true">✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦～ <span aria-hidden="true">😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢～ <span aria-hidden="true">😌</span></p>
+        <div id="about-update-sr" class="sr-only">本網站於二〇二五年九月七日十八點零三分，時區為世界協調時間加兩小時，完成了最新修改喔。</div>
+        <p aria-labelledby="about-update-sr"><span aria-hidden="true">(*˘︶˘*).｡.:*♡ </span>本網站於 2025 年 09 月 07 日 18:03 (UTC+2) 完成了最新修改喔<span aria-hidden="true">〜</span></p>
+      </div>
+    </div>
+    <div class="love-launcher-overlay" aria-hidden="true">
+      <div class="love-launcher-card">
+        <h2><span aria-hidden="true">💖 </span>愛心發射器<span aria-hidden="true"> 💖</span></h2>
+        <img src="./avatar/512x512.jpg" alt="" class="love-launcher-avatar" draggable="false" aria-hidden="true">
+        <p>輕點下方的愛心，為我的小天地注入能量吧！看看集滿 520 顆會發生什麼奇妙的事呢？(｡･ω･｡)ﾉ♡</p>
+        <div class="love-progress-bar">
+          <div class="love-progress-fill"></div>
         </div>
-        <div class="about-overlay" aria-modal="true" role="dialog" aria-labelledby="about-heading">
-            <div class="about-card">
-                <h2 id="about-heading"><span aria-hidden="true">✨ </span>關於這個小天地<span aria-hidden="true"> ✨</span></h2>
-                <div id="about-intro-sr" class="sr-only">哈囉！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽。</div>
-                <p aria-labelledby="about-intro-sr"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉～！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽～<span aria-hidden="true"> 💕</span></p>
-                <p><span aria-hidden="true">🌐😊 </span>為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
-                <ul class="mirror-sites">
-                    <li><a href="https://fluffynyako.github.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 github 點 io">fluffynyako.github.io</a></li>
-                    <li><a href="https://fluffynyako.gitlab.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 gitlab 點 io">fluffynyako.gitlab.io</a></li>
-                    <li><a href="https://fluffynyako.pages.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 pages 點 dev">fluffynyako.pages.dev</a></li>
-                    <li><a href="https://fluffynyako.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 netlify 點 app">fluffynyako.netlify.app</a></li>
-                    <li><a href="https://fluffynyako.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 onrender 點 com">fluffynyako.onrender.com</a></li>
-                    <li><a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 vercel 點 app">fluffynyako.vercel.app</a></li>
-                </ul>
-                <div id="about-privacy-sr" class="sr-only">哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 Umami 和 GoatCounter 來統計網站的訪問情況呢。它們都是超級超級隱私友好的小工具喔！完全完全不會追蹤你的個人資訊，請放心啦。如果有任何小疑問的話，歡迎去看看 Umami 的隱私政策或 GoatCounter 的隱私政策查看詳細資訊哦！謝謝你的理解呢。</div>
-                <p aria-labelledby="about-privacy-sr"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢～ <span aria-hidden="true">✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦～ <span aria-hidden="true">😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢～ <span aria-hidden="true">😌</span></p>
-                <div id="about-update-sr" class="sr-only">本網站於二〇二五年八月一日十五點二十七分，時區為世界協調時間加兩小時，完成了最新修改喔。</div>
-                <p aria-labelledby="about-update-sr"><span aria-hidden="true">(*˘︶˘*).｡.:*♡ </span>本網站於 2025 年 08 月 01 日 15:27 (UTC+2) 完成了最新修改喔<span aria-hidden="true">〜</span></p>
-            </div>
-        </div>
-    </main>
-    <script>
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let isFireworksPlaying = false;
-        
-        function triggerFireworks() {
-            if (prefersReducedMotion || document.body.classList.contains('is-about-open')) return;
+        <div class="love-counter">0 / 520</div>
+        <button type="button" class="love-launch-button" aria-label="發射愛心"><span aria-hidden="true">💖</span></button>
+      </div>
+    </div>
+    <div class="love-letter-overlay" aria-hidden="true">
+      <div class="love-letter-card">
+        <h2><span aria-hidden="true">💌 </span>一封給你的秘密情書<span aria-hidden="true"> 💌</span></h2>
+        <p>哇！你真的做到了！( OωO)</p>
+        <p>竟然真的送來了 520 顆滿滿的愛心，這份耐心與溫柔，真的深深地溫暖了我。</p>
+        <p>在這個由程式碼和像素構成的小小世界裡，能與你以這樣的方式相遇，感覺就像奇蹟一樣。謝謝你願意花時間探索這個我用心打造的小天地，也謝謝你送來的這份獨一無二的禮物。</p>
+        <p>願這份小小的喜悅，也能點亮你今天的生活。</p>
+        <p class="signature">永遠愛你的，<br>fluffynyako 💖</p>
+      </div>
+    </div>
+  </main>
+  <script>
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let isFireworksPlaying = !1;
 
-            const wrapper = document.querySelector('.main-wrapper');
-            if (!wrapper.classList.contains('screen-shake')) {
-                wrapper.classList.add('screen-shake');
-                if ('vibrate' in navigator) navigator.vibrate(500);
-                setTimeout(() => wrapper.classList.remove('screen-shake'), 500);
-            }
+    function triggerFireworks() {
+      if (prefersReducedMotion || document.body.classList.contains("is-about-open")) return;
+      const e = document.querySelector(".main-wrapper");
+      if (!e.classList.contains("screen-shake")) {
+        e.classList.add("screen-shake");
+        "vibrate" in navigator && navigator.vibrate(500);
+        setTimeout(() => { e.classList.remove("screen-shake") }, 500)
+      }
+      if (isFireworksPlaying) return;
+      isFireworksPlaying = !0;
+      const t = document.getElementById("fireworks"),
+        o = ["#55cdfc", "#f7a8b8", "#ffffff", "#ff6b9d", "#ffd93d", "#6bcf7f"],
+        n = 100, s = 10, i = 1200;
+      for (let a = 0; a < n; a++) setTimeout(() => {
+        const e = document.createElement("div");
+        e.className = "firework", e.style.left = `${Math.random()*100}vw`, e.style.top = `${Math.random()*100}vh`;
+        const n = o[Math.floor(Math.random() * o.length)];
+        e.style.backgroundColor = n, e.style.boxShadow = `0 0 10px ${n}`, t.appendChild(e), setTimeout(() => e.remove(), i)
+      }, a * s);
+      setTimeout(() => { isFireworksPlaying = !1 }, (n - 1) * s + i)
+    }
+    window.addEventListener("load", () => { window.scrollTo(0, 0) });
 
-            if (isFireworksPlaying) return;
-            isFireworksPlaying = true;
-            const fireworksContainer = document.getElementById('fireworks');
-            const colors = ['#55cdfc', '#f7a8b8', '#ffffff', '#ff6b9d', '#ffd93d', '#6bcf7f'];
-            const particleCount = 100, creationInterval = 10, particleLifetime = 1200;
-
-            for (let i = 0; i < particleCount; i++) {
-                setTimeout(() => {
-                    const firework = document.createElement('div');
-                    firework.className = 'firework';
-                    firework.style.left = `${Math.random() * 100}vw`;
-                    firework.style.top = `${Math.random() * 100}vh`;
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    firework.style.backgroundColor = color;
-                    firework.style.boxShadow = `0 0 10px ${color}`;
-                    fireworksContainer.appendChild(firework);
-                    setTimeout(() => firework.remove(), particleLifetime);
-                }, i * creationInterval);
-            }
-            setTimeout(() => { isFireworksPlaying = false; }, (particleCount - 1) * creationInterval + particleLifetime);
+    function initPageAnimations() {
+      function e(t) {
+        const o = t.textContent,
+          n = parseInt(o.replace(/[^0-9]/g, ""), 10),
+          s = o.replace(/[0-9]/g, "");
+        if (isNaN(n)) return;
+        if (prefersReducedMotion) { t.textContent = n + s; return }
+        let i = 0;
+        const a = 2e3;
+        let l = null;
+        function c(o) {
+          l || (l = o);
+          const r = Math.min((o - l) / a, 1),
+            d = Math.floor(r * (1 - Math.pow(1 - r, 5)) * n);
+          t.textContent = d + s, r < 1 ? requestAnimationFrame(c) : t.textContent = n + s
         }
-
-        window.addEventListener('load', () => {
-            window.scrollTo(0, 0);
+        requestAnimationFrame(c)
+      }
+      const t = new IntersectionObserver((t, o) => {
+        t.forEach(t => {
+          if (t.isIntersecting) { t.target.classList.add("play-anim"), t.target.classList.contains("number") && e(t.target), o.unobserve(t.target) }
+        })
+      }, { threshold: .1 });
+      document.querySelectorAll(".anim-on-load").forEach(e => t.observe(e));
+      const o = document.querySelector(".support-link");
+      if (o) {
+        const e = ["💝", "💖", "💗", "💓", "💞", "💕"],
+          t = t => {
+            if (prefersReducedMotion) return;
+            const n = o.getBoundingClientRect(),
+              s = t.clientX || n.left + n.width / 2,
+              i = t.clientY || n.top + n.height / 2;
+            for (let a = 0; a < 15; a++) {
+              const t = document.createElement("span");
+              t.className = "heart-particle", t.innerHTML = e[Math.floor(Math.random() * e.length)], t.style.left = s + "px", t.style.top = i + "px", t.style.fontSize = `${Math.random()*30+20}px`;
+              const o = Math.random() * 600 + 1200;
+              t.style.animationDuration = `${o}ms`;
+              const n = Math.random() * Math.PI * 2,
+                l = Math.random() * 200 + 70,
+                c = Math.cos(n) * l,
+                r = Math.sin(n) * l - l * .5 - 50;
+              t.style.setProperty("--tx", `${c}px`), t.style.setProperty("--ty", `${r}px`), document.body.appendChild(t), setTimeout(() => t.remove(), o)
+            }
+          };
+        o.addEventListener("mouseenter", t), o.addEventListener("touchstart", e => { t(e.touches[0]) })
+      }
+      function n(e) {
+        const t = e.querySelector(".icon");
+        t && !t.classList.contains("is-wobbling") && (t.classList.add("is-wobbling"), t.addEventListener("animationend", () => { t.classList.remove("is-wobbling") }, { once: !0 }))
+      }
+      document.querySelectorAll(".achievement-card").forEach(e => {
+        e.addEventListener("click", () => n(e));
+        const t = e.querySelector(".achievement-card-a11y-wrapper");
+        t && t.addEventListener("keydown", t => {
+          ("Enter" === t.key || " " === t.key) && (t.preventDefault(), n(e))
+        })
+      });
+      const s = document.querySelector(".about-overlay"),
+        i = document.querySelector(".about-button"),
+        a = document.querySelector(".about-modal-closer"),
+        l = document.querySelector(".about-card"),
+        c = document.body;
+      let r;
+      const d = "a[href], button:not([disabled]), [tabindex]:not([tabindex=\"-1\"])";
+      function u() { l && (l.scrollTop = 0), r = document.activeElement, c.classList.add("is-about-open"), i.setAttribute("aria-expanded", "true"), a.focus(), s.addEventListener("keydown", p), document.addEventListener("keydown", m) }
+      function f() { c.classList.remove("is-about-open"), i.setAttribute("aria-expanded", "false"), r && r.focus(), s.removeEventListener("keydown", p), document.removeEventListener("keydown", m) }
+      function p(e) {
+        if ("Tab" !== e.key) return;
+        const t = Array.from(s.querySelectorAll(d)),
+          o = t[0],
+          n = t[t.length - 1];
+        e.shiftKey ? document.activeElement === o && (e.preventDefault(), n.focus()) : document.activeElement === n && (e.preventDefault(), o.focus())
+      }
+      function m(e) { "Escape" === e.key && c.classList.contains("is-about-open") && f() }
+      i && a && s && i.addEventListener("click", u);
+      const h = document.querySelector(".love-egg-button"),
+        g = document.querySelector(".avatar");
+      let v = !1, y = 0, b = null;
+      if (g && h && !prefersReducedMotion) {
+        g.addEventListener("contextmenu", e => e.preventDefault()), g.addEventListener("click", () => {
+          v || (y++, clearTimeout(b), b = setTimeout(() => { y = 0 }, 3e3), y >= 20 && (v = !0, h.classList.add("is-visible"), clearTimeout(b)))
+        })
+      }
+      const w = document.querySelector(".love-launcher-overlay"),
+        L = document.querySelector(".love-letter-overlay"),
+        E = document.querySelector(".love-launcher-card"),
+        k = document.querySelector(".love-launcher-avatar"),
+        q = document.querySelector(".love-launch-button"),
+        C = document.querySelector(".love-counter"),
+        S = document.querySelector(".love-progress-fill"),
+        _ = ["💝", "💖", "💗", "💓", "💞", "💕"],
+        O = 520;
+      let x = 0, M = !1;
+      function A() { x = 0, k.classList.remove("is-pulsing"), C.textContent = `${x} / ${O}`, S.style.width = "0%" }
+      function B() { M ? j() : (A(), E.classList.remove("is-hiding"), c.classList.add("is-love-launcher-open"), document.addEventListener("keydown", D)) }
+      function P() { M || A(), c.classList.remove("is-love-launcher-open"), document.removeEventListener("keydown", D) }
+      function j() { c.classList.add("is-love-letter-open"), document.addEventListener("keydown", D) }
+      function T() { c.classList.remove("is-love-letter-open"), document.removeEventListener("keydown", D) }
+      function D(e) { "Escape" === e.key && (c.classList.contains("is-love-launcher-open") && P(), c.classList.contains("is-love-letter-open") && T()) }
+      function I(e, t, o, n) { return (1 - e) * (1 - e) * t + 2 * (1 - e) * e * o + e * e * n }
+      k && k.addEventListener("animationend", () => { k.classList.remove("is-pulsing") }), h && h.addEventListener("click", B), a && a.addEventListener("click", () => { c.classList.contains("is-about-open") && f(), c.classList.contains("is-love-launcher-open") && P(), c.classList.contains("is-love-letter-open") && T() });
+      if (q) {
+        q.addEventListener("click", () => {
+          if (x >= O) return;
+          x++, C.textContent = `${x} / ${O}`, S.style.width = `${x/O*100}%`,
+            function() {
+              const e = q.getBoundingClientRect(), t = k.getBoundingClientRect(), o = e.left + e.width / 2, n = e.top + e.height / 2, s = t.left + t.width / 2, i = t.top + t.height / 2, a = document.createElement("span");
+              a.className = "flying-heart", a.textContent = _[Math.floor(Math.random() * _.length)], a.style.left = "0px", a.style.top = "0px", a.style.transform = `translate(${o}px, ${n}px)`;
+              const l = s - o, c = i - n, r = Math.random() < .5 ? -1 : 1, d = (Math.random() * .4 + .3) * Math.sqrt(l * l + c * c), u = -c, f = l, p = Math.sqrt(u * u + f * f), m = u / p, h = f / p, g = o + l / 2 + m * d * r, v = n + c / 2 + h * d * r, y = `fly-heart-${Date.now()}`;
+              let b = `@keyframes ${y} {`;
+              for (let e = 0; e <= 100; e += 5) {
+                const t = e / 100, o = I(t, s, g, o), n = I(t, i, v, n), a = 1.5 - t, l = 1 - t * .2;
+                b += `${e}% { transform: translate(${o}px, ${n}px) scale(${a}); opacity: ${l}; }`
+              }
+              b += "}";
+              const w = document.createElement("style");
+              w.innerText = b, document.head.appendChild(w), a.style.animationName = y, a.style.animationDuration = `${Math.random()*.3+.8}s`, a.style.animationTimingFunction = "ease-out", document.body.appendChild(a), a.addEventListener("animationend", () => { a.remove(), w.remove(), k.classList.contains("is-pulsing") || k.classList.add("is-pulsing") })
+            }(), x === O && function() {
+              M = !0;
+              const e = E.getBoundingClientRect(), t = e.left + e.width / 2, o = e.top + e.height / 2, n = ["#ff6b9d", "#f7a8b8", "#ffd93d", "#bde9f8", "#ffffff"];
+              for (let s = 0; s < 60; s++) {
+                const e = document.createElement("div");
+                e.className = "confetti-particle", e.style.background = n[Math.floor(Math.random() * n.length)], e.style.setProperty("--tx-start", `${t}px`), e.style.setProperty("--ty-start", `${o}px`);
+                const i = Math.random() * Math.PI * 2, a = Math.random() * 200 + 50, l = t + Math.cos(i) * a, c = o + Math.sin(i) * a + 100;
+                e.style.setProperty("--tx-end", `${l}px`), e.style.setProperty("--ty-end", `${c}px`), e.style.animationDuration = `${Math.random()*1+1.5}s`, document.body.appendChild(e), setTimeout(() => e.remove(), 2500)
+              }
+              E.classList.add("is-hiding"), setTimeout(() => { P(), j() }, 600)
+            }()
+        })
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      let e = !1;
+      function t() {
+        if (e) return;
+        e = !0, requestAnimationFrame(() => {
+          document.body.classList.add("animations-active"), requestAnimationFrame(() => { initPageAnimations() })
+        })
+      }
+      if (!document.documentElement.classList.contains("fonts-loading")) t();
+      else {
+        const o = new MutationObserver((n, s) => {
+          for (const i of n) "attributes" === i.type && "class" === i.attributeName && !i.target.classList.contains("fonts-loading") && (t(), s.disconnect());
         });
-
-        function initPageAnimations() {
-            function animateCounter(el) {
-                const text = el.textContent;
-                const target = parseInt(text.replace(/[^0-9]/g, ''), 10);
-                const suffix = text.replace(/[0-9]/g, '');
-                if (isNaN(target)) return;
-                
-                if (prefersReducedMotion) {
-                    el.textContent = target + suffix;
-                    return;
-                }
-
-                let start = 0;
-                const duration = 2000;
-                let startTime = null;
-
-                function step(currentTime) {
-                    if (!startTime) startTime = currentTime;
-                    const progress = Math.min((currentTime - startTime) / duration, 1);
-                    const currentNum = Math.floor(progress * (1 - Math.pow(1 - progress, 5)) * target);
-                    el.textContent = currentNum + suffix;
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        el.textContent = target + suffix;
-                    }
-                }
-                requestAnimationFrame(step);
-            }
-
-            const animationObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('play-anim');
-                        if (entry.target.classList.contains('number')) {
-                            animateCounter(entry.target);
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.anim-on-load').forEach(el => animationObserver.observe(el));
-
-            const supportLink = document.querySelector('.support-link');
-            if(supportLink) {
-                const hearts = ['💝', '💖', '💗', '💓', '💞', '💕'];
-                const createHeartBurst = (e) => {
-                    if (prefersReducedMotion) return;
-
-                    const rect = supportLink.getBoundingClientRect();
-                    const x = e.clientX || rect.left + rect.width / 2;
-                    const y = e.clientY || rect.top + rect.height / 2;
-
-                    for (let i = 0; i < 15; i++) {
-                        const heart = document.createElement('span');
-                        heart.className = 'heart-particle';
-                        heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-                        heart.style.left = x + 'px';
-                        heart.style.top = y + 'px';
-                        heart.style.fontSize = `${Math.random() * 30 + 20}px`;
-
-                        const duration = Math.random() * 600 + 1200;
-                        heart.style.animationDuration = `${duration}ms`;
-
-                        const angle = Math.random() * Math.PI * 2;
-                        const radius = Math.random() * 200 + 70;
-                        const tx = Math.cos(angle) * radius;
-                        const ty = Math.sin(angle) * radius - radius * 0.5 - 50;
-                        heart.style.setProperty('--tx', `${tx}px`);
-                        heart.style.setProperty('--ty', `${ty}px`);
-
-                        document.body.appendChild(heart);
-                        setTimeout(() => heart.remove(), duration);
-                    }
-                };
-                supportLink.addEventListener('mouseenter', createHeartBurst);
-                supportLink.addEventListener('touchstart', (e) => {
-                    createHeartBurst(e.touches[0]);
-                });
-            }
-
-            function triggerCardAnimation(card) {
-                const icon = card.querySelector('.icon');
-                if (icon && !icon.classList.contains('is-wobbling')) {
-                    icon.classList.add('is-wobbling');
-                    icon.addEventListener('animationend', () => {
-                        icon.classList.remove('is-wobbling');
-                    }, { once: true });
-                }
-            }
-
-            document.querySelectorAll('.achievement-card').forEach(card => {
-                card.addEventListener('click', () => triggerCardAnimation(card));
-                
-                const a11yWrapper = card.querySelector('.achievement-card-a11y-wrapper');
-                if (a11yWrapper) {
-                    a11yWrapper.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            triggerCardAnimation(card);
-                        }
-                    });
-                }
-            });
-
-            const aboutOverlay = document.querySelector('.about-overlay');
-            const aboutButton = document.querySelector('.about-button');
-            const aboutCloseButton = document.querySelector('.about-modal-closer');
-            const aboutCard = document.querySelector('.about-card');
-            const body = document.body;
-            let lastActiveElement;
-
-            const focusableElementsSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-
-            function openAboutModal() {
-                if (aboutCard) {
-                    aboutCard.scrollTop = 0;
-                }
-                lastActiveElement = document.activeElement;
-                body.classList.add('is-about-open');
-                aboutButton.setAttribute('aria-expanded', 'true');
-                aboutCloseButton.focus();
-                
-                aboutOverlay.addEventListener('keydown', trapFocus);
-                document.addEventListener('keydown', handleEsc);
-            }
-
-            function closeAboutModal() {
-                body.classList.remove('is-about-open');
-                aboutButton.setAttribute('aria-expanded', 'false');
-                if (lastActiveElement) {
-                    lastActiveElement.focus();
-                }
-                
-                aboutOverlay.removeEventListener('keydown', trapFocus);
-                document.removeEventListener('keydown', handleEsc);
-            }
-
-            function trapFocus(e) {
-                if (e.key !== 'Tab') return;
-
-                const focusableElements = Array.from(aboutOverlay.querySelectorAll(focusableElementsSelector));
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                if (e.shiftKey) { 
-                    if (document.activeElement === firstElement) {
-                        e.preventDefault();
-                        lastElement.focus();
-                    }
-                } else { 
-                    if (document.activeElement === lastElement) {
-                        e.preventDefault();
-                        firstElement.focus();
-                    }
-                }
-            }
-            
-            function handleEsc(e) {
-                if (e.key === 'Escape') {
-                    closeAboutModal();
-                }
-            }
-
-            if (aboutButton && aboutCloseButton && aboutOverlay) {
-                aboutButton.addEventListener('click', openAboutModal);
-                aboutCloseButton.addEventListener('click', closeAboutModal);
-            }
+        o.observe(document.documentElement, { attributes: !0 })
+      }
+    });
+  </script>
+  <script>
+    /* (╯°□°）╯︵ ┻━┻ 這是一段充滿血淚的 Canvas 穩定性優化筆記！也就是這裡的白色粒子生成效果，最初的問題是在某些手機瀏覽器上滑動頁面時，地址欄和工具欄的伸縮（如果有的話）會導致 Canvas 背景出現討厭的抖動和錯位！第一次嘗試修改 `resize` 事件不重新生成粒子，但發現只要動到 `canvas.width` 就會清空畫布，所以還是會閃！😱 第二次嘗試更狠，直接把 `resize` 事件監聽整個刪掉，結果還是不行！😭 因為就算 JS 不動它，CSS 的 `width: 100%` 還是會讓 Canvas 元素本身跟著瀏覽器 UI 一起伸縮，引發重繪，造成那個可惡的小跳動！所以！最終的必殺技來啦！💪 我們用了一個叫「隔離艙」的絕招：用一個新的 `div` (`#particle-wrapper`) 把 `canvas` 包起來，然後在頁面加載時，用 JS 一次性把這個 `wrapper` 的高度設定成固定的像素值，徹底鎖死它的大小！這樣一來，不管瀏覽器地址欄怎麼伸縮，我們的「隔離艙」和裡面的畫布都穩如泰山，紋絲不動，徹底根除了那個困擾我們好久的抖動問題！完美！🎉💖 */
+    (function() {
+      const e = window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+        t = document.getElementById("particle-wrapper");
+      if (e || !t) return void(t && (t.style.display = "none"));
+      const o = document.getElementById("particle-canvas");
+      if (!o) return;
+      t.style.height = t.offsetHeight + "px";
+      const n = o.getContext("2d");
+      o.width = t.offsetWidth, o.height = t.offsetHeight;
+      let i = [], s = [], a = () => ["#a0e7fa", "#ff6b9d", "#ffffff"], r = () => getComputedStyle(document.documentElement).getPropertyValue("--stardust-color").trim(), d = 70, c = .2, l, p = null;
+      const u = { targetX: window.innerWidth / 2, targetY: window.innerHeight / 2, emitterX: window.innerWidth / 2, emitterY: window.innerHeight / 2, isTracking: !1 };
+      class m {
+        constructor() { this.x = Math.random() * o.width, this.y = Math.random() * o.height, this.size = Math.random() * 2 + .5, this.speedY = (.5 * Math.random() + .2) * (Math.random() < .5 ? 1 : -1), this.opacity = .5 * Math.random() + .2, this.color = r() }
+        update() { this.y += this.speedY, this.y > o.height ? (this.y = 0, this.x = Math.random() * o.width) : this.y < 0 && (this.y = o.height, this.x = Math.random() * o.width) }
+        draw() { n.globalAlpha = this.opacity, n.beginPath(), n.arc(this.x, this.y, this.size, 0, 2 * Math.PI), n.fillStyle = this.color, n.fill() }
+      }
+      function h() { s = []; for (let e = 0; e < d; e++) s.push(new m) }
+      class g {
+        constructor(e, t) { this.x = e, this.y = t, this.size = 3.5 * Math.random() + 1, this.speedX = 3 * Math.random() - 1.5, this.speedY = 3 * Math.random() - 1.5; const o = a(); this.color = o[Math.floor(Math.random() * o.length)], this.life = 1, this.decay = .02 * Math.random() + .015 }
+        update() { this.x += this.speedX, this.y += this.speedY, this.life -= this.decay, this.size > .2 && (this.size -= .1) }
+        draw() { n.globalAlpha = this.life, n.beginPath(), n.arc(this.x, this.y, this.size, 0, 2 * Math.PI), n.fillStyle = this.color, n.fill() }
+      }
+      function f() {
+        n.clearRect(0, 0, o.width, o.height), s.forEach(e => { e.update(), e.draw() });
+        if (i.length > 0 || u.isTracking) {
+          const e = u.targetX - u.emitterX, t = u.targetY - u.emitterY;
+          Math.abs(e) > .01 || Math.abs(t) > .01 ? (u.emitterX += e * c, u.emitterY += t * c) : u.isTracking || (u.emitterX = u.targetX, u.emitterY = u.targetY), u.isTracking && i.length < 200 && (() => { for (let e = 0; e < 8; e++) i.push(new g(u.emitterX, u.emitterY)) })();
+          for (let e = i.length - 1; e >= 0; e--) { const t = i[e]; t.update(), t.draw(), (t.life <= 0 || t.size <= .2) && i.splice(e, 1) }
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let animationsInitialized = false;
-            function runAnimations() {
-                if (animationsInitialized) return;
-                animationsInitialized = true;
-                
-                requestAnimationFrame(() => {
-                    document.body.classList.add('animations-active');
-                    requestAnimationFrame(() => {
-                        initPageAnimations();
-                    });
-                });
-            }
-
-            if (!document.documentElement.classList.contains('fonts-loading')) {
-                runAnimations();
-            } else {
-                const observer = new MutationObserver((mutationsList, observer) => {
-                    for(const mutation of mutationsList) {
-                        if (mutation.type === 'attributes' && mutation.attributeName === 'class' && !mutation.target.classList.contains('fonts-loading')) {
-                            runAnimations();
-                            observer.disconnect();
-                            return;
-                        }
-                    }
-                });
-                observer.observe(document.documentElement, { attributes: true });
-            }
-        });
-    </script>
-    <script>
-        <!-- (╯°□°）╯︵ ┻━┻ 這是一段充滿血淚的 Canvas 穩定性優化筆記！也就是這裡的白色粒子生成效果，最初的問題是在某些手機瀏覽器上滑動頁面時，地址欄和工具欄的伸縮（如果有的話）會導致 Canvas 背景出現討厭的抖動和錯位！第一次嘗試修改 `resize` 事件不重新生成粒子，但發現只要動到 `canvas.width` 就會清空畫布，所以還是會閃！😱 第二次嘗試更狠，直接把 `resize` 事件監聽整個刪掉，結果還是不行！😭 因為就算 JS 不動它，CSS 的 `width: 100%` 還是會讓 Canvas 元素本身跟著瀏覽器 UI 一起伸縮，引發重繪，造成那個可惡的小跳動！所以！最終的必殺技來啦！💪 我們用了一個叫「隔離艙」的絕招：用一個新的 `div` (`#particle-wrapper`) 把 `canvas` 包起來，然後在頁面加載時，用 JS 一次性把這個 `wrapper` 的高度設定成固定的像素值，徹底鎖死它的大小！這樣一來，不管瀏覽器地址欄怎麼伸縮，我們的「隔離艙」和裡面的畫布都穩如泰山，紋絲不動，徹底根除了那個困擾我們好久的抖動問題！完美！🎉💖 -->
-        (function() {
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const particleWrapper = document.getElementById('particle-wrapper');
-
-            if (prefersReducedMotion || !particleWrapper) {
-                if(particleWrapper) particleWrapper.style.display = 'none';
-                return;
-            }
-
-            const canvas = document.getElementById('particle-canvas');
-            if (!canvas) return;
-
-            particleWrapper.style.height = particleWrapper.offsetHeight + 'px';
-            
-            const ctx = canvas.getContext('2d');
-            canvas.width = particleWrapper.offsetWidth;
-            canvas.height = particleWrapper.offsetHeight;
-
-            function throttle(func, limit) {
-                let inCooldown;
-                return function(...args) {
-                    const context = this;
-                    if (!inCooldown) {
-                        func.apply(context, args);
-                        inCooldown = true;
-                        setTimeout(() => inCooldown = false, limit);
-                    }
-                };
-            }
-
-            let particles = [];
-            let stardusts = [];
-            const getColors = () => ['#a0e7fa', '#ff6b9d', '#ffffff'];
-            const getStardustColor = () => getComputedStyle(document.documentElement).getPropertyValue('--stardust-color').trim();
-
-            const stardustCount = 70;
-            const LERP_SPEED = 0.2;
-            let stopTimeout;
-
-            const pointer = {
-                targetX: window.innerWidth / 2,
-                targetY: window.innerHeight / 2,
-                emitterX: window.innerWidth / 2,
-                emitterY: window.innerHeight / 2,
-                isTracking: false
-            };
-
-            class Stardust {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 0.5;
-                    this.speedY = (Math.random() * 0.5 + 0.2) * (Math.random() < 0.5 ? 1 : -1);
-                    this.opacity = Math.random() * 0.5 + 0.2;
-                    this.color = getStardustColor();
-                }
-                update() {
-                    this.y += this.speedY;
-                    if (this.y > canvas.height) { this.y = 0; this.x = Math.random() * canvas.width; }
-                    else if (this.y < 0) { this.y = canvas.height; this.x = Math.random() * canvas.width; }
-                }
-                draw() {
-                    ctx.globalAlpha = this.opacity;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
-            }
-
-            function initStardust() {
-                stardusts = [];
-                for (let i = 0; i < stardustCount; i++) { stardusts.push(new Stardust()); }
-            }
-
-            class Particle {
-                constructor(x, y) {
-                    this.x = x; this.y = y;
-                    this.size = Math.random() * 3.5 + 1;
-                    this.speedX = Math.random() * 3 - 1.5; this.speedY = Math.random() * 3 - 1.5;
-                    const colors = getColors();
-                    this.color = colors[Math.floor(Math.random() * colors.length)];
-                    this.life = 1; this.decay = Math.random() * 0.02 + 0.015;
-                }
-                update() {
-                    this.x += this.speedX; this.y += this.speedY;
-                    this.life -= this.decay;
-                    if (this.size > 0.2) this.size -= 0.1;
-                }
-                draw() {
-                    ctx.globalAlpha = this.life;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                stardusts.forEach(star => { star.update(); star.draw(); });
-
-                if (particles.length > 0 || pointer.isTracking) {
-                    const dx = pointer.targetX - pointer.emitterX;
-                    const dy = pointer.targetY - pointer.emitterY;
-
-                    if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
-                        pointer.emitterX += dx * LERP_SPEED;
-                        pointer.emitterY += dy * LERP_SPEED;
-                    } else if (!pointer.isTracking) {
-                        pointer.emitterX = pointer.targetX;
-                        pointer.emitterY = pointer.targetY;
-                    }
-
-                    if (pointer.isTracking) {
-                        if (particles.length < 200) {
-                            for (let i = 0; i < 8; i++) {
-                                particles.push(new Particle(pointer.emitterX, pointer.emitterY));
-                            }
-                        }
-                    }
-
-                    for (let i = particles.length - 1; i >= 0; i--) {
-                        const p = particles[i];
-                        p.update();
-                        p.draw();
-                        if (p.life <= 0 || p.size <= 0.2) { particles.splice(i, 1); }
-                    }
-                }
-
-                ctx.globalAlpha = 1;
-                requestAnimationFrame(animate);
-            }
-            
-            const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            const handleThemeChange = () => { initStardust(); };
-            colorSchemeQuery.addEventListener('change', handleThemeChange);
-
-            function onPointerMove(e) {
-                const isTouch = e.type.includes('touch');
-                const target = isTouch ? e.touches[0] : e;
-                pointer.targetX = target.clientX;
-                pointer.targetY = target.clientY;
-
-                if (!isTouch) {
-                    pointer.isTracking = true;
-                    clearTimeout(stopTimeout);
-                    stopTimeout = setTimeout(() => { pointer.isTracking = false; }, 200);
-                }
-            }
-
-            function onPointerStart(e) {
-                const isTouch = e.type.includes('touch');
-                if (isTouch) {
-                    pointer.isTracking = true;
-                    const target = e.touches[0];
-                    const x = target.clientX;
-                    const y = target.clientY;
-                    pointer.targetX = x;
-                    pointer.targetY = y;
-                    pointer.emitterX = x;
-                    pointer.emitterY = y;
-                }
-            }
-
-            function onPointerEnd(e) {
-                const isTouch = e.type.includes('touch');
-                if (isTouch) {
-                    pointer.isTracking = false;
-                }
-            }
-            
-            window.addEventListener('mousemove', throttle(onPointerMove, 16));
-            window.addEventListener('mouseleave', () => { pointer.isTracking = false; });
-            window.addEventListener('touchstart', onPointerStart, { passive: true });
-            window.addEventListener('touchmove', throttle(onPointerMove, 16), { passive: true });
-            window.addEventListener('touchend', onPointerEnd);
-            window.addEventListener('touchcancel', onPointerEnd);
-
-            initStardust();
-            animate();
-        })();
-    </script>
-    <script>
-        (function() {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                return;
-            }
-
-            const container = document.getElementById('floating-emojis-container');
-            if (!container) return;
-
-            const emojis = ['💖', '✨', '🌸', '🦋', '⭐', '💫', '💕', '🌈'];
-            const emojiCount = 15;
-            const horizontalPositions = [];
-            const minHorizontalGap = 6;
-
-            for (let i = 0; i < emojiCount; i++) {
-                let newLeft;
-                let isTooClose;
-                let retries = 0;
-
-                do {
-                    newLeft = Math.random() * 100;
-                    isTooClose = horizontalPositions.some(pos => Math.abs(newLeft - pos) < minHorizontalGap);
-                    retries++;
-                } while (isTooClose && retries < 10);
-
-                if (isTooClose && retries >= 10) {
-                    continue;
-                }
-
-                horizontalPositions.push(newLeft);
-
-                const emoji = document.createElement('span');
-                emoji.className = 'floating-emoji';
-                emoji.setAttribute('aria-hidden', 'true');
-                
-                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                
-                const startOpacity = Math.random() * 0.4 + 0.1;
-                emoji.style.setProperty('--start-opacity', startOpacity.toFixed(2));
-
-                emoji.style.left = newLeft + 'vw';
-                emoji.style.top = (Math.random() * 10 - 2) + 'vh';
-                emoji.style.fontSize = (Math.random() * 15 + 15) + 'px';
-                emoji.style.animationDuration = (Math.random() * 8 + 7) + 's';
-                emoji.style.animationDelay = -(Math.random() * 15) + 's';
-
-                container.appendChild(emoji);
-            }
-        })();
-    </script>
+        n.globalAlpha = 1, p = requestAnimationFrame(f)
+      }
+      const v = window.matchMedia("(prefers-color-scheme: dark)"), w = () => { h() };
+      v.addEventListener("change", w);
+      function y(e) { const t = e.type.includes("touch"), o = t ? e.touches[0] : e; u.targetX = o.clientX, u.targetY = o.clientY, t || (u.isTracking = !0, clearTimeout(l), l = setTimeout(() => { u.isTracking = !1 }, 200)) }
+      function b(e) { if (e.type.includes("touch")) { u.isTracking = !0; const t = e.touches[0], o = t.clientX, n = t.clientY; u.targetX = o, u.targetY = n, u.emitterX = o, u.emitterY = n } }
+      function L(e) { e.type.includes("touch") && (u.isTracking = !1) }
+      function E(e, t) { let o; return function(...n) { const i = this; o || (e.apply(i, n), o = !0, setTimeout(() => o = !1, t)) } }
+      window.addEventListener("mousemove", E(y, 16)), window.addEventListener("mouseleave", () => { u.isTracking = !1 }), window.addEventListener("touchstart", b, { passive: !0 }), window.addEventListener("touchmove", E(y, 16), { passive: !0 }), window.addEventListener("touchend", L), window.addEventListener("touchcancel", L), document.addEventListener("visibilitychange", () => { document.hidden ? p && (cancelAnimationFrame(p), p = null) : p || f() }), h(), f()
+    })();
+  </script>
+  <script>
+    (function() {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const e = document.getElementById("floating-emojis-container");
+      if (!e) return;
+      const t = ["💖", "✨", "🌸", "🦋", "⭐", "💫", "💕", "🌈"], o = 15, n = [];
+      for (let i = 0; i < o; i++) {
+        let o;
+        let s, a = 0;
+        do { s = 100 * Math.random(), o = n.some(e => Math.abs(s - e) < 6), a++ } while (o && a < 10);
+        if (o && a >= 10) continue;
+        n.push(s);
+        const r = document.createElement("span");
+        r.className = "floating-emoji", r.setAttribute("aria-hidden", "true"), r.textContent = t[Math.floor(Math.random() * t.length)];
+        const d = .4 * Math.random() + .1;
+        r.style.setProperty("--start-opacity", d.toFixed(2)), r.style.left = s + "vw", r.style.top = 10 * Math.random() - 2 + "vh", r.style.fontSize = 15 * Math.random() + 15 + "px", r.style.animationDuration = 8 * Math.random() + 7 + "s", r.style.animationDelay = -(15 * Math.random()) + "s", e.appendChild(r)
+      }
+    })();
+  </script>
 </body>
 </html>

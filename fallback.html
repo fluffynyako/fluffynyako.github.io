@@ -1,3 +1,4 @@
+<!-- (´｡• ᵕ •｡`) ♡ 給開發人員的溫馨小提示：為了讓網站跑得快快，以後的程式碼也要像這樣保持緊湊風格哦！拜託拜託啦〜 ✨ -->
 <!--
 ~ ✨ ~ 💖 ~ ✨ ~ 💖 ~ ✨ ~ 💖 ~ ✨ ~ 💖 ~ ✨ ~ 💖 ~ ✨ ~ 💖 ~ ✨ ~
 
@@ -40,292 +41,152 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>fluffynyako | 開源愛好者的小天地 (兼容模式)</title>
-    <meta name="description" content="歡迎來到 fluffynyako 的小天地！這是一個充滿熱情的開源軟體粉絲的個人網站，分享關於 Linux、LineageOS、OpenStreetMap (OSM) 與 Matrix 的點滴。">
-    <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix, Signal, Misskey, GitLab, Codeberg, GitHub, 軟體在地化">
-    <meta property="og:title" content="fluffynyako | 開源愛好者的小天地">
-    <meta property="og:description" content="一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。">
-    <meta property="og:image" content="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/512x512.jpg">
-    <meta property="og:url" content="https://fluffynyako.netlify.app">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" type="image/jpeg" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
-    <link rel="apple-touch-icon" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "fluffynyako",
-      "url": "https://fluffynyako.netlify.app",
-      "image": "https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/512x512.jpg",
-      "jobTitle": "開源愛好者",
-      "description": "歡迎來到 fluffynyako 的小天地！一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。",
-      "knowsAbout": ["Linux", "LineageOS", "OpenStreetMap", "Matrix", "軟體在地化", "開源軟體"],
-      "sameAs": [
-        "https://t.me/fluffynyako",
-        "https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI",
-        "https://matrix.to/#/@nachonekonya:transgirl.cafe",
-        "https://mastodon.social/@fluffynyako",
-        "https://transgirl.cafe/@nachonekonya",
-        "https://space.bilibili.com/678665731",
-        "https://github.com/fluffynyako",
-        "https://gitlab.com/fluffynyako",
-        "https://codeberg.org/fluffynyako",
-        "https://ko-fi.com/fluffynyako"
-      ]
-    }
-    </script>
-    <style>
-        body {
-            font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px 30px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .fallback-notice {
-            background-color: #fffbe6;
-            border: 1px solid #ffe58f;
-            color: #8a6d3b;
-            padding: 15px;
-            margin-bottom: 25px;
-            border-radius: 4px;
-            text-align: left;
-        }
-        .fallback-notice p {
-            margin: 0;
-        }
-        .fallback-notice p:first-child {
-            margin-bottom: 10px;
-        }
-        .fallback-notice strong {
-            font-weight: bold;
-        }
-        .header {
-            text-align: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 60px;
-            border: 3px solid #ccc;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 10px 0 5px 0;
-            color: #222;
-        }
-        h2 {
-            font-size: 1.5em;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        p {
-            margin: 0 0 1em 0;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        .achievements-list p {
-            margin: 0;
-            display: inline;
-        }
-        .achievements-list strong {
-            display: inline;
-        }
-        .links-list a, .action-button {
-            display: block;
-            padding: 8px;
-            background-color: #e9e9e9;
-            margin-bottom: 8px;
-            text-decoration: none;
-            color: #337ab7;
-            border-radius: 3px;
-            text-align: center;
-        }
-        .links-list a:hover, .action-button:hover {
-            background-color: #dcdcdc;
-            text-decoration: underline;
-        }
-        .action-button {
-            border: 1px solid #ccc;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-            font-size: 1em;
-            font-family: inherit;
-        }
-        .stats-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-        }
-        .stats-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-        .stats-table .number {
-            font-size: 1.8em;
-            font-weight: bold;
-        }
-        .stats-table .label {
-            font-size: 0.9em;
-            color: #666;
-        }
-        .about-section-content ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .about-section-content a {
-            color: #337ab7;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            border: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>fluffynyako | 開源愛好者的小天地 (兼容模式)</title>
+  <meta name="description" content="歡迎來到 fluffynyako 的小天地！這是一個充滿熱情的開源軟體粉絲的個人網站，分享關於 Linux、LineageOS、OpenStreetMap (OSM) 與 Matrix 的點滴。">
+  <meta name="keywords" content="fluffynyako, 個人網站, 開源, Linux, LineageOS, OpenStreetMap, Matrix, Signal, Misskey, GitLab, Codeberg, GitHub, 軟體在地化">
+  <meta property="og:title" content="fluffynyako | 開源愛好者的小天地">
+  <meta property="og:description" content="一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。">
+  <meta property="og:image" content="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/512x512.jpg">
+  <meta property="og:url" content="https://fluffynyako.netlify.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/jpeg" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
+  <link rel="apple-touch-icon" href="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg">
+  <!-- (*´∀`)~♥ 這是為了讓 Mastodon 驗證我的小天地，證明這個網站是我的喔！ -->
+  <link href="https://mastodon.social/@9xlsr6op4so1393ewzo056pqy9s3" rel="me">
+  <link href="https://mastodon.social/@fluffynyako" rel="me">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"fluffynyako","url":"https://fluffynyako.netlify.app","image":"https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/512x512.jpg","jobTitle":"開源愛好者","description":"歡迎來到 fluffynyako 的小天地！一位對開源軟體充滿熱情的粉絲，專注於 Linux、LineageOS、OpenStreetMap 與 Matrix 的貢獻與分享。","knowsAbout":["Linux","LineageOS","OpenStreetMap","Matrix","軟體在地化","開源軟體"],"sameAs":["https://fluffynyako.is-a.dev","https://t.me/fluffynyako","https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI","https://matrix.to/#/@nachonekonya:transgirl.cafe","https://mastodon.social/@fluffynyako","https://transgirl.cafe/@nachonekonya","https://space.bilibili.com/678665731","https://github.com/fluffynyako","https://gitlab.com/fluffynyako","https://codeberg.org/fluffynyako","https://ko-fi.com/fluffynyako"]}
+  </script>
+  <style>
+    body { font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif; line-height: 1.6; background-color: #f4f4f4; color: #333; margin: 0; padding: 20px; }
+    .container { max-width: 700px; margin: 0 auto; background-color: #fff; padding: 20px 30px; border: 1px solid #ddd; border-radius: 5px; }
+    .fallback-notice { background-color: #fffbe6; border: 1px solid #ffe58f; color: #8a6d3b; padding: 15px; margin-bottom: 25px; border-radius: 4px; text-align: left; }
+    .fallback-notice p { margin: 0; }
+    .fallback-notice p:first-child { margin-bottom: 10px; }
+    .fallback-notice strong { font-weight: bold; }
+    .header { text-align: center; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
+    .avatar { width: 120px; height: 120px; border-radius: 60px; border: 3px solid #ccc; }
+    h1 { font-size: 2em; margin: 10px 0 5px 0; color: #222; }
+    h2 { font-size: 1.5em; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px; margin-bottom: 15px; }
+    p { margin: 0 0 1em 0; }
+    ul { list-style-type: disc; padding-left: 20px; }
+    li { margin-bottom: 10px; }
+    .achievements-list p { margin: 0; display: inline; }
+    .achievements-list strong { display: inline; }
+    .links-list a, .action-button { display: block; padding: 8px; background-color: #e9e9e9; margin-bottom: 8px; text-decoration: none; color: #337ab7; border-radius: 3px; text-align: center; }
+    .links-list a:hover, .action-button:hover { background-color: #dcdcdc; text-decoration: underline; }
+    .action-button { border: 1px solid #ccc; cursor: pointer; width: 100%; margin-top: 20px; font-size: 1em; font-family: inherit; }
+    .stats-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+    .stats-table td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+    .stats-table .number { font-size: 1.8em; font-weight: bold; }
+    .stats-table .label { font-size: 0.9em; color: #666; }
+    .about-section-content ul { list-style-type: none; padding: 0; }
+    .about-section-content a { color: #337ab7; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div id="main-content-fallback">
-            <!-- (´｡• ᵕ •｡`) ♡ 這個提示對盲人朋友沒意義，因為盲人朋友們也看不見 `index.html` 中絢麗的特效呀，所以就讓它在螢幕閱讀器裡躲貓貓啦！ -->
-            <div class="fallback-notice" aria-hidden="true">
-                <p><strong><span aria-hidden="true">🥹 </span>小小提醒：</strong>您的瀏覽器寶寶需要長大一下下呢！</p>
-                <p><span aria-hidden="true">(｡◕‿◕｡) </span>我們貼心地開啟了溫柔兼容模式<span aria-hidden="true">～</span><span class="sr-only">，</span> 雖然有些漂亮特效在害羞躲貓貓，但所有重要功能都乖乖在這裡等您哦！更新瀏覽器就能解鎖更多驚喜啦！<span aria-hidden="true">✨</span></p>
-            </div>
-
-            <div class="header">
-                <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好～ -->
-                <img src="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg" alt="" class="avatar" aria-hidden="true">
-                <h1>fluffynyako</h1>
-                <p><span aria-hidden="true">✨ </span>歡迎來到我的小天地<span aria-hidden="true"> ✨</span></p>
-            </div>
-
-            <p><span aria-hidden="true">ヽ(＾◡＾)ﾉ </span>開源軟體的忠實小粉絲一枚<span aria-hidden="true">～</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕 </span>對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></p>
-            
-            <h2><span aria-hidden="true">🏆 </span>我的小成就</h2>
-            <ul class="achievements-list">
-                <li><strong>OSM 貢獻者:</strong> 努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</li>
-                <li><strong>翻譯志工:</strong> 超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</li>
-                <li><strong>開源愛好者:</strong> 不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</li>
-            </ul>
-
-            <table class="stats-table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="number" aria-hidden="true">1400+</div>
-                            <div class="label" aria-hidden="true">OSM 編輯次數</div>
-                            <span class="sr-only">OSM 編輯次數：超過一千四百次。</span>
-                        </td>
-                        <td>
-                            <div class="number" aria-hidden="true">2+</div>
-                            <div class="label" aria-hidden="true">開源軟體使用年數</div>
-                            <span class="sr-only">開源軟體使用年數：超過兩年。</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h2><span aria-hidden="true">📱 </span>聯絡方式</h2>
-            <div class="links-list">
-                <a href="https://t.me/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako" title="@fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI" target="_blank" rel="noopener noreferrer" aria-label="透過 Signal 聯絡 fluffynyako" title="@fluffynyako.520">Signal<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako" title="@nachonekonya:transgirl.cafe">Matrix<span class="sr-only">（另開新分頁）</span></a>
-            </div>
-            
-            <h2><span aria-hidden="true">🌐 </span>其它平臺</h2>
-            <div class="links-list">
-                <a href="https://mastodon.social/@fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako" title="@fluffynyako@mastodon.social">Mastodon<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://transgirl.cafe/@nachonekonya" target="_blank" rel="noopener noreferrer" aria-label="在 Misskey 上追蹤 fluffynyako" title="@nachonekonya@transgirl.cafe">Misskey<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://space.bilibili.com/678665731" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間" title="UID:678665731">Bilibili<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://github.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料" title="fluffynyako">GitHub<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://gitlab.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 GitLab 上查看 fluffynyako 的個人資料" title="fluffynyako">GitLab<span class="sr-only">（另開新分頁）</span></a>
-                <a href="https://codeberg.org/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料" title="fluffynyako">Codeberg<span class="sr-only">（另開新分頁）</span></a>
-            </div>
-            
-            <h2><span aria-hidden="true">💖 </span>支持我</h2>
-            <div class="links-list">
-                <a href="https://ko-fi.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Ko-fi 上支持我">在 Ko-fi 上支持我<span class="sr-only">（另開新分頁）</span></a>
-            </div>
-
-            <button type="button" class="action-button" id="toggle-about-button" onclick="toggleAbout()" aria-expanded="false" aria-controls="about-section-fallback"><span aria-hidden="true">ℹ️ </span>關於這個小天地</button>
-        </div>
-
-        <div id="about-section-fallback" style="display:none;">
-            <div class="about-section-content">
-                <h2 id="about-heading-fallback" tabindex="-1"><span aria-hidden="true">✨ </span>關於這個小天地<span aria-hidden="true"> ✨</span></h2>
-                <div id="about-intro-sr-fallback" class="sr-only">哈囉！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽。</div>
-                <p aria-labelledby="about-intro-sr-fallback"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉～！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽～<span aria-hidden="true"> 💕</span></p>
-                <p><span aria-hidden="true">🌐😊 </span>為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
-                <div class="links-list">
-                    <a href="https://fluffynyako.github.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 github 點 io">fluffynyako.github.io<span class="sr-only">（另開新分頁）</span></a>
-                    <a href="https://fluffynyako.gitlab.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 gitlab 點 io">fluffynyako.gitlab.io<span class="sr-only">（另開新分頁）</span></a>
-                    <a href="https://fluffynyako.pages.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 pages 點 dev">fluffynyako.pages.dev<span class="sr-only">（另開新分頁）</span></a>
-                    <a href="https://fluffynyako.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 netlify 點 app">fluffynyako.netlify.app<span class="sr-only">（另開新分頁）</span></a>
-                    <a href="https://fluffynyako.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 onrender 點 com">fluffynyako.onrender.com<span class="sr-only">（另開新分頁）</span></a>
-                    <a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 vercel 點 app">fluffynyako.vercel.app<span class="sr-only">（另開新分頁）</span></a>
-                </div>
-                <div id="about-privacy-sr-fallback" class="sr-only">哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 Umami 和 GoatCounter 來統計網站的訪問情況呢。它們都是超級超級隱私友好的小工具喔！完全完全不會追蹤你的個人資訊，請放心啦。如果有任何小疑問的話，歡迎去看看 Umami 的隱私政策或 GoatCounter 的隱私政策查看詳細資訊哦！謝謝你的理解呢。</div>
-                <p style="margin-top:1em;" aria-labelledby="about-privacy-sr-fallback"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢～<span aria-hidden="true"> ✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦～<span aria-hidden="true"> 😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢～ <span aria-hidden="true">😌</span></p>
-                <div id="about-update-sr-fallback" class="sr-only">本網站於二〇二五年八月一日十五點二十七分，時區為世界協調時間加兩小時，完成了最新修改喔。</div>
-                <p aria-labelledby="about-update-sr-fallback"><span aria-hidden="true">(*˘︶˘*).｡.:*♡ </span>本網站於 2025 年 08 月 01 日 15:27 (UTC+2) 完成了最新修改喔<span aria-hidden="true">〜</span></p>
-                
-                <button type="button" class="action-button" onclick="toggleAbout()"><span aria-hidden="true">❌ </span>關閉返回</button>
-            </div>
-        </div>
+  <div class="container">
+    <div id="main-content-fallback">
+      <!-- (´｡• ᵕ •｡`) ♡ 這個提示對盲人朋友沒意義，因為盲人朋友們也看不見 `index.html` 中絢麗的特效呀，所以就讓它在螢幕閱讀器裡躲貓貓啦！ -->
+      <div class="fallback-notice" aria-hidden="true">
+        <p><strong><span aria-hidden="true">🥹 </span>小小提醒：</strong>您的瀏覽器寶寶需要長大一下下呢！</p>
+        <p><span aria-hidden="true">(｡◕‿◕｡) </span>我們貼心地開啟了溫柔兼容模式<span aria-hidden="true">～</span><span class="sr-only">，</span> 雖然有些漂亮特效在害羞躲貓貓，但所有重要功能都乖乖在這裡等您哦！更新瀏覽器就能解鎖更多驚喜啦！<span aria-hidden="true">✨</span></p>
+      </div>
+      <div class="header">
+        <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好～ -->
+        <img src="https://gitlab.com/fluffynyako/fluffynyako.gitlab.io/-/raw/main/avatar/192x192.jpg" alt="" class="avatar" aria-hidden="true">
+        <h1>fluffynyako</h1>
+        <p><span aria-hidden="true">✨ </span>歡迎來到我的小天地<span aria-hidden="true"> ✨</span></p>
+      </div>
+      <p><span aria-hidden="true">ヽ(＾◡＾)ﾉ </span>開源軟體的忠實小粉絲一枚<span aria-hidden="true">～</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕 </span>對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></p>
+      <h2><span aria-hidden="true">🏆 </span>我的小成就</h2>
+      <ul class="achievements-list">
+        <li><strong>OSM 貢獻者:</strong> 努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點～</li>
+        <li><strong>翻譯志工:</strong> 超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！</li>
+        <li><strong>開源愛好者:</strong> 不遺餘力地向身邊的小夥伴們安利各種好用的開源軟體！</li>
+      </ul>
+      <table class="stats-table"><tbody><tr>
+        <td>
+          <div class="number" aria-hidden="true">1400+</div>
+          <div class="label" aria-hidden="true">OSM 編輯次數</div>
+          <span class="sr-only">OSM 編輯次數：超過一千四百次。</span>
+        </td>
+        <td>
+          <div class="number" aria-hidden="true">2+</div>
+          <div class="label" aria-hidden="true">開源軟體使用年數</div>
+          <span class="sr-only">開源軟體使用年數：超過兩年。</span>
+        </td>
+      </tr></tbody></table>
+      <h2><span aria-hidden="true">📱 </span>聯絡方式</h2>
+      <div class="links-list">
+        <a href="https://t.me/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="透過 Telegram 聯絡 fluffynyako" title="@fluffynyako">Telegram<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://signal.me/#eu/_2dbacLBdfMZY5TAPz0plIduXr2eYOO8ZV4vdE9dhCXPag_2epNEdal9vHdMw3EI" target="_blank" rel="noopener noreferrer" aria-label="透過 Signal 聯絡 fluffynyako" title="@fluffynyako.520">Signal<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://matrix.to/#/@nachonekonya:transgirl.cafe" target="_blank" rel="noopener noreferrer" aria-label="透過 Matrix 聯絡 fluffynyako" title="@nachonekonya:transgirl.cafe">Matrix<span class="sr-only">（另開新分頁）</span></a>
+      </div>
+      <h2><span aria-hidden="true">🌐 </span>其它平臺</h2>
+      <div class="links-list">
+        <a href="https://mastodon.social/@fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Mastodon 上追蹤 fluffynyako" title="@fluffynyako@mastodon.social">Mastodon<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://transgirl.cafe/@nachonekonya" target="_blank" rel="noopener noreferrer" aria-label="在 Misskey 上追蹤 fluffynyako" title="@nachonekonya@transgirl.cafe">Misskey<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://space.bilibili.com/678665731" target="_blank" rel="noopener noreferrer" aria-label="在 Bilibili 上查看 fluffynyako 的空間" title="UID:678665731">Bilibili<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://github.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看 fluffynyako 的個人資料" title="fluffynyako">GitHub<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://gitlab.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 GitLab 上查看 fluffynyako 的個人資料" title="fluffynyako">GitLab<span class="sr-only">（另開新分頁）</span></a>
+        <a href="https://codeberg.org/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Codeberg 上查看 fluffynyako 的個人資料" title="fluffynyako">Codeberg<span class="sr-only">（另開新分頁）</span></a>
+      </div>
+      <h2><span aria-hidden="true">💖 </span>支持我</h2>
+      <div class="links-list">
+        <a href="https://ko-fi.com/fluffynyako" target="_blank" rel="noopener noreferrer" aria-label="在 Ko-fi 上支持我">在 Ko-fi 上支持我<span class="sr-only">（另開新分頁）</span></a>
+      </div>
+      <button type="button" class="action-button" id="toggle-about-button" onclick="toggleAbout()" aria-expanded="false" aria-controls="about-section-fallback"><span aria-hidden="true">ℹ️ </span>關於這個小天地</button>
     </div>
-    <script>
-        function toggleAbout() {
-            var mainContent = document.getElementById('main-content-fallback');
-            var aboutSection = document.getElementById('about-section-fallback');
-            var toggleButton = document.getElementById('toggle-about-button');
-            var aboutHeading = document.getElementById('about-heading-fallback');
-
-            var isAboutVisible = aboutSection.style.display === 'block';
-
-            if (isAboutVisible) {
-                mainContent.style.display = 'block';
-                aboutSection.style.display = 'none';
-                toggleButton.setAttribute('aria-expanded', 'false');
-                toggleButton.focus();
-            } else {
-                window.scrollTo(0, 0);
-                mainContent.style.display = 'none';
-                aboutSection.style.display = 'block';
-                toggleButton.setAttribute('aria-expanded', 'true');
-                aboutHeading.focus();
-            }
-        }
-    </script>
+    <div id="about-section-fallback" style="display:none;">
+      <div class="about-section-content">
+        <h2 id="about-heading-fallback" tabindex="-1"><span aria-hidden="true">✨ </span>關於這個小天地<span aria-hidden="true"> ✨</span></h2>
+        <div id="about-intro-sr-fallback" class="sr-only">哈囉！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔- 技術，都能輕鬆愉快地瀏覽。</div>
+        <p aria-labelledby="about-intro-sr-fallback"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉～！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽～<span aria-hidden="true"> 💕</span></p>
+        <p><span aria-hidden="true">🌐😊 </span>為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
+        <div class="links-list">
+          <a href="https://fluffynyako.is-a.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 is 橫槓 a 點 dev">fluffynyako.is-a.dev<span class="sr-only">（另開新分頁）</span></a>
+          <a href="https://fluffynyako.github.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 github 點 io">fluffynyako.github.io<span class="sr-only">（另開新分頁）</span></a>
+          <a href="https://fluffynyako.gitlab.io" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 gitlab 點 io">fluffynyako.gitlab.io<span class="sr-only">（另開新分頁）</span></a>
+          <a href="https://fluffynyako.pages.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 pages 點 dev">fluffynyako.pages.dev<span class="sr-only">（另開新分頁）</span></a>
+          <a href="https://fluffynyako.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 netlify 點 app">fluffynyako.netlify.app<span class="sr-only">（另開新分頁）</span></a>
+          <a href="https://fluffynyako.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 onrender 點 com">fluffynyako.onrender.com<span class="sr-only">（另開新分頁）</span></a>
+          <a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 vercel 點 app">fluffynyako.vercel.app<span class="sr-only">（另開新分頁）</span></a>
+        </div>
+        <div id="about-privacy-sr-fallback" class="sr-only">哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 Umami 和 GoatCounter 來統計網站的訪問情況呢。它們都是超級超級隱私友好的小工具喔！完全完全不會追蹤你的個人資訊，請放心啦。如果有任何小疑問的話，歡迎去看看 Umami 的隱私政策或 GoatCounter 的隱私政策查看詳細資訊哦！謝謝你的理解呢。</div>
+        <p style="margin-top:1em;" aria-labelledby="about-privacy-sr-fallback"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢～<span aria-hidden="true"> ✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦～<span aria-hidden="true"> 😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢～ <span aria-hidden="true">😌</span></p>
+        <div id="about-update-sr-fallback" class="sr-only">本網站於二〇二五年九月七日十八點零三分，時區為世界協調時間加兩小時，完成了最新修改喔。</div>
+        <p aria-labelledby="about-update-sr-fallback"><span aria-hidden="true">(*˘︶˘*).｡.:*♡ </span>本網站於 2025 年 09 月 07 日 18:03 (UTC+2) 完成了最新修改喔<span aria-hidden="true">〜</span></p>
+        <button type="button" class="action-button" onclick="toggleAbout()"><span aria-hidden="true">❌ </span>關閉返回</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleAbout() {
+      var mainContent = document.getElementById('main-content-fallback'),
+        aboutSection = document.getElementById('about-section-fallback'),
+        toggleButton = document.getElementById('toggle-about-button'),
+        aboutHeading = document.getElementById('about-heading-fallback'),
+        isAboutVisible = aboutSection.style.display === 'block';
+      if (isAboutVisible) {
+        mainContent.style.display = 'block';
+        aboutSection.style.display = 'none';
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.focus();
+      } else {
+        window.scrollTo(0, 0);
+        mainContent.style.display = 'none';
+        aboutSection.style.display = 'block';
+        toggleButton.setAttribute('aria-expanded', 'true');
+        aboutHeading.focus();
+      }
+    }
+  </script>
 </body>
 </html>
