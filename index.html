@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- (´,,•ω•,,)♡ 開發者們注意啦：TalkBack 這個小淘氣會把可愛的「～」波浪號念成「tilda」哦！為了視障朋友的體驗，記得要用 `aria-hidden` 把這小玩意藏起來，不要放進 `aria-label` 裡喔！也可以用逗號之類的東西代替呢 😁 -->
+<!-- (´,,•ω•,,)♡ 開發者們注意啦：TalkBack 這個小淘氣會把可愛的「〜」波浪號念成「tilda」哦！為了視障朋友的體驗，記得要用 `aria-hidden` 把這小玩意藏起來，不要放進 `aria-label` 裡喔！也可以用逗號之類的東西代替呢 😁 -->
 <html lang="zh-TW" class="fonts-loading">
 <head>
   <meta charset="UTF-8">
@@ -227,7 +227,7 @@
       position: relative; overflow: hidden;
       transition: transform var(--card-transition-duration) ease-out, box-shadow var(--card-transition-duration) ease-out;
       will-change: transform; transform: translateZ(0);
-      /* (づ｡◕‿‿◕｡)づ 效能優化血淚史最終章！之前在安卓版火狐上面，不管是剛打開頁面的淡入動畫，還是點擊按鈕時的彈窗效果，都感覺卡卡的，FPS 好低好低，跟那些基於 Chromium 的瀏覽器簡直是天壤之別，真的快氣哭啦〜 😢 我們經歷了一場漫長的戰鬥才發現，元兇其實是兩個超級吃效能的 CSS 屬性：`backdrop-filter` 和超大範圍的 `box-shadow`！這兩個小淘氣在別的瀏覽器上表現很好，但在安卓版火狐上卻像效能怪獸一樣，瘋狂壓榨 GPU 的計算資源，導致頁面在靜態時就已經不堪重負，一有動畫就立刻「效能雪崩」，卡得不行！😭 所以，我們的最終解決方案是一次「釜底抽薪」式的優化手術：首先，我們忍痛割愛，徹底移除了所有元素的 `backdrop-filter` 模糊效果，這是最關鍵的一步；接著，我們對所有卡片上的 `box-shadow` 進行了「減負」，大幅縮減了陰影的模糊半徑和擴散距離，在幾乎不影響美觀的前提下，極大地降低了靜態渲染成本；最後，我們還為所有半透明背景的卡片悄悄加上了 `background-clip: padding-box` 這個小魔法，它可以巧妙地減少 GPU 在繪製半透明區域時的像素混合計算，進一步提升填充率效率！經過這番三管 çi 的「極致優化」後，頁面的基礎負載終於降下來了，現在所有動畫都恢復了最初的設計，雖然在安卓版火狐上可能還是比不過 Chromium 那種極致的流暢感，但真的已經好太多太多啦！是我們努力換來的勝利果實呢！耶！🎉💖✨ */
+      /* (づ｡◕‿‿◕｡)づ 效能優化血淚史最終章！之前在安卓版火狐上面，不管是剛打開頁面的淡入動畫，還是點擊按鈕時的彈窗效果，都感覺卡卡的，FPS 好低好低，跟那些基於 Chromium 的瀏覽器簡直是天壤之別，真的快氣哭啦〜 😢 我們經歷了一場漫長的戰鬥才發現，元兇其實是兩個超級吃效能的 CSS 屬性：`backdrop-filter` 和超大範圍的 `box-shadow`！這兩個小淘氣在別的瀏覽器上表現很好，但在安卓版火狐上卻像效能怪獸一樣，瘋狂壓榨 GPU 的計算資源，導致頁面在靜態時就已經不堪重負，一有動畫就立刻「效能雪崩」，卡得不行！😭 所以，我們的最終解決方案是一次「釜底抽薪」式的優化手術：首先，我們忍痛割愛，徹底移除了所有元素的 `backdrop-filter` 模糊效果，這是最關鍵的一步；接著，我們對所有卡片上的 `box-shadow` 進行了「減負」，大幅縮減了陰影的模糊半徑和擴散距離，在幾乎不影響美觀的前提下，極大地降低了靜態渲染成本；最後，我們還為所有半透明背景的卡片悄悄加上了 `background-clip: padding-box` 這個小魔法，它可以巧妙地減少 GPU 在繪製半透明區域時的像素混合計算，進一步提升填充率效率！經過這番三管齊下的「極致優化」後，頁面的基礎負載終於降下來了，現在所有動畫都恢復了最初的設計，雖然在安卓版火狐上可能還是比不過 Chromium 那種極致的流暢感，但真的已經好太多太多啦！是我們努力換來的勝利果實呢！耶！🎉💖✨ */
       background-clip: padding-box;
     }
     .avatar { width: 120px; height: 120px; border-radius: 50%; border: 5px solid var(--avatar-border); box-shadow: 0 8px 20px var(--avatar-shadow); margin: 0 auto 20px; position: relative; z-index: 1; transition: transform .3s ease; will-change: transform; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
@@ -408,20 +408,20 @@
     <canvas id="particle-canvas"></canvas>
   </div>
   <!-- (๑´ㅂ`๑) 這個 🎉 按鈕對盲人朋友來說只是個謎之按鈕，而且散發的特效需要用眼睛才能看得見呢，所以就讓它在熒幕閱讀器中隱藏起來吧！🫣 -->
-  <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1" title="(｡◕‿◕｡) 點我有驚喜哦～"><span aria-hidden="true">🎉</span></button>
+  <button type="button" class="easter-egg fireworks-button" onclick="triggerFireworks()" aria-label="觸發煙火特效（裝飾性功能）" aria-hidden="true" tabindex="-1" title="(｡◕‿◕｡) 點我有驚喜哦〜"><span aria-hidden="true">🎉</span></button>
   <button type="button" class="about-modal-closer" aria-label="關閉視窗"><span aria-hidden="true">❌</span></button>
   <div class="fireworks" id="fireworks" aria-hidden="true"></div>
   <main id="main-content">
     <div class="main-wrapper">
       <div class="card-shaker info-shaker anim-on-load">
         <div class="info-column container">
-          <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好～ -->
+          <!-- (⁄ ⁄•⁄ω⁄•⁄ ⁄) 這是裝飾用的頭像啦，盲人朋友不需要知道它，讓閱讀器跳過就好〜 -->
           <img src="./avatar/512x512.jpg" alt="" class="avatar anim-on-load" width="120" height="120" loading="lazy" decoding="async" aria-hidden="true" draggable="false">
           <h1 class="name anim-on-load">fluffynyako</h1>
           <p class="subtitle anim-on-load"><span aria-hidden="true">✨</span> 歡迎來到我的小天地 <span aria-hidden="true">✨</span></p>
           <section class="introduction anim-on-load">
             <p>
-              <span aria-hidden="true"><span lang="ja">ヽ(＾◡＾)ﾉ</span> 開源軟體的忠實小粉絲一枚<span aria-hidden="true">～</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕</span> 對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></span>
+              <span aria-hidden="true"><span lang="ja">ヽ(＾◡＾)ﾉ</span> 開源軟體的忠實小粉絲一枚<span aria-hidden="true">〜</span><span class="sr-only">，</span> <span aria-hidden="true">🎉💕</span> 對 Linux<span aria-hidden="true"> 🐧</span>、LineageOS<span aria-hidden="true"> 📱</span>、OpenStreetMap<span aria-hidden="true"> 🗺️</span>、Matrix<span aria-hidden="true"> 💬 </span>等項目愛得不行不行的！雖然不會寫程式碼<span aria-hidden="true"> 👩‍💻❌</span>，但超喜歡為 OSM 貢獻地圖數據<span aria-hidden="true"> 📍🎯 </span>和幫忙翻譯軟體<span aria-hidden="true"> 🌐✍️</span>，是個用心用愛支持開源的小天使呢<span aria-hidden="true">。😇💝</span></span>
               <span class="sr-only">開源軟體的忠實小粉絲一枚，對 Linux、LineageOS、OpenStreetMap、Matrix 等項目愛得不行不行的！雖然不會寫程式碼，但超喜歡為 OSM 貢獻地圖數據和幫忙翻譯軟體，是個用心用愛支持開源的小天使呢。</span>
             </p>
           </section>
@@ -433,7 +433,7 @@
                 <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="OSM 貢獻者，努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點。"></span>
                 <span class="icon" aria-hidden="true">🗺️</span>
                 <h3 aria-hidden="true">OSM 貢獻者<span class="sr-only">，</span></h3>
-                <p aria-hidden="true">努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點<span aria-hidden="true">～</span><span class="sr-only">。</span></p>
+                <p aria-hidden="true">努力地為 OpenStreetMap 畫地圖，讓世界更完整一點點<span aria-hidden="true">〜</span><span class="sr-only">。</span></p>
               </div>
               <div class="achievement-card anim-on-load">
                 <span class="achievement-card-a11y-wrapper" tabindex="0" aria-label="翻譯志工，超喜歡把酷酷的開源軟體翻譯成中文，讓大家都能用！"></span>
@@ -497,7 +497,7 @@
       <div class="about-card">
         <h2 id="about-heading"><span aria-hidden="true">✨ </span>關於這個小天地<span aria-hidden="true"> ✨</span></h2>
         <div id="about-intro-sr" class="sr-only">哈囉！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽。</div>
-        <p aria-labelledby="about-intro-sr"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉～！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽～<span aria-hidden="true"> 💕</span></p>
+        <p aria-labelledby="about-intro-sr"><span aria-hidden="true">(｡･∀･)ﾉﾞ </span>哈囉〜！謝謝你對這個網站感興趣！這個小角落是我用心打造的，希望能讓每個人，無論使用什麼裝置或輔助技術，都能輕鬆愉快地瀏覽〜<span aria-hidden="true"> 💕</span></p>
         <p><span aria-hidden="true">🌐😊 </span>為了讓更多小伙伴能找到我，這個網站有好幾個分身哦！不管你從哪個入口進來，看到的都是同一個可愛的我：</p>
         <ul class="mirror-sites">
           <li><a href="https://fluffynyako.is-a.dev" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 is 橫槓 a 點 dev">fluffynyako.is-a.dev</a></li>
@@ -509,9 +509,9 @@
           <li><a href="https://fluffynyako.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="打開 fluffynyako 點 vercel 點 app">fluffynyako.vercel.app</a></li>
         </ul>
         <div id="about-privacy-sr" class="sr-only">哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 Umami 和 GoatCounter 來統計網站的訪問情況呢。它們都是超級超級隱私友好的小工具喔！完全完全不會追蹤你的個人資訊，請放心啦。如果有任何小疑問的話，歡迎去看看 Umami 的隱私政策或 GoatCounter 的隱私政策查看詳細資訊哦！謝謝你的理解呢。</div>
-        <p aria-labelledby="about-privacy-sr"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢～ <span aria-hidden="true">✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦～ <span aria-hidden="true">😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢～ <span aria-hidden="true">😌</span></p>
-        <div id="about-update-sr" class="sr-only">本網站於二〇二五年九月十九日十八點四十一分，時區為世界協調時間加兩小時，完成了最新修改喔。</div>
-        <p aria-labelledby="about-update-sr"><span aria-hidden="true">(*˘︶˘*).｡.:*♡ </span>本網站於 2025 年 09 月 19 日 18:41 (UTC+2) 完成了最新修改喔<span aria-hidden="true">〜</span></p>
+        <p aria-labelledby="about-privacy-sr"><span aria-hidden="true">(´∀｀)♡ </span>哦對了對了！為了瞭解小網站的訪問數據呢，人家會使用 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami</a> 和 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter</a> 來統計網站的訪問情況呢〜 <span aria-hidden="true">✨🌸 </span>它們都是超級超級隱私友好的小工具喔！<span aria-hidden="true">😊💖 </span>完全完全不會追蹤你的個人資訊，請放心啦〜 <span aria-hidden="true">😌🎀 </span>如果有任何小疑問的話，歡迎去看看 <a href="https://umami.is/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">Umami 的隱私政策</a>或 <a href="https://www.goatcounter.com/help/privacy/" target="_blank" rel="noopener noreferrer" aria-hidden="true">GoatCounter 的隱私政策</a>查看詳細資訊哦！<span aria-hidden="true">💕✨ </span>謝謝你的理解呢〜 <span aria-hidden="true">😌</span></p>
+        <div id="about-update-sr" class="sr-only">本網站於二〇二五年九月二十四日二十三點十一分，時區為世界協調時間加兩小時，完成了最新修改喔。</div>
+        <p aria-labelledby="about-update-sr"><span aria-hidden="true">(*˘︶˘*).｡.:*♡ </span>本網站於 2025 年 09 月 24 日 23:11 (UTC+2) 完成了最新修改喔<span aria-hidden="true">〜</span></p>
       </div>
     </div>
     <div class="love-launcher-overlay" aria-hidden="true">
